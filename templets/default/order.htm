@@ -19,42 +19,48 @@
         <div class="row">
             <section id="page-sidebar" class="pull-left span8">
                 <h4>留下您的信息，我们会在24小时内与您取得联系。</h4>
-                <form name="contact" method="post" action="order.html" class="af-form" id="af-form" />
-                    <div class="af-outer af-required pull-left">
-                        <div class="af-inner">
-                            <label for="name" id="name_label">您的姓名或者称呼:</label>
-                            <input type="text" name="name" id="name" size="30" value="" class="text-input span4" />
-                            <label class="error" for="name" id="name_error">请输入您的姓名或者称呼</label>
+                <form name="order" method="post" action="/plus/order.php" class="af-form" id="af-form" />
+                	<div style=" width:100%; float:left;">
+                        <div class="af-outer af-required pull-left">
+                            <div class="af-inner">
+                                <label for="name" id="name_label">您的姓名或者称呼:</label>
+                                <input type="text" name="name" id="name" size="30" value="" class="text-input span4" />
+                                <label class="error" for="name" id="name_error">请输入您的姓名或者称呼</label>
+                            </div>
+                        </div>
+                        <div class="af-outer af-required pull-right">
+                            <div class="af-inner">
+                                <label for="phone" id="phone_label">您的联系电话:</label>
+                                <input type="text" name="phone" id="phone" size="30" value="" class="text-input span4" />
+                                <label class="error" for="phone" id="phone_error">请输入您的电话</label>
+                            </div>
                         </div>
                     </div>
-                    <div class="af-outer af-required pull-right">
-                        <div class="af-inner">
-                            <label for="phone" id="phone_label">您的联系电话:</label>
-                            <input type="text" name="phone" id="phone" size="30" value="" class="text-input span4" />
-                            <label class="error" for="email" id="phone_error">请输入您的电话</label>
+                    <div style=" width:100%; float:left;">
+                        <div class="af-outer af-required pull-left">
+                            <div class="af-inner">
+                                <label for="template" id="template_label">您选择的模板:</label>
+                                <input type="text" name="template" id="template" size="30" value="template_100" class="text-input span4" readonly="readonly" style="background:#f1f1f1 !important;" />
+                            </div>
                         </div>
-                    </div>
-                    <div class="af-outer af-required pull-left">
-                        <div class="af-inner">
-                            <label for="template" id="template_label">您选择的模板:</label>
-                            <input type="text" name="template" id="template" size="30" value="template_100" class="text-input span4" readonly="readonly" style="background:#f1f1f1 !important;" />
-                        </div>
-                    </div>
-                    <div class="af-outer af-required pull-right">
-                        <div class="af-inner">
-                            <label for="domain" id="domain_label">您期望的域名:</label>
-                            <input type="text" name="domain" id="domain" size="30" value="" class="text-input span4" />
-                            <label class="error" for="domain" id="domain_error">请输入您期望的域名</label>
+                        <div class="af-outer af-required pull-right">
+                            <div class="af-inner">
+                                <label for="domain" id="domain_label">您期望的域名:</label>
+                                <input type="text" name="domain" id="domain" size="30" value="" class="text-input span4" />
+                                <label class="error" for="domain" id="domain_error">请输入您期望的域名，如：XXX.com/XXX.cn/XXX.net</label>
+                            </div>
                         </div>
                     </div>
                     <div class="af-outer af-required pull-left">
                         <div class="af-inner">
                             <label for="price" id="price_label">价格套系:</label>
                             <select name="price" id="price" class="text-input span4">
-                            	<option>特惠型￥288</option>
-                                <option>精仿型￥1088</option>
-                                <option>全包型￥1288</option>
+                            	<option value="0">请选择套系</option>
+                            	<option value="1">特惠型￥288</option>
+                                <option value="2">精仿型￥1088</option>
+                                <option value="3">全包型￥1288</option>
                             </select>
+                            <label class="error" for="price" id="price_error">请选择套系</label>
                         </div>
                     </div>
                     <div class="clear"></div>
@@ -66,7 +72,7 @@
                     </div>
                     <div class="af-outer af-required">
                         <div class="af-inner">
-                            <input type="submit" name="submit" class="form-button btn btn-welcome btn-large" id="submit_btn" value="提交订单" />
+                            <input type="submit" name="submit" class="order-button btn btn-welcome btn-large" id="submit_btn" value="提交订单" />
                         </div>
                     </div>
                 </form>
@@ -98,69 +104,4 @@
     </div>    
 </section>
 
-<!--footer-->
-<footer id="footer">
-    <div class="container">
-        <div class="row">
-            <div class="span4">
-                <p><img src="example/logo.png" alt="" /></p>
-                <address>
-                    <p><i class="icon-map-marker"></i> Street Name 432/2, London, 90210</p>
-                    <p><i class="icon-phone"></i> (123) 456-7890</p>
-                    <p><i class="icon-mobile-2"></i> (123) 456-7890</p>
-                    <p><i class="icon-mail-3"></i> <a href="mailto:#">info@email.com</a></p>
-                </address>
-            </div>
-            <div class="span8">
-                <div class="row">
-                    <div class="span8"></div>
-                    <div class="span8">
-
-                    </div>
-                </div>
-            </div>
-            <div class="span4">
-                <p class="heading">About Us</p>
-                <p>Curabitur suscipit ultricies metus quis scelerisque. Quisque eget enim orci. Cras sagittis volutpat auctor. </p>
-                <p class="heading">Subscribe</p>
-                <p>Keep updated with our news. Your email is safe with us!</p>
-                <div class="input-append">
-                    <input type="text" placeholder="Enter Email Address" class="span2" />
-                    <button type="button" class="btn btn-inverse">Subscribe!</button>
-                </div>
-            </div>
-            <div class="span4">
-                <p class="heading">Company</p>
-                <ul class="footer-navigate">
-                    <li><a href="./index.html">Home</a></li>
-                    <li><a href="./about.html">About</a></li>
-                    <li><a href="./portfolio4.html">Portfolio</a></li>
-                    <li><a href="./blog-sidebar-right.html">Blog</a></li>
-                    <li><a href="./services.html">Service</a></li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</footer>
-
-<!--footer menu-->
-<section id="footer-menu">
-    <div class="container">
-        <div class="row">
-            <div class="span4">
-                <p class="copyright">Copyright &copy; 2014.Company name All rights reserved.<a target="_blank" href="http://sc.chinaz.com/moban/">&#x7F51;&#x9875;&#x6A21;&#x677F;</a></p>
-            </div>
-            <div class="span8 hidden-phone">
-                <ul class="pull-right">
-                    <li><a href="#">Privacy Policy</a></li>
-                    <li><a href="#">Contact Us</a></li>
-                    <li><a href="#">Sitemap</a></li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</section>
-
-<div style="display:none"><script src="http://s4.cnzz.com/z_stat.php?id=1000439680&web_id=1000439680" language="JavaScript"></script></div>
-</body>
-</html>
+{dede:include filename="footer.htm"/}

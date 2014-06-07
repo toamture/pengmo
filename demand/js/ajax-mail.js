@@ -51,6 +51,72 @@ $(function () {
     });
 });
 
+// Order Form
+$(function () {
+    $('.error').hide();
+    $('.text-input').css({backgroundColor:"#FFFFFF"});
+    $('.text-input').focus(function () {
+        $(this).css({backgroundColor:"#FCFCFC"});
+    });
+    $('.text-input').blur(function () {
+        $(this).css({backgroundColor:"#FFFFFF"});
+    });
+
+    $(".order-button").click(function () {
+        // validate and process form
+        // first hide any error messages
+        $('.error').hide();
+
+        var name = $("input#name").val();
+        if (name == "") {
+            $("label#name_error").show();
+            $("input#name").focus();
+            return false;
+        }
+        
+		var phone = $("input#phone").val();
+        var phone_filter = /^[1][0-9]{10}$/;
+        console.log(phone_filter.test(phone));
+        if (!phone_filter.test(phone)) {
+            $("label#phone_error").show();
+            $("input#phone").focus();
+            return false;
+        }
+		
+		var domain = $("input#domain").val();
+        var domain_filter = /^[a-zA-Z0-9]+.[a-z]{2,4}$/;
+        console.log(domain_filter.test(domain));
+        if (!domain_filter.test(domain)) {
+            $("label#domain_error").show();
+            $("input#domain").focus();
+            return false;
+        }
+		
+		var price = $("select#price").val();
+		if(price == 0){
+			$("label#price_error").show();
+			$("select#price").focus();
+            return false;
+		}
+		
+        var message = $("#input-message").val();
+
+        var dataString = 'name=' + name + '&phone=' + phone + '&template=' + template + '&domain=' + domain + '&price=' + price + '&message=' + message;
+        //alert (dataString);return false;
+
+        $.ajax({
+            type:"POST",
+            url:"/plus/order.php",
+            data:dataString,
+            success:function () {
+                $('#af-form').prepend("<div class=\"alert alert-success fade in\"><button class=\"close\" data-dismiss=\"alert\" type=\"button\">&times;</button><strong>Contact Form Submitted!</strong> We will be in touch soon.</div>");
+                $('#af-form')[0].reset();
+            }
+        });
+        return false;
+    });
+});
+
 // Footer Contact Form
 $(function () {
 

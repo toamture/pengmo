@@ -12,22 +12,21 @@
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/demand/images/apple-touch-icon-114-precomposed.png" />
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/demand/images/apple-touch-icon-72-precomposed.png" />
     <link rel="apple-touch-icon-precomposed" href="/demand/images/apple-touch-icon-57-precomposed.png" />
-    <title>订单提交</title>
+    <title>联系我们</title>
     <link href="/demand/css/bootstrap.min.css" type="text/css" rel="stylesheet" />
     <link href="/demand/css/style.css" type="text/css" rel="stylesheet" />
     <link href="/demand/css/prettyPhoto.css" type="text/css" rel="stylesheet" />
     <link href="/demand/css/font-icomoon.css" type="text/css" rel="stylesheet" />
     <link href="/demand/css/font-awesome.css" type="text/css" rel="stylesheet" />
-	{dede:include filename="header.htm"/}
-
+    {dede:include filename="header.htm"/}
+    
 <!--page header / breadcrumbs-->
 <section class="breadcrumbs">
     <div class="container">
         <div class="page-header">
             <div class="row">
                 <div class="span8">
-                    <h3>提交订单</h3>
-
+                    <h3>关于我们</h3>
                 </div>
             </div>
         </div>
@@ -38,62 +37,39 @@
 <section id="container">
     <div class="container">
         <div class="row">
+            <div class="span12">
+                <div class="gmap"><iframe width="100%" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://ditu.google.cn/maps?f=q&amp;hl=zh-CN&amp;aq=0&amp;sll=38.914003,121.614682&amp;sspn=0.441308,1.023788&amp;t=m&amp;ll=38.938484,121.562107&amp;spn=0.006295,0.010627&amp;output=embed"></iframe></div>
+            </div>
+        </div>
+        <div class="row">
             <section id="page-sidebar" class="pull-left span8">
-                <h4>留下您的信息，我们会在24小时内与您取得联系。</h4>
-                <form name="order" method="post" action="/plus/order.php" class="af-form" id="af-form" />
-                	<div style=" width:100%; float:left;">
-                        <div class="af-outer af-required pull-left">
-                            <div class="af-inner">
-                                <label for="name" id="name_label">您的姓名或者称呼:</label>
-                                <input type="text" name="name" id="name" size="30" value="" class="text-input span4" />
-                                <label class="error" for="name" id="name_error">请输入您的姓名或者称呼</label>
-                            </div>
-                        </div>
-                        <div class="af-outer af-required pull-right">
-                            <div class="af-inner">
-                                <label for="phone" id="phone_label">您的联系电话:</label>
-                                <input type="text" name="phone" id="phone" size="30" value="" class="text-input span4" />
-                                <label class="error" for="phone" id="phone_error">请输入您的电话</label>
-                            </div>
-                        </div>
-                    </div>
-                    <div style=" width:100%; float:left;">
-                        <div class="af-outer af-required pull-left">
-                            <div class="af-inner">
-                                <label for="template" id="template_label">您选择的模板:</label>
-                                <input type="text" name="template" id="template" size="30" value="template_100" class="text-input span4" readonly="readonly" style="background:#f1f1f1 !important;" />
-                            </div>
-                        </div>
-                        <div class="af-outer af-required pull-right">
-                            <div class="af-inner">
-                                <label for="domain" id="domain_label">您期望的域名:</label>
-                                <input type="text" name="domain" id="domain" size="30" value="" class="text-input span4" />
-                                <label class="error" for="domain" id="domain_error">请输入您期望的域名，如：XXX.com/XXX.cn/XXX.net</label>
-                            </div>
-                        </div>
-                    </div>
+                <h4>留下您的信息，我们会不定期发送最新的工作室动态到您的邮箱。</h4>
+                <form name="contact" method="post" action="contact.html" class="af-form" id="af-form" />
                     <div class="af-outer af-required pull-left">
                         <div class="af-inner">
-                            <label for="price" id="price_label">价格套系:</label>
-                            <select name="price" id="price" class="text-input span4">
-                            	<option value="0">请选择套系</option>
-                            	<option value="1">特惠型￥288</option>
-                                <option value="2">精仿型￥1088</option>
-                                <option value="3">全包型￥1288</option>
-                            </select>
-                            <label class="error" for="price" id="price_error">请选择套系</label>
+                            <label for="name" id="name_label">你的名字:</label>
+                            <input type="text" name="name" id="name" size="30" value="" class="text-input span4" />
+                            <label class="error" for="name" id="name_error">请输入您的姓名或者昵称</label>
+                        </div>
+                    </div>
+                    <div class="af-outer af-required pull-right">
+                        <div class="af-inner">
+                            <label for="email" id="email_label">你的邮箱:</label>
+                            <input type="text" name="email" id="email" size="30" value="" class="text-input span4" />
+                            <label class="error" for="email" id="email_error">请输入您的邮箱地址</label>
                         </div>
                     </div>
                     <div class="clear"></div>
                     <div class="af-outer af-required">
                         <div class="af-inner">
-                            <label for="input-message" id="message_label">备注:</label>
+                            <label for="input-message" id="message_label">简要介绍:</label>
                             <textarea name="message" id="input-message" cols="30" class="text-input span8"></textarea>
+                            <label class="error" for="input-message" id="message_error">Message is required.</label>
                         </div>
                     </div>
                     <div class="af-outer af-required">
                         <div class="af-inner">
-                            <input type="submit" name="submit" class="order-button btn btn-welcome btn-large" id="submit_btn" value="提交订单" />
+                            <input type="submit" name="submit" class="form-button btn btn-welcome btn-large" id="submit_btn" value="提交信息" />
                         </div>
                     </div>
                 </form>

@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html lang="zh"> <!--<![endif]-->
+
+<head>
+    
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no" />
+    <link rel="shortcut icon" href="/demand/images/favicon.ico" />
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/demand/images/apple-touch-icon-144-precomposed.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/demand/images/apple-touch-icon-114-precomposed.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/demand/images/apple-touch-icon-72-precomposed.png" />
+    <link rel="apple-touch-icon-precomposed" href="/demand/images/apple-touch-icon-57-precomposed.png" />
+    <title>订单提交</title>
+    <link href="/demand/css/bootstrap.min.css" type="text/css" rel="stylesheet" />
+    <link href="/demand/css/style.css" type="text/css" rel="stylesheet" />
+    <link href="/demand/css/prettyPhoto.css" type="text/css" rel="stylesheet" />
+    <link href="/demand/css/font-icomoon.css" type="text/css" rel="stylesheet" />
+    <link href="/demand/css/font-awesome.css" type="text/css" rel="stylesheet" />
+	
+    <!--[if IE 7]>
+    <link rel="stylesheet" href="/demand/assets/css/font-awesome-ie7.css"/>
+    <![endif]-->
+    <script type="text/javascript" src="/demand/js/jquery.min.js"></script>
+    <script type="text/javascript" src="/demand/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/demand/js/jquery.easing.1.3.js"></script>
+    <script type="text/javascript" src="/demand/js/jquery.quicksand.js"></script>
+    <script type="text/javascript" src="/demand/js/superfish.js"></script>
+    <script type="text/javascript" src="/demand/js/hoverIntent.js"></script>
+    <script type="text/javascript" src="/demand/js/jquery.flexslider.js"></script>
+    <script type="text/javascript" src="/demand/js/jflickrfeed.min.js"></script>
+    <script type="text/javascript" src="/demand/js/jquery.prettyPhoto.js"></script>
+    <script type="text/javascript" src="/demand/js/jquery.elastislide.js"></script>
+    <script type="text/javascript" src="/demand/js/jquery.tweet.js"></script>
+    <script type="text/javascript" src="/demand/js/smoothscroll.js"></script>
+    <script type="text/javascript" src="/demand/js/jquery.ui.totop.js"></script>
+    <script type="text/javascript" src="/demand/js/main.js"></script>
+    <script type="text/javascript" src="/demand/js/ajax-mail.js"></script>
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="/demand/http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /></head>
+
+<body>
+
+<!--top menu-->
+<section id="top-menu"></section>
+
+<!--header-->
+<header id="header">
+    <div class="container">
+        <div class="row header-top">
+            <div class="span5 logo">
+                <a class="logo-img" href="/demand/./index.html" title="responsive template"><img src="/demand/example/logo.png" alt="Tabulate" /></a>
+                <p class="tagline">Responsive Website Template</p>
+            </div>
+            <div class="span7 social-container">
+                <p class="phone hidden-phone"><i class="icon-envelope"></i> 87068928@qq.com</p><p class="phone hidden-phone"><i class="icon-bell"></i> Call Us 153 0982 0327</p>
+                <div class="top-social">
+                    <a data-original-title="QQ" rel="tooltip" data-placement="top" class="qq" href="#"></a>
+                </div>
+            </div>
+        </div>
+        <div class="row header-nav">
+            <div class="span12">
+                <nav id="menu" class="clearfix">
+                    <ul>
+                        <li class="current"><a href="/"><span class="name">首页</span></a></li>
+                        <li><a href="/pengmo/dynamic"><span class="name">工作室动态</span></a></li>
+                        <li><a href="/pengmo/template"><span class="name">模板展示</span></a></li>
+                        <li><a href="/pengmo/services"><span class="name">服务项目</span></a></li>
+                        <li><a href="/pengmo/price"><span class="name">价格列表</span></a></li>
+                        <li><a href="/pengmo/about"><span class="name">关于我们</span></a></li>
+                        <li><a href="/pengmo/contact"><span class="name">联系我们</span></a></li>
+                    </ul>
+                </nav>
+                <!--<form class="top-search pull-right">-->
+                <!--<input type="text" placeholder="text here..." class="span3">-->
+                <!--<button type="button" class="btn"><i class="icon-search-form"></i></button>-->
+                <!--</form>-->
+            </div>
+        </div>
+    </div>
+</header>
+
+<!--page header / breadcrumbs-->
+<section class="breadcrumbs">
+    <div class="container">
+        <div class="page-header">
+            <div class="row">
+                <div class="span8">
+                    <h3>提交订单</h3>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!--container-->
+<section id="container">
+    <div class="container">
+        <div class="row">
+            <section id="page-sidebar" class="pull-left span8">
+                <h4>留下您的信息，我们会在24小时内与您取得联系。</h4>
+                <form name="order" method="post" action="/plus/order.php" class="af-form" id="af-form" />
+                	<div style=" width:100%; float:left;">
+                        <div class="af-outer af-required pull-left">
+                            <div class="af-inner">
+                                <label for="name" id="name_label">您的姓名或者称呼:</label>
+                                <input type="text" name="name" id="name" size="30" value="" class="text-input span4" />
+                                <label class="error" for="name" id="name_error">请输入您的姓名或者称呼</label>
+                            </div>
+                        </div>
+                        <div class="af-outer af-required pull-right">
+                            <div class="af-inner">
+                                <label for="phone" id="phone_label">您的联系电话:</label>
+                                <input type="text" name="phone" id="phone" size="30" value="" class="text-input span4" />
+                                <label class="error" for="phone" id="phone_error">请输入您的电话</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div style=" width:100%; float:left;">
+                        <div class="af-outer af-required pull-left">
+                            <div class="af-inner">
+                                <label for="template" id="template_label">您选择的模板:</label>
+                                <input type="text" name="template" id="template" size="30" value="template_100" class="text-input span4" readonly="readonly" style="background:#f1f1f1 !important;" />
+                            </div>
+                        </div>
+                        <div class="af-outer af-required pull-right">
+                            <div class="af-inner">
+                                <label for="domain" id="domain_label">您期望的域名:</label>
+                                <input type="text" name="domain" id="domain" size="30" value="" class="text-input span4" />
+                                <label class="error" for="domain" id="domain_error">请输入您期望的域名，如：XXX.com/XXX.cn/XXX.net</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="af-outer af-required pull-left">
+                        <div class="af-inner">
+                            <label for="price" id="price_label">价格套系:</label>
+                            <select name="price" id="price" class="text-input span4">
+                            	<option value="0">请选择套系</option>
+                            	<option value="1">特惠型￥288</option>
+                                <option value="2">精仿型￥1088</option>
+                                <option value="3">全包型￥1288</option>
+                            </select>
+                            <label class="error" for="price" id="price_error">请选择套系</label>
+                        </div>
+                    </div>
+                    <div class="clear"></div>
+                    <div class="af-outer af-required">
+                        <div class="af-inner">
+                            <label for="input-message" id="message_label">备注:</label>
+                            <textarea name="message" id="input-message" cols="30" class="text-input span8"></textarea>
+                        </div>
+                    </div>
+                    <div class="af-outer af-required">
+                        <div class="af-inner">
+                            <input type="submit" name="submit" class="order-button btn btn-welcome btn-large" id="submit_btn" value="提交订单" />
+                        </div>
+                    </div>
+                </form>
+            </section>
+            <!--sidebar-->
+            <aside id="sidebar" class="pull-right span4">
+                <!--address-->
+                <section>
+                    <h4>联系我们</h4>
+                    <address>
+                        <p>
+                            <i class="icon-map-marker"></i> Street Name 432/2, London, 90210<br />
+                            <i class="icon-user"></i> (123) 456-7890<br />
+                            <i class="icon-print"></i> (123) 456-7890<br />
+                            <i class="icon-envelope"></i> <a href="mailto:#">info@email.com</a>
+                        </p>
+                    </address>
+                </section>
+                <section>
+                    <h4>工作时间</h4>
+                    <ul class="unstyled">
+                        <li class="clearfix">星期一至星期五:<p class="pull-right">9:00 - 22:00</p></li>
+                        <li class="clearfix">星期六:<p class="pull-right">10:00 - 23:00</p></li>
+                        <li class="clearfix">星期日:<p class="pull-right">10:00 - 22:00</p></li>
+                    </ul>
+                </section>
+            </aside>
+        </div>
+    </div>    
+</section>
+
+<!--footer-->
+<footer id="footer">
+    <div class="container">
+        <div class="row">
+            <div class="span4">
+                <p><img src="/demand/example/logo.png" alt="" /></p>
+                <address>
+                    <p><i class="icon-map-marker"></i> 大连市沙河口区新生路23号</p>
+                    <p><i class="icon-phone"></i> 116031</p>
+                    <p><i class="icon-mobile-2"></i> 153 0982 0327</p>
+                    <p><i class="icon-mail-3"></i> <a href="/demand/mailto:#">87068928@qq.com</a></p>
+                </address>
+            </div>
+            <div class="span8">
+                <div class="row">
+                    <div class="span8"></div>
+                    <div class="span8">
+
+                    </div>
+                </div>
+            </div>
+            <div class="span4">
+                <p class="heading">关于我们</p>
+                <p>您的肯定，就是我们最大的动力！欢迎加入我们！</p>
+                <p class="heading">关注我们</p>
+                <p>请输入您的邮箱地址，我们将实时为您提供工作室的最新动态。</p>
+                <div class="input-append">
+                    <input type="text" placeholder="输入邮箱地址" class="span2" />
+                    <button type="button" class="btn btn-inverse">订阅</button>
+                </div>
+            </div>
+            <div class="span4">
+                <p class="heading">鹏魔工作室</p>
+                <ul class="footer-navigate">
+                    <li><a href="/">首页</a></li>
+                    <li><a href="/pengmo/dynamic">工作室动态</a></li>
+                    <li><a href="/pengmo/template">模板展示</a></li>
+                    <li><a href="/pengmo/price">价格列表</a></li>
+                    <li><a href="/pengmo/about">关于我们</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!--footer menu-->
+<section id="footer-menu">
+    <div class="container">
+        <div class="row">
+            <div class="span4">
+                <p class="copyright">Copyright &copy; 2014.Company name All rights reserved.鹏魔工作室</p>
+            </div>
+            <div class="span8 hidden-phone">
+                <ul class="pull-right">
+                    <li><a href="/demand/#">Privacy Policy</a></li>
+                    <li><a href="/demand/#">Contact Us</a></li>
+                    <li><a href="/demand/#">Sitemap</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div style="display:none"><script src="http://s4.cnzz.com/z_stat.php?id=1000439680&web_id=1000439680" language="JavaScript"></script></div>
+</body>
+</html>

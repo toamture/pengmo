@@ -83,6 +83,7 @@ $(function () {
             return false;
         }
 		
+		var template = $("input#template").val();
 		var domain = $("input#domain").val();
         var domain_filter = /^[a-zA-Z0-9]+.[a-z]{2,4}$/;
         console.log(domain_filter.test(domain));
@@ -108,8 +109,8 @@ $(function () {
             type:"POST",
             url:"/plus/order.php",
             data:dataString,
-            success:function () {
-                $('#af-form').prepend("<div class=\"alert alert-success fade in\"><button class=\"close\" data-dismiss=\"alert\" type=\"button\">&times;</button><strong>Contact Form Submitted!</strong> We will be in touch soon.</div>");
+            success:function (data) {
+                $('#af-form').prepend("<div class=\"alert alert-success fade in\"><button class=\"close\" data-dismiss=\"alert\" type=\"button\">&times;</button><strong>感谢您的关顾！</strong> 我们将尽快与您取得联系。</div>");
                 $('#af-form')[0].reset();
             }
         });

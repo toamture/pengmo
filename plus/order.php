@@ -1,12 +1,21 @@
 <?php
 require_once(dirname(__FILE__)."/../include/common.inc.php");
 
-$name = $_POST["name"];
-$phone = $_POST["phone"];
-$template = $_POST["template"];
-$domain = $_POST["domain"];
-$price = $_POST["price"];
-$message = $_POST["message"];
+if(!isset($vdcode)){
+	$vdcode = '';
+}
+$svali = GetCkVdValue();
+if(preg_match("/2/",$safe_gdopen)){
+	if(strtolower($vdcode)!=$svali || $svali==''){
+		//ResetVdValue();
+		//ShowMsg('验证码错误！', 'index.php');
+		echo "vdcode";
+		exit();
+		
+	}
+	
+}
+
 $uptime = time();
 
 //echo $template;

@@ -100,9 +100,15 @@ $(function () {
             return false;
 		}
 		
+		var vdcode = $("input#vdcode").val();
+		if(price == 0){
+			$("label#vdcode_error").show();
+			$("input#vdcode").focus();
+            return false;
+		}
         var message = $("#input-message").val();
 
-        var dataString = 'name=' + name + '&phone=' + phone + '&template=' + template + '&domain=' + domain + '&price=' + price + '&message=' + message;
+        var dataString = 'name=' + name + '&phone=' + phone + '&template=' + template + '&domain=' + domain + '&price=' + price + '&vdcode=' + vdcode + '&message=' + message;
         //alert (dataString);return false;
 
         $.ajax({
@@ -110,8 +116,14 @@ $(function () {
             url:"/plus/order.php",
             data:dataString,
             success:function (data) {
+				if(data == "vdcode"){
+					$("label#vdcode_error").show();
+					$("input#vdcode").focus();
+            		return false;
+				}
                 $('#af-form').prepend("<div class=\"alert alert-success fade in\"><button class=\"close\" data-dismiss=\"alert\" type=\"button\">&times;</button><strong>感谢您的关顾！</strong> 我们将尽快与您取得联系。</div>");
                 $('#af-form')[0].reset();
+				changeAuthCode();
             }
         });
         return false;

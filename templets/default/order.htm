@@ -18,6 +18,19 @@
     <link href="/demand/css/prettyPhoto.css" type="text/css" rel="stylesheet" />
     <link href="/demand/css/font-icomoon.css" type="text/css" rel="stylesheet" />
     <link href="/demand/css/font-awesome.css" type="text/css" rel="stylesheet" />
+	<script type="text/javascript">
+    function changeAuthCode() {
+        var num = 	new Date().getTime();
+        var rand = Math.round(Math.random() * 10000);
+        num = num + rand;
+        $('#ver_code').css('visibility','visible');
+        if ($("#vdimgck")[0]) {
+            $("#vdimgck")[0].src = "/include/vdimgck.php?tag=" + num;
+        }
+        return false;
+    }
+    
+    </script>
 	{dede:include filename="header.htm"/}
 
 <!--page header / breadcrumbs-->
@@ -72,16 +85,25 @@
                             </div>
                         </div>
                     </div>
-                    <div class="af-outer af-required pull-left">
-                        <div class="af-inner">
-                            <label for="price" id="price_label">价格套系:</label>
-                            <select name="price" id="price" class="text-input span4">
-                            	<option value="0">请选择套系</option>
-                            	<option value="1">特惠型￥288</option>
-                                <option value="2">精仿型￥1088</option>
-                                <option value="3">全包型￥1288</option>
-                            </select>
-                            <label class="error" for="price" id="price_error">请选择套系</label>
+                    <div style=" width:100%; float:left;">
+                        <div class="af-outer af-required pull-left">
+                            <div class="af-inner">
+                                <label for="price" id="price_label">价格套系:</label>
+                                <select name="price" id="price" class="text-input span4">
+                                    <option value="0">请选择套系</option>
+                                    <option value="1">特惠型￥288</option>
+                                    <option value="2">精仿型￥1088</option>
+                                    <option value="3">全包型￥1288</option>
+                                </select>
+                                <label class="error" for="price" id="price_error">请选择套系</label>
+                            </div>
+                        </div>
+                        <div class="af-outer af-required pull-right">
+                            <div class="af-inner">
+                                <label for="vdcode" id="vdcode_label">验证码:</label>
+                                <input id="vdcode" class="text-input span4" type="text" style="width: 50px; text-transform: uppercase;" name="vdcode"/><img id="vdimgck" align="absmiddle" onclick="this.src=this.src+'?'" style="cursor: pointer;" alt="看不清？点击更换" src="/include/vdimgck.php"/>看不清？ <a href="#" onclick="changeAuthCode();">点击更换</a>
+                                <label class="error" for="vdcode" id="vdcode_error">验证码输入错误</label>
+                            </div>
                         </div>
                     </div>
                     <div class="clear"></div>

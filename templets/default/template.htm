@@ -47,11 +47,9 @@
     <div class="container">
         <!--filter-->
         <ul id="filtrable">
-            <li class="current all"><a href="#all">All</a></li>
-            <li class="html"><a href="#html">Html</a></li>
-            <li class="css"><a href="#css">CSS</a></li>
-            <li class="php"><a href="#php">PHP</a></li>
-            <li class="javascript"><a href="#javascript">JavaScript</a></li>
+            <li class="current all"><a href="#all">所有模版</a></li>
+            <li class="html"><a href="#com">企业模版</a></li>
+            <li class="css"><a href="#per">个人网站</a></li>
         </ul>
 
         <div class="clear"></div>
@@ -67,7 +65,7 @@
                 <div class="inner-text">
                     <h4 class="title"><a href="./blog-single.html">Project title 1</a></h4>
                     <p>Per insolens urbanitas pris tantas corpora cum commune dignissim pro delectus salutatus ever labitur.</p>
-                    <em class="pm_chose_btn"><a href="#">选定</a></em>
+                    <em class="pm_chose_btn"><a href="javascript:void(0)" onClick="chose('aaaaaaa')">选定</a></em>
                 </div>
             </article>
             <article data-id="id-2" data-type="php" class="span4">
@@ -228,5 +226,12 @@
         </div>
     </div>
 </section>
+
+<script>
+	function chose(tem){
+		url = "/pengmo/order?template="+escape(tem);
+		location.href=url;
+	}
+</script>
 
 {dede:include filename="footer.htm"/}

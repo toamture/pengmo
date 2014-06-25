@@ -18,19 +18,6 @@
     <link href="/demand/css/prettyPhoto.css" type="text/css" rel="stylesheet" />
     <link href="/demand/css/font-icomoon.css" type="text/css" rel="stylesheet" />
     <link href="/demand/css/font-awesome.css" type="text/css" rel="stylesheet" />
-	<script type="text/javascript">
-    function changeAuthCode() {
-        var num = 	new Date().getTime();
-        var rand = Math.round(Math.random() * 10000);
-        num = num + rand;
-        $('#ver_code').css('visibility','visible');
-        if ($("#vdimgck")[0]) {
-            $("#vdimgck")[0].src = "/include/vdimgck.php?tag=" + num;
-        }
-        return false;
-    }
-    
-    </script>
 	
     <!--[if IE 7]>
     <link rel="stylesheet" href="/demand/assets/css/font-awesome-ie7.css"/>
@@ -96,6 +83,37 @@
         </div>
     </div>
 </header>
+    <script type="text/javascript">
+    function changeAuthCode() {
+        var num = 	new Date().getTime();
+        var rand = Math.round(Math.random() * 10000);
+        num = num + rand;
+        $('#ver_code').css('visibility','visible');
+        if ($("#vdimgck")[0]) {
+            $("#vdimgck")[0].src = "/include/vdimgck.php?tag=" + num;
+        }
+        return false;
+    }
+	
+	var url=location.search;
+	var Request = new Object();
+	if(url.indexOf("?")!=-1)
+	{
+		var str = url.substr(1);  //去掉?号
+		var strs = str.split("&");
+		for(var i=0;i<strs.length;i++){
+			Request[strs[i].split("=")[0]]=unescape(strs[i].split("=")[1]);
+		}
+	}
+	$(document).ready(function(){
+		$("#template").val(Request["template"]);
+	});
+	//alert(Request["template"]);
+	//$("#template").val(Request["template"]);
+	//alert(document.getElementById("container").value);
+	//document.getElementById("template").value="aaaaa";
+    
+    </script>
 
 <!--page header / breadcrumbs-->
 <section class="breadcrumbs">
@@ -138,7 +156,7 @@
                         <div class="af-outer af-required pull-left">
                             <div class="af-inner">
                                 <label for="template" id="template_label">您选择的模板:</label>
-                                <input type="text" name="template" id="template" size="30" value="template_100" class="text-input span4" readonly style="background:#f1f1f1 !important;" />
+                                <input type="text" name="template" id="template" size="30" value="" class="text-input span4" readonly style="background:#f1f1f1 !important;" />
                             </div>
                         </div>
                         <div class="af-outer af-required pull-right">

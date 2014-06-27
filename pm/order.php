@@ -13,7 +13,7 @@ CheckPurview('c_List');
 require_once(DEDEINC.'/datalistcp.class.php');
 setcookie("ENV_GOBACK_URL",$dedeNowurl,time()+3600,"/");
 
-$sql = "SELECT name,phone,template,domain,price,message,uptime FROM `#@__order` ORDER BY id DESC";
+$sql = "SELECT id,name,phone,template,domain,price,message,uptime FROM `#@__order` ORDER BY id DESC";
 $dlist = new DataListCP();
 $dlist->SetTemplet(DEDEADMIN."/templets/order.htm");
 $dlist->SetSource($sql);

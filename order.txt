@@ -1,0 +1,2 @@
+<a href='order.php?id={dede:field.id/}&dopost=edit'><img style=" vertical-align:text-bottom;" src='images/gtk-edit.png' alt='更改' title='更改' /></a>  
+<a href='order.php?id={dede:field.id/}&dopost=delete'><img style=" vertical-align:text-bottom;" src='images/gtk-del.png' alt='删除' title='删除' /></a>

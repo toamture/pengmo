@@ -5,6 +5,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=<?php echo $cfg_soft_lang; ?>">
 <title>订单管理</title>
 <link href="css/base.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="js/jquery.min.js"></script>
 </head>
 <body background='images/allbg.gif' leftmargin='8' topmargin='8'>
 <table width="98%" border="0" align="center" cellpadding="3" cellspacing="1" bgcolor="#D6D6D6">
@@ -24,27 +25,23 @@
       <td width="10%">所选模版</td>
       <td width="15%">期望域名</td>
       <td width="8%">价格套系</td>
-      <td width="30%">备注</td>
+      <td width="35%">备注</td>
       <td>管理</td>
    </tr>
    {dede:datalist}
     <tr align="center" bgcolor="#FFFFFF" height="24" 
-    	onMouseMove="javascript:this.bgColor='#FCFDEE';" onMouseOut="javascript:this.bgColor='#FFFFFF';">
-        <td>{dede:field.uptime /}</td>
-        <td>{dede:field.name /}</td>
-        <td>{dede:field.phone /}</td>
-        <td>{dede:field.template /}</td>
-        <td>{dede:field.domain /}</td>
-        <td>{dede:field.price /}</td>
-        <td>{dede:field.message /}</td>
+    	onMouseMove="javascript:this.bgColor='#FCFDEE';" onMouseOut="javascript:this.bgColor='#FFFFFF';" id="{dede:field.id /}">
+        <td><em style=" font-style:normal;">{dede:field.uptime /}</em><input type="text" value="{dede:field.uptime /}" name="uptime" style=" width:80%; height:100%;" /></td>
+        <td><em style=" font-style:normal;">{dede:field.name /}</em><input type="text" value="{dede:field.name /}" name="name" style=" width:80%; height:100%;" /></td>
+        <td><em style=" font-style:normal;">{dede:field.phone /}</em><input type="text" value="{dede:field.phone /}" name="phone" style=" width:80%; height:100%;" /></td>
+        <td><em style=" font-style:normal;">{dede:field.template /}</em><input type="text" value="{dede:field.template /}" name="template" style=" width:80%; height:100%;" /></td>
+        <td><em style=" font-style:normal;">{dede:field.domain /}</em><input type="text" value="{dede:field.domain /}" name="domain" style=" width:80%; height:100%;" /></td>
+        <td><em style=" font-style:normal;">{dede:field.price /}</em><input type="text" value="{dede:field.price /}" name="price" style=" width:80%; height:100%;" /></td>
+        <td><em style=" font-style:normal;">{dede:field.message /}</em><input type="text" value="{dede:field.message /}" name="message" style=" width:80%; height:100%;" /></td>
         <td>
-         <a href='mychannel_edit.php?id={dede:field.id/}&dopost=copystart'><img src='images/gtk-copy.png' title='复制' alt='复制' /></a> 
-         <a href='mychannel_edit.php?id={dede:field.id/}&dopost=gettemplets'><img src='images/gtk-tmp.png' title='模板' alt='模板' /></a> 
-         <a href='mychannel_edit.php?id={dede:field.id /}&dopost=export'><img src='images/gtk-ex.png' title='导出' alt='导出' /></a>  
-         <a href='mychannel_edit.php?id={dede:field.id/}&dopost=edit'><img src='images/gtk-edit.png' alt='更改' title='更改' /></a>  
-         <a href='mychannel_edit.php?mid={dede:field.id/}&dopost=modifysearch'><img src='images/gtk-search.png' alt='自定义搜索' title='自定义搜索' /></a> 
-         <a href='mychannel_edit.php?id={dede:field.id/}&dopost=delete'><img src='images/gtk-del.png' alt='删除' title='删除' /></a>
-		    </td>
+        	<a href='javascript:void(0)' onclick='change("{dede:field.id /}")'><img style=" vertical-align:text-bottom;" src='images/gtk-edit.png' alt='更改' title='更改' /></a>  
+        	<a href='order.php?id={dede:field.id/}&dopost=delete'><img style=" vertical-align:text-bottom;" src='images/gtk-del.png' alt='删除' title='删除' /></a>
+		</td>
      </tr>
 		{/dede:datalist}
      <tr align="center" bgcolor="#EEEEEE" height="28"> 
@@ -54,18 +51,32 @@
      </tr>
      <tr align="center" bgcolor="#ffffff" height="32"> 
       <td colspan="8">
-      	图标说明：
-      	<img src='images/gtk-copy.png' title='复制' alt='复制' /> 复制
-        <img src='images/gtk-tmp.png' title='模板' alt='模板' /> 模板
-        <img src='images/gtk-ex.png' title='导出' alt='导出' /> 导出
-        <img src='images/gtk-edit.png' alt='更改' title='更改' /> 修改
-        <img src='images/gtk-search.png' alt='自定义搜索' title='自定义搜索' /> 自定义搜索
-        <img src='images/gtk-del.png' alt='删除' title='删除' /> 删除
+        套系说明：0 为未选择，1 为288套系，2 为1088套系，3 为1288套系<br />
+        图标说明：
+        <img style=" vertical-align:text-bottom;" src='images/gtk-edit.png' alt='更改' title='更改' /> 修改
+        <img style=" vertical-align:text-bottom;" src='images/gtk-del.png' alt='删除' title='删除' /> 删除
       </td>
      </tr>
    </table>
    </td>
 </tr>
 </table>
+<script>
+$(document).ready(function(){
+	$("input").hide();
+});
+function change(id){
+	//alert(id);
+	if($("#"+id+" td input").css("display") == 'none'){
+		$("#"+id+" td em").hide();
+		$("#"+id+" td input").show();
+	}else{
+		//alert($("#"+id+" td input").css("display"));
+	}
+}
+function subdata(id){
+	
+}
+</script>
 </body>
 </html>

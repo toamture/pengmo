@@ -158,6 +158,7 @@ $adminMenu1
   <m:item name='会员留言管理' link='member_guestbook.php' rank='member_Type' target='main' />
   <m:item name='会员动态管理' link='member_info_main.php?type=feed' rank='member_Type' target='main' />
   <m:item name='会员心情管理' link='member_info_main.php?type=mood' rank='member_Type' target='main' />
+  <m:item name='订单管理' link='order.php' rank='member_Type' target='main' />
 </m:top>
 
 $adminMenu2

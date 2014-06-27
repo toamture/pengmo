@@ -16,7 +16,7 @@ if(preg_match("/2/",$safe_gdopen)){
 	
 }
 
-$uptime = time();
+$uptime = date("Y-m-d H:i:s",time());
 
 //echo $template;
 

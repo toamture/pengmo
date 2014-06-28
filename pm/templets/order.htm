@@ -40,7 +40,7 @@
         <td><em class="message" style=" font-style:normal;">{dede:field.message /}</em><input type="text" value="{dede:field.message /}" name="message" style=" width:80%; height:100%;" /></td>
         <td>
         	<a href='javascript:void(0)' onclick='change("{dede:field.id /}")'><img style=" vertical-align:text-bottom;" src='images/gtk-edit.png' alt='更改' title='更改' /></a>  
-        	<a href='order.php?id={dede:field.id/}&dopost=delete'><img style=" vertical-align:text-bottom;" src='images/gtk-del.png' alt='删除' title='删除' /></a>
+        	<a href='javascript:void(0)' onclick='drop("{dede:field.id /}")'><img style=" vertical-align:text-bottom;" src='images/gtk-del.png' alt='删除' title='删除' /></a>
 		</td>
      </tr>
 		{/dede:datalist}
@@ -89,7 +89,7 @@ function change(id){
 		//alert(named.text());
 		
 		if(name != named.text() || phone != phoned.text() || template != templated.text() || domain != domained.text() || price != priced.text() || message != messaged.text()){
-			var change_url = 'name=' + name + '&phone=' + phone + '&template=' + template + '&domain=' + domain + '&price=' + price + '&message=' + message;
+			var change_url =  'id=' + id + '&name=' + name + '&phone=' + phone + '&template=' + template + '&domain=' + domain + '&price=' + price + '&message=' + message + '&dopost=change';
        		//alert (dataString);return false;
 
 			$.ajax({
@@ -117,8 +117,17 @@ function change(id){
 		
 	}
 }
-function subdata(id){
-	
+function drop(id){
+	var drop_url = 'uid=' + id + '&dopost=drop';
+	$.ajax({
+		type:"POST",
+		url:"order_edit.php",
+		data:drop_url,
+		success:function (data) {
+			alert(data);
+			$("#"+id).remove();
+		}
+	});
 }
 </script>
 </body>

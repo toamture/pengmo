@@ -31,13 +31,13 @@
    {dede:datalist}
     <tr align="center" bgcolor="#FFFFFF" height="24" 
     	onMouseMove="javascript:this.bgColor='#FCFDEE';" onMouseOut="javascript:this.bgColor='#FFFFFF';" id="{dede:field.id /}">
-        <td><em style=" font-style:normal;">{dede:field.uptime /}</em><input type="text" value="{dede:field.uptime /}" name="uptime" style=" width:80%; height:100%;" /></td>
-        <td><em style=" font-style:normal;">{dede:field.name /}</em><input type="text" value="{dede:field.name /}" name="name" style=" width:80%; height:100%;" /></td>
-        <td><em style=" font-style:normal;">{dede:field.phone /}</em><input type="text" value="{dede:field.phone /}" name="phone" style=" width:80%; height:100%;" /></td>
-        <td><em style=" font-style:normal;">{dede:field.template /}</em><input type="text" value="{dede:field.template /}" name="template" style=" width:80%; height:100%;" /></td>
-        <td><em style=" font-style:normal;">{dede:field.domain /}</em><input type="text" value="{dede:field.domain /}" name="domain" style=" width:80%; height:100%;" /></td>
-        <td><em style=" font-style:normal;">{dede:field.price /}</em><input type="text" value="{dede:field.price /}" name="price" style=" width:80%; height:100%;" /></td>
-        <td><em style=" font-style:normal;">{dede:field.message /}</em><input type="text" value="{dede:field.message /}" name="message" style=" width:80%; height:100%;" /></td>
+        <td><em class="uptime" style=" font-style:normal;">{dede:field.uptime /}</em><input type="text" value="{dede:field.uptime /}" name="uptime" style=" width:80%; height:100%;" /></td>
+        <td><em class="name" style=" font-style:normal;">{dede:field.name /}</em><input type="text" value="{dede:field.name /}" name="name" style=" width:80%; height:100%;" /></td>
+        <td><em class="phone" style=" font-style:normal;">{dede:field.phone /}</em><input type="text" value="{dede:field.phone /}" name="phone" style=" width:80%; height:100%;" /></td>
+        <td><em class="template" style=" font-style:normal;">{dede:field.template /}</em><input type="text" value="{dede:field.template /}" name="template" style=" width:80%; height:100%;" /></td>
+        <td><em class="domain" style=" font-style:normal;">{dede:field.domain /}</em><input type="text" value="{dede:field.domain /}" name="domain" style=" width:80%; height:100%;" /></td>
+        <td><em class="price" style=" font-style:normal;">{dede:field.price /}</em><input type="text" value="{dede:field.price /}" name="price" style=" width:80%; height:100%;" /></td>
+        <td><em class="message" style=" font-style:normal;">{dede:field.message /}</em><input type="text" value="{dede:field.message /}" name="message" style=" width:80%; height:100%;" /></td>
         <td>
         	<a href='javascript:void(0)' onclick='change("{dede:field.id /}")'><img style=" vertical-align:text-bottom;" src='images/gtk-edit.png' alt='更改' title='更改' /></a>  
         	<a href='order.php?id={dede:field.id/}&dopost=delete'><img style=" vertical-align:text-bottom;" src='images/gtk-del.png' alt='删除' title='删除' /></a>
@@ -71,7 +71,50 @@ function change(id){
 		$("#"+id+" td em").hide();
 		$("#"+id+" td input").show();
 	}else{
-		//alert($("#"+id+" td input").css("display"));
+		//var name = $("#"+id+" td input[name='name']").val();
+		//alert(name);
+		var name = $("#"+id+" td input[name='name']").val();
+		var phone = $("#"+id+" td input[name='phone']").val();
+		var template = $("#"+id+" td input[name='template']").val();
+		var domain = $("#"+id+" td input[name='domain']").val();
+		var price = $("#"+id+" td input[name='price']").val();
+		var message = $("#"+id+" td input[name='message']").val();
+		var named = $("#"+id+" td em.name");
+		var phoned = $("#"+id+" td em.phone");
+		var templated = $("#"+id+" td em.template");
+		var domained = $("#"+id+" td em.domain");
+		var priced = $("#"+id+" td em.price");
+		var messaged = $("#"+id+" td em.message");
+		var uptimed = $("#"+id+" td em.uptime");
+		//alert(named.text());
+		
+		if(name != named.text() || phone != phoned.text() || template != templated.text() || domain != domained.text() || price != priced.text() || message != messaged.text()){
+			var change_url = 'name=' + name + '&phone=' + phone + '&template=' + template + '&domain=' + domain + '&price=' + price + '&message=' + message;
+       		//alert (dataString);return false;
+
+			$.ajax({
+				type:"POST",
+				url:"order_edit.php",
+				data:change_url,
+				success:function (data) {
+					//alert(data);
+					$("#"+id+" td input").hide();
+					uptimed.text(data);
+					named.text(name);
+					phoned.text(phone);
+					templated.text(template);
+					domained.text(domain);
+					priced.text(price);
+					messaged.text(message);
+					$("#"+id+" td em").show();
+				}
+			});
+		}else{
+			alert("没有数据进行修改");
+			$("#"+id+" td input").hide();
+			$("#"+id+" td em").show();
+		}
+		
 	}
 }
 function subdata(id){

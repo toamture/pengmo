@@ -25,8 +25,8 @@
                 <p class="heading">关注我们</p>
                 <p>请输入您的邮箱地址，我们将实时为您提供工作室的最新动态。</p>
                 <div class="input-append">
-                    <input type="text" placeholder="输入邮箱地址" class="span2" />
-                    <button type="button" class="btn btn-inverse">订阅</button>
+                    <input type="text" placeholder="输入邮箱地址" class="span2" id="foot_email" />
+                    <button type="button" class="btn btn-inverse" onClick="chose()">订阅</button>
                 </div>
             </div>
             <div class="span4">
@@ -53,7 +53,7 @@
             <div class="span8 hidden-phone">
                 <ul class="pull-right">
                     <li><a href="/demand/#">Privacy Policy</a></li>
-                    <li><a href="/demand/#">Contact Us</a></li>
+                    <li><a href="/pengmo/contact">Contact Us</a></li>
                     <li><a href="/demand/#">Sitemap</a></li>
                 </ul>
             </div>
@@ -62,5 +62,17 @@
 </section>
 
 <div style="display:none"><script src="http://s4.cnzz.com/z_stat.php?id=1000439680&web_id=1000439680" language="JavaScript"></script></div>
+<script>
+	function chose(){
+		var email = $("#foot_email").val();
+		if(email != ""){
+			var url = "/pengmo/contact?email="+escape(email);
+			location.href=url;
+		}else{
+			alert("请输入您的邮箱地址！");
+		}
+		
+	}
+</script>
 </body>
 </html>

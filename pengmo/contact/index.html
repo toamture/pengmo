@@ -83,6 +83,37 @@
         </div>
     </div>
 </header>
+    <script type="text/javascript">
+    function changeAuthCode() {
+        var num = 	new Date().getTime();
+        var rand = Math.round(Math.random() * 10000);
+        num = num + rand;
+        $('#ver_code').css('visibility','visible');
+        if ($("#cvdimgck")[0]) {
+            $("#cvdimgck")[0].src = "/include/vdimgck.php?tag=" + num;
+        }
+        return false;
+    }
+	
+	var url=location.search;
+	var Request = new Object();
+	if(url.indexOf("?")!=-1)
+	{
+		var str = url.substr(1);  //去掉?号
+		var strs = str.split("&");
+		for(var i=0;i<strs.length;i++){
+			Request[strs[i].split("=")[0]]=unescape(strs[i].split("=")[1]);
+		}
+	}
+	$(document).ready(function(){
+		$("#cemail").val(Request["email"]);
+	});
+	//alert(Request["template"]);
+	//$("#template").val(Request["template"]);
+	//alert(document.getElementById("container").value);
+	//document.getElementById("template").value="aaaaa";
+    
+    </script>
     
 <!--page header / breadcrumbs-->
 <section class="breadcrumbs">
@@ -108,32 +139,40 @@
         <div class="row">
             <section id="page-sidebar" class="pull-left span8">
                 <h4>留下您的信息，我们会不定期发送最新的工作室动态到您的邮箱。</h4>
-                <form name="contact" method="post" action="contact.html" class="af-form" id="af-form" />
+                <form name="contact" method="post" action="/plus/information.php" class="af-form" id="af-form" />
                     <div class="af-outer af-required pull-left">
                         <div class="af-inner">
-                            <label for="name" id="name_label">你的名字:</label>
-                            <input type="text" name="name" id="name" size="30" value="" class="text-input span4" />
-                            <label class="error" for="name" id="name_error">请输入您的姓名或者昵称</label>
+                            <label for="cname" id="cname_label">你的名字:</label>
+                            <input type="text" name="cname" id="cname" size="30" value="" class="text-input span4" />
+                            <label class="error" for="cname" id="cname_error">请输入您的姓名或者昵称</label>
                         </div>
                     </div>
                     <div class="af-outer af-required pull-right">
                         <div class="af-inner">
-                            <label for="email" id="email_label">你的邮箱:</label>
-                            <input type="text" name="email" id="email" size="30" value="" class="text-input span4" />
-                            <label class="error" for="email" id="email_error">请输入您的邮箱地址</label>
+                            <label for="cemail" id="cemail_label">你的邮箱:</label>
+                            <input type="text" name="cemail" id="cemail" size="30" value="" class="text-input span4" />
+                            <label class="error" for="cemail" id="cemail_error">请输入您的邮箱地址</label>
                         </div>
                     </div>
                     <div class="clear"></div>
                     <div class="af-outer af-required">
                         <div class="af-inner">
-                            <label for="input-message" id="message_label">简要介绍:</label>
-                            <textarea name="message" id="input-message" cols="30" class="text-input span8"></textarea>
-                            <label class="error" for="input-message" id="message_error">Message is required.</label>
+                            <label for="input-cmessage" id="cmessage_label">简要介绍:</label>
+                            <textarea name="cmessage" id="input-cmessage" cols="30" class="text-input span8"></textarea>
+                        </div>
+                    </div>
+                    <div style=" width:100%; float:left;">
+                        <div class="af-outer af-required pull-left">
+                            <div class="af-inner">
+                                <label for="cvdcode" id="cvdcode_label">验证码:</label>
+                                <input id="cvdcode" class="text-input span4" type="text" style="width:180px; text-transform: uppercase;" name="vdcode"/>&nbsp;<img id="cvdimgck" align="absmiddle" onclick="this.src=this.src+'?'" style="cursor: pointer; vertical-align:text-bottom;" alt="看不清？点击更换" src="/include/vdimgck.php"/>&nbsp;<i style=" font-style:normal; line-height:16px; vertical-align:text-top; font-size:12px;">&nbsp;看不清？&nbsp;<a href="#" onclick="changeAuthCode();">点击更换</a></i>
+                                <label class="error" for="cvdcode" id="cvdcode_error">验证码输入错误</label>
+                            </div>
                         </div>
                     </div>
                     <div class="af-outer af-required">
                         <div class="af-inner">
-                            <input type="submit" name="submit" class="form-button btn btn-welcome btn-large" id="submit_btn" value="提交信息" />
+                            <input type="submit" name="submit" class="cform-button btn btn-welcome btn-large" id="submit_btn" value="提交信息" />
                         </div>
                     </div>
                 </form>
@@ -192,8 +231,8 @@
                 <p class="heading">关注我们</p>
                 <p>请输入您的邮箱地址，我们将实时为您提供工作室的最新动态。</p>
                 <div class="input-append">
-                    <input type="text" placeholder="输入邮箱地址" class="span2" />
-                    <button type="button" class="btn btn-inverse">订阅</button>
+                    <input type="text" placeholder="输入邮箱地址" class="span2" id="foot_email" />
+                    <button type="button" class="btn btn-inverse" onClick="chose()">订阅</button>
                 </div>
             </div>
             <div class="span4">
@@ -220,7 +259,7 @@
             <div class="span8 hidden-phone">
                 <ul class="pull-right">
                     <li><a href="/demand/#">Privacy Policy</a></li>
-                    <li><a href="/demand/#">Contact Us</a></li>
+                    <li><a href="/pengmo/contact">Contact Us</a></li>
                     <li><a href="/demand/#">Sitemap</a></li>
                 </ul>
             </div>
@@ -229,5 +268,17 @@
 </section>
 
 <div style="display:none"><script src="http://s4.cnzz.com/z_stat.php?id=1000439680&web_id=1000439680" language="JavaScript"></script></div>
+<script>
+	function chose(){
+		var email = $("#foot_email").val();
+		if(email != ""){
+			var url = "/pengmo/contact?email="+escape(email);
+			location.href=url;
+		}else{
+			alert("请输入您的邮箱地址！");
+		}
+		
+	}
+</script>
 </body>
 </html>

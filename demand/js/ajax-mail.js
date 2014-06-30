@@ -1,4 +1,4 @@
-// Content Contact Form
+// Content Form
 $(function () {
     $('.error').hide();
     $('.text-input').css({backgroundColor:"#FFFFFF"});
@@ -9,42 +9,45 @@ $(function () {
         $(this).css({backgroundColor:"#FFFFFF"});
     });
 
-    $(".form-button").click(function () {
+    $(".cform-button").click(function () {
         // validate and process form
         // first hide any error messages
         $('.error').hide();
 
-        var name = $("input#name").val();
+        var name = $("input#cname").val();
         if (name == "") {
-            $("label#name_error").show();
-            $("input#name").focus();
+            $("label#cname_error").show();
+            $("input#cname").focus();
             return false;
         }
-        var email = $("input#email").val();
+        var email = $("input#cemail").val();
         var filter = /^[a-zA-Z0-9]+[a-zA-Z0-9_.-]+[a-zA-Z0-9_-]+@[a-zA-Z0-9]+[a-zA-Z0-9.-]+.[a-z]{2,4}$/;
         console.log(filter.test(email));
         if (!filter.test(email)) {
-            $("label#email_error").show();
-            $("input#email").focus();
+            $("label#cemail_error").show();
+            $("input#cemail").focus();
             return false;
         }
-        var message = $("#input-message").val();
-        if (message == "") {
-            $("label#message_error").show();
-            $("#input-message").focus();
-            return false;
-        }
+        var message = $("#input-cmessage").val();
+		var vdcode = $("input#cvdcode").val();
 
-        var dataString = 'name=' + name + '&email=' + email + '&message=' + message;
+        var dataString = 'name=' + name + '&email=' + email + '&message=' + message + '&vdcode=' + vdcode;
         //alert (dataString);return false;
 
         $.ajax({
             type:"POST",
-            url:"process.php",
+            url:"/plus/information.php",
             data:dataString,
-            success:function () {
-                $('#af-form').prepend("<div class=\"alert alert-success fade in\"><button class=\"close\" data-dismiss=\"alert\" type=\"button\">&times;</button><strong>Contact Form Submitted!</strong> We will be in touch soon.</div>");
+            success:function (data) {
+				if(data == "vdcode"){
+					$("label#cvdcode_error").show();
+					$("input#cvdcode").focus();
+            		return false;
+				}
+				//alert(data);
+                $('#af-form').prepend("<div class=\"alert alert-success fade in\"><button class=\"close\" data-dismiss=\"alert\" type=\"button\">&times;</button><strong>感谢您对鹏魔工作室的关注！</strong> 我们将定期为您发送我们的最新动态消息。</div>");
                 $('#af-form')[0].reset();
+				changeAuthCode();
             }
         });
         return false;

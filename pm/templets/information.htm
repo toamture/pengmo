@@ -10,7 +10,7 @@
 <body background='images/allbg.gif' leftmargin='8' topmargin='8'>
 <table width="98%" border="0" align="center" cellpadding="3" cellspacing="1" bgcolor="#D6D6D6">
   <tr> 
-    <td height="28" colspan="8" background="images/tbg.gif">
+    <td height="28" colspan="5" background="images/tbg.gif">
     	<table width='96%' cellpadding='0' cellspacing='0'>
     		<tr>
     		<td width='20%' style="padding-left:10px;"><b>订单管理</b></td>
@@ -20,12 +20,9 @@
   </tr>
   <tr align="center" bgcolor="#EEEEEE" height="28">
       <td width="10%">提交时间</td>
-      <td width="6%">称呼</td>
-      <td width="10%">电话</td>
-      <td width="10%">所选模版</td>
-      <td width="15%">期望域名</td>
-      <td width="8%">价格套系</td>
-      <td width="35%">备注</td>
+      <td width="8%">称呼</td>
+      <td width="20%">邮箱</td>
+      <td width="55%">简要介绍</td>
       <td>管理</td>
    </tr>
    {dede:datalist}
@@ -33,10 +30,7 @@
     	onMouseMove="javascript:this.bgColor='#FCFDEE';" onMouseOut="javascript:this.bgColor='#FFFFFF';" id="{dede:field.id /}">
         <td><em class="uptime" style=" font-style:normal;">{dede:field.uptime /}</em><input type="text" value="{dede:field.uptime /}" name="uptime" style=" width:80%; height:100%;" /></td>
         <td><em class="name" style=" font-style:normal;">{dede:field.name /}</em><input type="text" value="{dede:field.name /}" name="name" style=" width:80%; height:100%;" /></td>
-        <td><em class="phone" style=" font-style:normal;">{dede:field.phone /}</em><input type="text" value="{dede:field.phone /}" name="phone" style=" width:80%; height:100%;" /></td>
-        <td><em class="template" style=" font-style:normal;">{dede:field.template /}</em><input type="text" value="{dede:field.template /}" name="template" style=" width:80%; height:100%;" /></td>
-        <td><em class="domain" style=" font-style:normal;">{dede:field.domain /}</em><input type="text" value="{dede:field.domain /}" name="domain" style=" width:80%; height:100%;" /></td>
-        <td><em class="price" style=" font-style:normal;">{dede:field.price /}</em><input type="text" value="{dede:field.price /}" name="price" style=" width:80%; height:100%;" /></td>
+        <td><em class="email" style=" font-style:normal;">{dede:field.email /}</em><input type="text" value="{dede:field.email /}" name="email" style=" width:80%; height:100%;" /></td>
         <td><em class="message" style=" font-style:normal;">{dede:field.message /}</em><input type="text" value="{dede:field.message /}" name="message" style=" width:80%; height:100%;" /></td>
         <td>
         	<a href='javascript:void(0)' onclick='change("{dede:field.id /}")'><img style=" vertical-align:text-bottom;" src='images/gtk-edit.png' alt='更改' title='更改' /></a>  
@@ -45,12 +39,12 @@
      </tr>
 		{/dede:datalist}
      <tr align="center" bgcolor="#EEEEEE" height="28"> 
-      <td colspan="8">
+      <td colspan="5">
       	{dede:pagelist listsize="5"/}
       </td>
      </tr>
      <tr align="center" bgcolor="#ffffff" height="32"> 
-      <td colspan="8">
+      <td colspan="5">
         套系说明：0 为未选择，1 为288套系，2 为1088套系，3 为1288套系<br />
         图标说明：
         <img style=" vertical-align:text-bottom;" src='images/gtk-edit.png' alt='更改' title='更改' /> 修改
@@ -74,27 +68,21 @@ function change(id){
 		//var name = $("#"+id+" td input[name='name']").val();
 		//alert(name);
 		var name = $("#"+id+" td input[name='name']").val();
-		var phone = $("#"+id+" td input[name='phone']").val();
-		var template = $("#"+id+" td input[name='template']").val();
-		var domain = $("#"+id+" td input[name='domain']").val();
-		var price = $("#"+id+" td input[name='price']").val();
+		var email = $("#"+id+" td input[name='email']").val();
 		var message = $("#"+id+" td input[name='message']").val();
 		var named = $("#"+id+" td em.name");
-		var phoned = $("#"+id+" td em.phone");
-		var templated = $("#"+id+" td em.template");
-		var domained = $("#"+id+" td em.domain");
-		var priced = $("#"+id+" td em.price");
+		var emailed = $("#"+id+" td em.email");
 		var messaged = $("#"+id+" td em.message");
 		var uptimed = $("#"+id+" td em.uptime");
 		//alert(named.text());
 		
-		if(name != named.text() || phone != phoned.text() || template != templated.text() || domain != domained.text() || price != priced.text() || message != messaged.text()){
-			var change_url =  'id=' + id + '&name=' + name + '&phone=' + phone + '&template=' + template + '&domain=' + domain + '&price=' + price + '&message=' + message + '&dopost=change';
+		if(name != named.text() || email != emailed.text() || message != messaged.text()){
+			var change_url =  'id=' + id + '&name=' + name + '&email=' + email + '&message=' + message + '&dopost=change';
        		//alert (dataString);return false;
 
 			$.ajax({
 				type:"POST",
-				url:"order_edit.php",
+				url:"information_edit.php",
 				data:change_url,
 				success:function (data) {
 					//alert(data);
@@ -104,10 +92,7 @@ function change(id){
 						$("#"+id+" td input").hide();
 						uptimed.text(data);
 						named.text(name);
-						phoned.text(phone);
-						templated.text(template);
-						domained.text(domain);
-						priced.text(price);
+						emailed.text(email);
 						messaged.text(message);
 						$("#"+id+" td em").show();
 					}
@@ -125,7 +110,7 @@ function drop(id){
 	var drop_url = 'uid=' + id + '&dopost=drop';
 	$.ajax({
 		type:"POST",
-		url:"order_edit.php",
+		url:"information_edit.php",
 		data:drop_url,
 		success:function (data) {
 			if(data == "fail"){

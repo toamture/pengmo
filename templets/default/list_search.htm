@@ -14,7 +14,7 @@
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/demand/images/apple-touch-icon-114-precomposed.png" />
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/demand/images/apple-touch-icon-72-precomposed.png" />
     <link rel="apple-touch-icon-precomposed" href="/demand/images/apple-touch-icon-57-precomposed.png" />
-    <title>{dede:field.title/}_{dede:global.cfg_webname/}</title>
+    <title>查询结果_{dede:global.cfg_webname/}</title>
     <link href="/demand/css/bootstrap.css" type="text/css" rel="stylesheet" />
     <link href="/demand/css/style.css" type="text/css" rel="stylesheet" />
     <link href="/demand/css/prettyPhoto.css" type="text/css" rel="stylesheet" />
@@ -28,8 +28,8 @@
         <div class="page-header">
             <div class="row">
                 <div class="span8">
-                    <h1>Studio Dynamic <em style="font-size:14px; font-style:normal; color:#999999;">/ {dede:field.title/}</em></h1>
-                    <div><a href="/">首页</a> &nbsp;&rsaquo;&nbsp; {dede:field.title/}</div>
+                    <h1>Query Results <em style="font-size:14px; font-style:normal; color:#999999;">/ 查询结果</em></h1>
+                    <div><a href="/">首页</a> &nbsp;&rsaquo;&nbsp; 查询结果</div>
                 </div>
                 {dede:include filename="search.htm"/}
             </div>
@@ -42,7 +42,7 @@
     <div class="container">
         <div class="row">
             <section id="page-sidebar" class="pull-left span8">
-				
+				{dede:datalist}
                 <article class="blog-post">
                     <div class="row">
                         <div class="span1">
@@ -50,7 +50,7 @@
                             <div class="post-meta-month">Oct</div>
                         </div>
                         <div class="span7">
-                            <h3 class="post-title"><a href="./blog-single.html">Lorem ipsum dolor sit amet consectetur</a></h3>
+                            <h3 class="post-title"><a href="{dede:field.arcurl/}">{dede:field.title/}</a></h3>
                             <ul class="post-meta">
                                 <li><i class="icon-calendar"></i> <a href="#">October 25, 2012</a></li>
                                 <li><i class="icon-user"></i> <a href="#">DXThemes</a></li>
@@ -62,18 +62,13 @@
                                 <img src="/demand/example/blog1.jpg" alt="" />
                             </div>
                             <div class="post-content">
-                                <p>
-                                    Etiam congue, elit at tristique aliquam, sapien diam eleifend orci, vel tristique augue diam vel turpis. Vestibulum volutpat diam ut tortor vehicula accumsan. Aliquam placerat arcu eu orci pretium sit amet mattis felis convallis. Cras elementum molestie laoreet. Pellentesque malesuada risus pellentesque tortor iaculis in congue leo bibendum.
-                                </p>
-                                <p>
-                                    Integer facilisis congue volutpat. Curabitur vel consequat eros. Ut sapien magna, interdum eget imperdiet quis, ultrices nec libero. Etiam ut magna at dolor tristique pretium. Pellentesque rhoncus ornare metus consequat molestie.
-                                </p>
-                                <p><a href="./blog-single.html" class="btn btn-large btn-welcome"><i class="icon-chevron-right"></i>Continue reading</a></p>
+                                {dede:field.infos/}
+                                <p><a href="{dede:field.arcurl/}" class="btn btn-large btn-welcome"><i class="icon-chevron-right"></i>阅读全文</a></p>
                             </div>
                         </div>
                     </div>
                 </article>
-				
+				{/dede:datalist}
                 <!--pagination-->
                 <div class="pagination pagination-centered">
                     <ul>

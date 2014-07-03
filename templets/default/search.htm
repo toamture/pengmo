@@ -1,0 +1,22 @@
+<div class="span4 hidden-phone">
+                    <section class="search clearfix">
+                        <form action="/plus/advancedsearch.php" method="post" id="search" class="input-append" onkeydown="if(event.keyCode==13){sear();}">
+                            <input type="hidden" name="mid" value="1" />
+                            <input type="hidden" name="dopost" value="search" />
+                            <input type="text" name="q" class="span4" id="appendedInputButton" size="16" value="Search..." onfocus="if(this.value=='Search...') this.value=''" onblur="if(this.value=='') this.value='Search...'" />
+                            <input type="button" class="btn search-bt" name="sub" value="" onClick="sear()" />
+                        </form>
+                    </section>
+                </div>
+                
+                <script>
+				function sear(){
+					var search_val = $("#appendedInputButton").val();
+					if(search_val == "Search..."){
+						alert("请输入搜索内容");
+						false;
+					}else{
+						$("#search").submit();
+					}
+				}
+				</script>

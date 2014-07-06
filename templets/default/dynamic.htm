@@ -42,117 +42,41 @@
     <div class="container">
         <div class="row">
             <section id="page-sidebar" class="pull-left span8">
-				
+				{dede:list pagesize='10'}
                 <article class="blog-post">
                     <div class="row">
                         <div class="span1">
-                            <div class="post-meta-day">25</div>
-                            <div class="post-meta-month">Oct</div>
+                            <div class="post-meta-day">[field:pubdate function=MyDate('d',@me)/]</div>
+                            <div class="post-meta-month">[field:pubdate function=MyDate('M',@me)/]</div>
                         </div>
                         <div class="span7">
-                            <h3 class="post-title"><a href="./blog-single.html">Lorem ipsum dolor sit amet consectetur</a></h3>
+                            <h3 class="post-title"><a href="[field:arcurl/]">[field:title/]</a></h3>
                             <ul class="post-meta">
-                                <li><i class="icon-calendar"></i> <a href="#">October 25, 2012</a></li>
-                                <li><i class="icon-user"></i> <a href="#">DXThemes</a></li>
-                                <li><i class="icon-list-alt"></i> <a href="#">News</a>, <a href="#">Web Design</a></li>
-                                <li><i class="icon-tag"></i> <a href="#">CSS3</a> <a href="#">HTML5</a> <a href="#">Responsive</a></li>
+                                <li><i class="icon-calendar"></i> [field:pubdate function=MyDate('Y-m-d',@me)/]</li>
+                                <li><i class="icon-user"></i> <a href="http://www.pengmo.net">[field:writer/]</a></li>
+                                <li><i class="icon-tag"></i>  [field:id function=GetTags(@me)/]</li>
                                 <li><i class="icon-comment"></i> <a href="#">12 Comments</a></li>
                             </ul>
                             <div class="post-media">
-                                <img src="/demand/example/blog1.jpg" alt="" />
+                                <img src="[field:litpic/]" alt="[field:title/]" />
                             </div>
                             <div class="post-content">
-                                <p>
-                                    Etiam congue, elit at tristique aliquam, sapien diam eleifend orci, vel tristique augue diam vel turpis. Vestibulum volutpat diam ut tortor vehicula accumsan. Aliquam placerat arcu eu orci pretium sit amet mattis felis convallis. Cras elementum molestie laoreet. Pellentesque malesuada risus pellentesque tortor iaculis in congue leo bibendum.
-                                </p>
-                                <p>
-                                    Integer facilisis congue volutpat. Curabitur vel consequat eros. Ut sapien magna, interdum eget imperdiet quis, ultrices nec libero. Etiam ut magna at dolor tristique pretium. Pellentesque rhoncus ornare metus consequat molestie.
-                                </p>
-                                <p><a href="./blog-single.html" class="btn btn-large btn-welcome"><i class="icon-chevron-right"></i>Continue reading</a></p>
+                                [field:infos/]
+                                <p style=" margin:10px 0;"><a href="./blog-single.html" class="btn btn-large btn-welcome"><i class="icon-chevron-right"></i>阅读全文</a></p>
                             </div>
                         </div>
                     </div>
                 </article>
-				
+				{/dede:list}
                 <!--pagination-->
                 <div class="pagination pagination-centered">
                     <ul>
-                        <li class="disabled"><a href="#">&laquo;</a></li>
-                        <li class="active"><a href="#">1</a></li>
-                        <li><a href="#">2</a></li>
-                        <li><a href="#">3</a></li>
-                        <li><a href="#">4</a></li>
-                        <li><a href="#">5</a></li>
-                        <li><a href="#">&raquo;</a></li>
+                        {dede:pagelist listitem="pre,next,pageno" listsize="11"/}
                     </ul>
                 </div>
             </section>
             <!--sidebar-->
-            <aside id="sidebar" class="pull-right span4">
-            <section>
-                <h3 class="widget-title">准备好选择模板了吗？</h3>
-                <p>鹏魔工作室的模板都是经过专业设计人员的精心设计完成的，相信总有一款适合您！</p>
-                <a href="#" class="btn btn-large btn-danger">选择模板</a>
-            </section>
-            <section>
-                <h3 class="widget-title">模板Tag</h3>
-                <div class="tags">
-                    <a href="#"><i class="icon-tag icon-white"></i>jquery</a>
-                    <a href="#"><i class="icon-tag icon-white"></i>css3</a>
-                    <a href="#"><i class="icon-tag icon-white"></i>html5</a>
-                    <a href="#"><i class="icon-tag icon-white"></i>web design</a>
-                    <a href="#"><i class="icon-tag icon-white"></i>busines</a>
-                    <a href="#"><i class="icon-tag icon-white"></i>creative</a>
-                    <a href="#"><i class="icon-tag icon-white"></i>responsive</a>
-                    <a href="#"><i class="icon-tag icon-white"></i>development</a>
-                    <a href="#"><i class="icon-tag icon-white"></i>javascript</a>
-                    <a href="#"><i class="icon-tag icon-white"></i>usability</a>
-                    <a href="#"><i class="icon-tag icon-white"></i>typography</a>
-                    <a href="#"><i class="icon-tag icon-white"></i>optimization</a>
-                    <a href="#"><i class="icon-tag icon-white"></i>tips</a>
-                    <a href="#"><i class="icon-tag icon-white"></i>e-commerce</a>
-                    <a href="#"><i class="icon-tag icon-white"></i>seo</a>
-                </div>
-            </section>
-            <section>
-                <h3 class="widget-title">价格列表</h3>
-                <div id="latestwork-sidebar" class="carousel slide">
-                    <div class="carousel-inner">
-                        <div class="active item"><img src="/demand/example/latest3.jpg" alt="photo" /></div>
-                        <div class="item"><img src="/demand/example/latest4.jpg" alt="photo" /></div>
-                        <div class="item"><img src="/demand/example/latest5.jpg" alt="photo" /></div>
-                    </div>
-                    <a class="carousel-control left" href="#latestwork-sidebar" data-slide="prev"></a>
-                    <a class="carousel-control right" href="#latestwork-sidebar" data-slide="next"></a>
-                </div>
-                <script type="text/javascript">
-                    $(document).ready(function(){
-                        $('.carousel').carousel({
-                            interval: 5000
-                        })
-                    });
-                </script>
-            </section>
-            <!--Flickr -->
-            <section>
-                <h3 class="widget-title">精品模板</h3>
-                <ul class="sidebar-flickr clearfix">
-                	<li class="thumbnail">
-                        <a rel="prettyPhoto[flickr]" href="http://farm8.staticflickr.com/7328/14011170570_23ac7e4a83.jpg" title="title">
-                            <img src="http://farm8.staticflickr.com/7328/14011170570_23ac7e4a83_s.jpg" alt="title" />
-                            <span class="frame-overlay"></span>
-                        </a>
-                    </li>
-                    <li class="thumbnail">
-                        <a rel="prettyPhoto[flickr]" href="http://farm8.staticflickr.com/7328/14011170570_23ac7e4a83.jpg" title="title">
-                            <img src="http://farm8.staticflickr.com/7328/14011170570_23ac7e4a83_s.jpg" alt="title" />
-                            <span class="frame-overlay"></span>
-                        </a>
-                    </li>
-                </ul>
-            </section>
-
-            </aside>
+            {dede:include filename="sidebar.htm"/}
         </div>
     </div>
 </section>

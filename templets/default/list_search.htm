@@ -46,8 +46,8 @@
                 <article class="blog-post">
                     <div class="row">
                         <div class="span1">
-                            <div class="post-meta-day">25</div>
-                            <div class="post-meta-month">Oct</div>
+                            <div class="post-meta-day">[field:pubdate function=MyDate('d',@me)/]</div>
+                            <div class="post-meta-month">[field:pubdate function=MyDate('m',@me)/]</div>
                         </div>
                         <div class="span7">
                             <h3 class="post-title"><a href="{dede:field.arcurl/}">{dede:field.title/}</a></h3>

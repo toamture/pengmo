@@ -127,7 +127,8 @@ if ( ! function_exists('GetTags'))
         $dsql->Execute('tag',$query);
         while($row = $dsql->GetArray('tag'))
         {
-            $tags .= ($tags=='' ? $row['tag'] : ','.$row['tag']);
+            //$tags .= ($tags=='' ? $row['tag'] : ','.$row['tag']);
+			$tags .= "<a href='/tags.php?/".urlencode($row['tag'])."/'>".$row['tag']."</a> ";
         }
         return $tags;
     }

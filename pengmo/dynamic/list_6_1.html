@@ -1,18 +1,20 @@
 <!DOCTYPE html>
-<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
-<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
-<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if lt IE 7 ]><html class="ie ie6" lang="zh"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="zh"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="zh"> <![endif]-->
 <!--[if (gte IE 9)|!(IE)]><!--><html lang="zh"> <!--<![endif]-->
 
 <head>
     
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no" />
+    <meta name="keywords" content="" />
+	<meta name="description" content="" />
     <link rel="shortcut icon" href="/demand/images/favicon.ico" />
     <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/demand/images/apple-touch-icon-144-precomposed.png" />
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/demand/images/apple-touch-icon-114-precomposed.png" />
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/demand/images/apple-touch-icon-72-precomposed.png" />
     <link rel="apple-touch-icon-precomposed" href="/demand/images/apple-touch-icon-57-precomposed.png" />
-    <title>工作室动态</title>
+    <title>工作室动态_我的网站</title>
     <link href="/demand/css/bootstrap.css" type="text/css" rel="stylesheet" />
     <link href="/demand/css/style.css" type="text/css" rel="stylesheet" />
     <link href="/demand/css/prettyPhoto.css" type="text/css" rel="stylesheet" />
@@ -91,16 +93,30 @@
             <div class="row">
                 <div class="span8">
                     <h1>Studio Dynamic <em style="font-size:14px; font-style:normal; color:#999999;">/ 工作室动态</em></h1>
-                    <div><a href="#">首页</a> &nbsp;&rsaquo;&nbsp; 工作室动态</div>
+                    <div><a href="/">首页</a> &nbsp;&rsaquo;&nbsp; 工作室动态</div>
                 </div>
                 <div class="span4 hidden-phone">
                     <section class="search clearfix">
-                        <form id="search" class="input-append" />
-                            <input class="span4" id="appendedInputButton" size="16" type="text" value="Search..." name="search site" onfocus="if(this.value=='Search...') this.value=''" onblur="if(this.value=='') this.value='Search...'" />
-                            <input class="btn search-bt" type="submit" name="submit" value="" />
+                        <form action="/plus/advancedsearch.php" method="post" id="search" class="input-append" onkeydown="if(event.keyCode==13){sear();}">
+                            <input type="hidden" name="mid" value="1" />
+                            <input type="hidden" name="dopost" value="search" />
+                            <input type="text" name="q" class="span4" id="appendedInputButton" size="16" value="Search..." onfocus="if(this.value=='Search...') this.value=''" onblur="if(this.value=='') this.value='Search...'" />
+                            <input type="button" class="btn search-bt" name="sub" value="" onClick="sear()" />
                         </form>
                     </section>
                 </div>
+                
+                <script>
+				function sear(){
+					var search_val = $("#appendedInputButton").val();
+					if(search_val == "Search..."){
+						alert("请输入搜索内容");
+						false;
+					}else{
+						$("#search").submit();
+					}
+				}
+				</script>
             </div>
         </div>
     </div>
@@ -111,223 +127,60 @@
     <div class="container">
         <div class="row">
             <section id="page-sidebar" class="pull-left span8">
-
-                <article class="blog-post">
+				<article class="blog-post">
                     <div class="row">
                         <div class="span1">
-                            <div class="post-meta-day">30</div>
-                            <div class="post-meta-month">Oct</div>
+                            <div class="post-meta-day">06</div>
+                            <div class="post-meta-month">Jul</div>
                         </div>
                         <div class="span7">
-                            <h3 class="post-title"><a href="./blog-single.html">Lorem ipsum dolor sit amet consectetur</a></h3>
+                            <h3 class="post-title"><a href="/pengmo/dynamic/20140703_1.html">1111111111111111</a></h3>
                             <ul class="post-meta">
-                                <li><i class="icon-user"></i> <a href="#">DXThemes</a></li>
-                                <li><i class="icon-list-alt"></i> <a href="#">News</a>, <a href="#">Web Design</a></li>
-                                <li><i class="icon-tag"></i> <a href="#">CSS3</a> <a href="#">HTML5</a> <a href="#">Responsive</a></li>
+                                <li><i class="icon-calendar"></i> 2014-07-06</li>
+                                <li><i class="icon-user"></i> <a href="http://www.pengmo.net">pengmo</a></li>
+                                <li><i class="icon-tag"></i>  </li>
                                 <li><i class="icon-comment"></i> <a href="#">12 Comments</a></li>
                             </ul>
                             <div class="post-media">
-                                <div id="mainslider" class="flexslider ps-slider">
-                                    <ul class="slides">
-                                        <li><img src="/demand/example/slider1.jpg" alt="" /></li>
-                                        <li><img src="/demand/example/slider2.jpg" alt="" /></li>
-                                        <li><img src="/demand/example/slider3.jpg" alt="" /></li>
-                                        <li><img src="/demand/example/slider4.jpg" alt="" /></li>
-                                    </ul>
-                                </div>
+                                <img src="/images/defaultpic.gif" alt="1111111111111111" />
                             </div>
                             <div class="post-content">
-                                <p>
-                                    Etiam congue, elit at tristique aliquam, sapien diam eleifend orci, vel tristique augue diam vel turpis. Vestibulum volutpat diam ut tortor vehicula accumsan. Aliquam placerat arcu eu orci pretium sit amet mattis felis convallis. Cras elementum molestie laoreet. Pellentesque malesuada risus pellentesque tortor iaculis in congue leo bibendum.
-                                </p>
-                                <p>
-                                    Integer facilisis congue volutpat. Curabitur vel consequat eros. Ut sapien magna, interdum eget imperdiet quis, ultrices nec libero. Etiam ut magna at dolor tristique pretium. Pellentesque rhoncus ornare metus consequat molestie.
-                                </p>
-                                <p><a href="./blog-single.html" class="btn btn-large btn-welcome"><i class="icon-chevron-right"></i>Continue reading</a></p>
+                                爱上大叔大叔的
+                                <p style=" margin:10px 0;"><a href="./blog-single.html" class="btn btn-large btn-welcome"><i class="icon-chevron-right"></i>阅读全文</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </article><article class="blog-post">
+                    <div class="row">
+                        <div class="span1">
+                            <div class="post-meta-day">06</div>
+                            <div class="post-meta-month">Jul</div>
+                        </div>
+                        <div class="span7">
+                            <h3 class="post-title"><a href="/pengmo/dynamic/20140706_2.html">2222222222</a></h3>
+                            <ul class="post-meta">
+                                <li><i class="icon-calendar"></i> 2014-07-06</li>
+                                <li><i class="icon-user"></i> <a href="http://www.pengmo.net">pengmo</a></li>
+                                <li><i class="icon-tag"></i>  </li>
+                                <li><i class="icon-comment"></i> <a href="#">12 Comments</a></li>
+                            </ul>
+                            <div class="post-media">
+                                <img src="/images/defaultpic.gif" alt="2222222222" />
+                            </div>
+                            <div class="post-content">
+                                231231231231231
+                                <p style=" margin:10px 0;"><a href="./blog-single.html" class="btn btn-large btn-welcome"><i class="icon-chevron-right"></i>阅读全文</a></p>
                             </div>
                         </div>
                     </div>
                 </article>
-
-                <hr />
-
-                <article class="blog-post">
-                    <div class="row">
-                        <div class="span1">
-                            <div class="post-meta-day">25</div>
-                            <div class="post-meta-month">Oct</div>
-                        </div>
-                        <div class="span7">
-                            <h3 class="post-title"><a href="./blog-single.html">Lorem ipsum dolor sit amet consectetur</a></h3>
-                            <ul class="post-meta">
-                                <li><i class="icon-calendar"></i> <a href="#">October 25, 2012</a></li>
-                                <li><i class="icon-user"></i> <a href="#">DXThemes</a></li>
-                                <li><i class="icon-list-alt"></i> <a href="#">News</a>, <a href="#">Web Design</a></li>
-                                <li><i class="icon-tag"></i> <a href="#">CSS3</a> <a href="#">HTML5</a> <a href="#">Responsive</a></li>
-                                <li><i class="icon-comment"></i> <a href="#">12 Comments</a></li>
-                            </ul>
-                            <div class="post-media">
-                                <img src="/demand/example/blog1.jpg" alt="" />
-                            </div>
-                            <div class="post-content">
-                                <p>
-                                    Etiam congue, elit at tristique aliquam, sapien diam eleifend orci, vel tristique augue diam vel turpis. Vestibulum volutpat diam ut tortor vehicula accumsan. Aliquam placerat arcu eu orci pretium sit amet mattis felis convallis. Cras elementum molestie laoreet. Pellentesque malesuada risus pellentesque tortor iaculis in congue leo bibendum.
-                                </p>
-                                <p>
-                                    Integer facilisis congue volutpat. Curabitur vel consequat eros. Ut sapien magna, interdum eget imperdiet quis, ultrices nec libero. Etiam ut magna at dolor tristique pretium. Pellentesque rhoncus ornare metus consequat molestie.
-                                </p>
-                                <p><a href="./blog-single.html" class="btn btn-large btn-welcome"><i class="icon-chevron-right"></i>Continue reading</a></p>
-                            </div>
-                        </div>
-                    </div>
-                </article>
-
-                <hr />
-
-                <article class="blog-post">
-                    <div class="row">
-                        <div class="span1">
-                            <div class="post-meta-day">18</div>
-                            <div class="post-meta-month">Oct</div>
-                        </div>
-                        <div class="span7">
-                            <h3 class="post-title"><a href="./blog-single.html">Lorem ipsum dolor sit amet consectetur</a></h3>
-                            <ul class="post-meta">
-                                <li><i class="icon-calendar"></i> <a href="#">October 18, 2012</a></li>
-                                <li><i class="icon-user"></i> <a href="#">DXThemes</a></li>
-                                <li><i class="icon-list-alt"></i> <a href="#">News</a>, <a href="#">Web Design</a></li>
-                                <li><i class="icon-tag"></i> <a href="#">CSS3</a> <a href="#">HTML5</a> <a href="#">Responsive</a></li>
-                                <li><i class="icon-comment"></i> <a href="#">12 Comments</a></li>
-                            </ul>
-                            <div class="post-media">
-                                <img src="/demand/example/blog2.jpg" alt="" />
-                            </div>
-                            <div class="post-content">
-                                <p>
-                                    Etiam congue, elit at tristique aliquam, sapien diam eleifend orci, vel tristique augue diam vel turpis. Vestibulum volutpat diam ut tortor vehicula accumsan. Aliquam placerat arcu eu orci pretium sit amet mattis felis convallis. Cras elementum molestie laoreet. Pellentesque malesuada risus pellentesque tortor iaculis in congue leo bibendum.
-                                </p>
-                                <p>
-                                    Integer facilisis congue volutpat. Curabitur vel consequat eros. Ut sapien magna, interdum eget imperdiet quis, ultrices nec libero. Etiam ut magna at dolor tristique pretium. Pellentesque rhoncus ornare metus consequat molestie.
-                                </p>
-                                <p><a href="./blog-single.html" class="btn btn-large btn-welcome"><i class="icon-chevron-right"></i>Continue reading</a></p>
-                            </div>
-                        </div>
-                    </div>
-                </article>
-
-                <hr />
-
-                <article class="blog-post">
-                    <div class="row">
-                        <div class="span1">
-                            <div class="post-meta-day">17</div>
-                            <div class="post-meta-month">Oct</div>
-                        </div>
-                        <div class="span7">
-                            <h3 class="post-title"><a href="./blog-single.html">Lorem ipsum dolor sit amet consectetur</a></h3>
-                            <ul class="post-meta">
-                                <li><i class="icon-calendar"></i> <a href="#">October 17, 2012</a></li>
-                                <li><i class="icon-user"></i> <a href="#">DXThemes</a></li>
-                                <li><i class="icon-list-alt"></i> <a href="#">News</a>, <a href="#">Web Design</a></li>
-                                <li><i class="icon-tag"></i> <a href="#">CSS3</a> <a href="#">HTML5</a> <a href="#">Responsive</a></li>
-                                <li><i class="icon-comment"></i> <a href="#">12 Comments</a></li>
-                            </ul>
-                            <div class="post-media">
-                                <div class="video">
-                                    <iframe src="http://player.vimeo.com/video/7449107" width="" height="" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen=""></iframe>
-                                </div>
-                            </div>
-                            <div class="post-content">
-                                <p>
-                                    Etiam congue, elit at tristique aliquam, sapien diam eleifend orci, vel tristique augue diam vel turpis. Vestibulum volutpat diam ut tortor vehicula accumsan. Aliquam placerat arcu eu orci pretium sit amet mattis felis convallis. Cras elementum molestie laoreet. Pellentesque malesuada risus pellentesque tortor iaculis in congue leo bibendum.
-                                </p>
-                                <p>
-                                    Integer facilisis congue volutpat. Curabitur vel consequat eros. Ut sapien magna, interdum eget imperdiet quis, ultrices nec libero. Etiam ut magna at dolor tristique pretium. Pellentesque rhoncus ornare metus consequat molestie.
-                                </p>
-                                <p><a href="./blog-single.html" class="btn btn-large btn-welcome"><i class="icon-chevron-right"></i>Continue reading</a></p>
-                            </div>
-                        </div>
-                    </div>
-                </article>
-
-                <hr />
-
-                <article class="blog-post">
-                    <div class="row">
-                        <div class="span1">
-                            <div class="post-meta-day">15</div>
-                            <div class="post-meta-month">Oct</div>
-                        </div>
-                        <div class="span7">
-                            <h3 class="post-title"><a href="./blog-single.html">Lorem ipsum dolor sit amet consectetur</a></h3>
-                            <ul class="post-meta">
-                                <li><i class="icon-calendar"></i> <a href="#">October 15, 2012</a></li>
-                                <li><i class="icon-user"></i> <a href="#">DXThemes</a></li>
-                                <li><i class="icon-list-alt"></i> <a href="#">News</a>, <a href="#">Web Design</a></li>
-                                <li><i class="icon-tag"></i> <a href="#">CSS3</a> <a href="#">HTML5</a> <a href="#">Responsive</a></li>
-                                <li><i class="icon-comment"></i> <a href="#">12 Comments</a></li>
-                            </ul>
-                            <div class="post-media">
-
-                            </div>
-                            <div class="post-content">
-                                <p>
-                                    Etiam congue, elit at tristique aliquam, sapien diam eleifend orci, vel tristique augue diam vel turpis. Vestibulum volutpat diam ut tortor vehicula accumsan. Aliquam placerat arcu eu orci pretium sit amet mattis felis convallis. Cras elementum molestie laoreet. Pellentesque malesuada risus pellentesque tortor iaculis in congue leo bibendum.
-                                </p>
-                                <p>
-                                    Integer facilisis congue volutpat. Curabitur vel consequat eros. Ut sapien magna, interdum eget imperdiet quis, ultrices nec libero. Etiam ut magna at dolor tristique pretium. Pellentesque rhoncus ornare metus consequat molestie.
-                                </p>
-                                <p><a href="./blog-single.html" class="btn btn-large btn-welcome"><i class="icon-chevron-right"></i>Continue reading</a></p>
-                            </div>
-                        </div>
-                    </div>
-                </article>
-
-                <hr />
-
-                <article class="blog-post">
-                    <div class="row">
-                        <div class="span1">
-                            <div class="post-meta-day">12</div>
-                            <div class="post-meta-month">Oct</div>
-                        </div>
-                        <div class="span7">
-                            <h3 class="post-title"><a href="./blog-single.html">Lorem ipsum dolor sit amet consectetur</a></h3>
-                            <ul class="post-meta">
-                                <li><i class="icon-calendar"></i> <a href="#">October 12, 2012</a></li>
-                                <li><i class="icon-user"></i> <a href="#">DXThemes</a></li>
-                                <li><i class="icon-list-alt"></i> <a href="#">News</a>, <a href="#">Web Design</a></li>
-                                <li><i class="icon-tag"></i> <a href="#">CSS3</a> <a href="#">HTML5</a> <a href="#">Responsive</a></li>
-                                <li><i class="icon-comment"></i> <a href="#">12 Comments</a></li>
-                            </ul>
-                            <div class="post-media">
-
-                            </div>
-                            <div class="post-content">
-                                <blockquote>
-                                    <p>
-                                        Etiam congue, elit at tristique aliquam, sapien diam eleifend orci, vel tristique augue diam vel turpis. Vestibulum volutpat diam ut tortor vehicula accumsan. Aliquam placerat arcu eu orci pretium sit amet mattis felis convallis. Cras elementum molestie laoreet. Pellentesque malesuada risus pellentesque tortor iaculis in congue leo bibendum.
-                                    </p>
-                                    <p>
-                                        Integer facilisis congue volutpat. Curabitur vel consequat eros. Ut sapien magna, interdum eget imperdiet quis, ultrices nec libero. Etiam ut magna at dolor tristique pretium. Pellentesque rhoncus ornare metus consequat molestie.
-                                    </p>
-                                </blockquote>
-                                <p><a href="./blog-single.html" class="btn btn-large btn-welcome"><i class="icon-chevron-right"></i>Continue reading</a></p>
-                            </div>
-                        </div>
-                    </div>
-                </article>
-
                 <!--pagination-->
                 <div class="pagination pagination-centered">
                     <ul>
-                        <li class="disabled"><a href="#">&laquo;</a></li>
-                        <li class="active"><a href="#">1</a></li>
-                        <li><a href="#">2</a></li>
-                        <li><a href="#">3</a></li>
-                        <li><a href="#">4</a></li>
-                        <li><a href="#">5</a></li>
-                        <li><a href="#">&raquo;</a></li>
+                        <li class='disabled'><a href='javascript:void(0)'>&laquo;</a></li>
+<li class="active"><a href='javascript:void(0)'>1</a></li>
+<li class='disabled'><a href='javascript:void(0)'>&raquo;</a></li>
+
                     </ul>
                 </div>
             </section>
@@ -428,8 +281,8 @@
                 <p class="heading">关注我们</p>
                 <p>请输入您的邮箱地址，我们将实时为您提供工作室的最新动态。</p>
                 <div class="input-append">
-                    <input type="text" placeholder="输入邮箱地址" class="span2" />
-                    <button type="button" class="btn btn-inverse">订阅</button>
+                    <input type="text" placeholder="输入邮箱地址" class="span2" id="foot_email" />
+                    <button type="button" class="btn btn-inverse" onClick="chose()">订阅</button>
                 </div>
             </div>
             <div class="span4">
@@ -456,7 +309,7 @@
             <div class="span8 hidden-phone">
                 <ul class="pull-right">
                     <li><a href="/demand/#">Privacy Policy</a></li>
-                    <li><a href="/demand/#">Contact Us</a></li>
+                    <li><a href="/pengmo/contact">Contact Us</a></li>
                     <li><a href="/demand/#">Sitemap</a></li>
                 </ul>
             </div>
@@ -465,5 +318,17 @@
 </section>
 
 <div style="display:none"><script src="http://s4.cnzz.com/z_stat.php?id=1000439680&web_id=1000439680" language="JavaScript"></script></div>
+<script>
+	function chose(){
+		var email = $("#foot_email").val();
+		if(email != ""){
+			var url = "/pengmo/contact?email="+escape(email);
+			location.href=url;
+		}else{
+			alert("请输入您的邮箱地址！");
+		}
+		
+	}
+</script>
 </body>
 </html>

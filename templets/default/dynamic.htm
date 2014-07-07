@@ -57,12 +57,10 @@
                                 <li><i class="icon-tag"></i>  [field:id function=GetTags(@me)/]</li>
                                 <li><i class="icon-comment"></i> <a href="#">12 Comments</a></li>
                             </ul>
-                            <div class="post-media">
-                                <img src="[field:litpic/]" alt="[field:title/]" />
-                            </div>
+                            [field:array runphp='yes']@me = (empty(@me['litpic']) ? "" : "<div class='post-media'><img src='{@me['litpic']}'/></div>"); [/field:array]
                             <div class="post-content">
                                 [field:infos/]
-                                <p style=" margin:10px 0;"><a href="./blog-single.html" class="btn btn-large btn-welcome"><i class="icon-chevron-right"></i>阅读全文</a></p>
+                                <p style=" margin:10px 0;"><a href="[field:arcurl/]" class="btn btn-large btn-welcome"><i class="icon-chevron-right"></i>阅读全文</a></p>
                             </div>
                         </div>
                     </div>

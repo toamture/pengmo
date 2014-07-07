@@ -363,7 +363,7 @@ class TagList
                     $row['ispart'],$row['namerule2'],$row['moresite'],$row['siteurl'],$row['sitepath']);
                     if($row['litpic'] == '-' || $row['litpic'] == '')
                     {
-                        $row['litpic'] = $GLOBALS['cfg_cmspath'].'/images/defaultpic.gif';
+                        //$row['litpic'] = $GLOBALS['cfg_cmspath'].'/images/defaultpic.gif';
                     }
                     if(!preg_match("/^http:\/\//", $row['litpic']) && $GLOBALS['cfg_multi_site'] == 'Y')
                     {
@@ -436,6 +436,10 @@ class TagList
      */
     function GetPageListDM($list_len,$listitem="info,index,end,pre,next,pageno")
     {
+		global $cfg_rewrite;
+		if($this->PageNo == 0){
+			$this->PageNo = 1;
+		}
         $prepage="";
         $nextpage="";
         $prepagenum = $this->PageNo - 1;
@@ -447,34 +451,40 @@ class TagList
         $totalpage = $this->TotalPage;
         if($totalpage <= 1 && $this->TotalResult > 0)
         {
-            return "<span class=\"pageinfo\">共1页/".$this->TotalResult."条</span>";
+            //return "<span class=\"pageinfo\">共1页/".$this->TotalResult."条</span>";
+			return "<li class='disabled'><a href='javascript:void(0)'>&laquo;</a></li>\r\n<li class=\"active\"><a href='javascript:void(0)'>1</a></li>\r\n<li class='disabled'><a href='javascript:void(0)'>&raquo;</a></li>\r\n";
         }
         if($this->TotalResult == 0)
         {
-            return "<span class=\"pageinfo\">共0页/".$this->TotalResult."条</span>";
+            //return "<span class=\"pageinfo\">共0页/".$this->TotalResult."条</span>";
+			return "<li class='disabled'><a href='javascript:void(0)'>&laquo;</a></li>\r\n<li class=\"active\"><a href='javascript:void(0)'>1</a></li>\r\n<li class='disabled'><a href='javascript:void(0)'>&raquo;</a></li>\r\n";
         }
         $maininfo = "<span class=\"pageinfo\">共{$totalpage}页/".$this->TotalResult."条</span>\r\n";
         $purl = $this->GetCurUrl();
-        $purl .= "?/".urlencode($this->Tag);
+        $purl .= "?/".urlencode($this->Tag);		
 
         //获得上一页和下一页的链接
         if($this->PageNo != 1)
         {
-            $prepage.="<li><a href='".$purl."/$prepagenum/'>上一页</a></li>\r\n";
-            $indexpage="<li><a href='".$purl."/1/'>首页</a></li>\r\n";
+            //$prepage.="<li><a href='".$purl."/$prepagenum/'>上一页</a></li>\r\n";
+            //$indexpage="<li><a href='".$purl."/1/'>首页</a></li>\r\n";
+			$prepage.="<li><a href='".$purl."/$prepagenum/'>&laquo;</a></li>\r\n";
         }
         else
         {
-            $indexpage="<li><a>首页</a></li>\r\n";
+            //$indexpage="<li><a>首页</a></li>\r\n";
+			$prepage.="<li class='disabled'><a href='javascript:void(0)'>&laquo;</a></li>\r\n";
         }
         if($this->PageNo!=$totalpage && $totalpage>1)
         {
-            $nextpage.="<li><a href='".$purl."/$nextpagenum/'>下一页</a></li>\r\n";
-            $endpage="<li><a href='".$purl."/$totalpage/'>末页</a></li>\r\n";
+            //$nextpage.="<li><a href='".$purl."/$nextpagenum/'>下一页</a></li>\r\n";
+            //$endpage="<li><a href='".$purl."/$totalpage/'>末页</a></li>\r\n";
+			$nextpage.="<li><a href='".$purl."/$nextpagenum/'>&raquo;</a></li>\r\n";
         }
         else
         {
-            $endpage="<li><a>末页</a></li>\r\n";
+            //$endpage="<li><a>末页</a></li>\r\n";
+			$nextpage.="<li class='disabled'><a href='javascript:void(0)'>&raquo;</a></li>\r\n";
         }
 
         //获得数字链接
@@ -501,7 +511,8 @@ class TagList
         {
             if($j == $this->PageNo)
             {
-                $listdd.= "<li class=\"thisclass\"><a>$j</a></li>\r\n";
+                //$listdd.= "<li class=\"thisclass\"><a>$j</a></li>\r\n";
+				$listdd.= "<li class=\"active\"><a href='javascript:void(0)'>$j</a></li>\r\n";
             }
             else
             {

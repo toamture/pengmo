@@ -93,16 +93,30 @@
             <div class="row">
                 <div class="span8">
                     <h1>1111111111111111 <em style="font-size:14px; font-style:normal; color:#999999;">/ 工作室动态</em></h1>
-                    <div><a href="/">首页</a> &nbsp;&rsaquo;&nbsp; <a href="/pengmo/dynamic">工作室动态</a></div>
+                    <div><a href="/">首页</a> &nbsp;&rsaquo;&nbsp; <a href="/pengmo/dynamic">工作室动态</a> &nbsp;&rsaquo;&nbsp; 1111111111111111</div>
                 </div>
                 <div class="span4 hidden-phone">
                     <section class="search clearfix">
-                        <form id="search" class="input-append" />
-                            <input class="span4" id="appendedInputButton" size="16" type="text" value="Search..." name="search site" onfocus="if(this.value=='Search...') this.value=''" onblur="if(this.value=='') this.value='Search...'" />
-                            <input class="btn search-bt" type="submit" name="submit" value="" />
+                        <form action="/plus/advancedsearch.php" method="post" id="search" class="input-append" onkeydown="if(event.keyCode==13){sear();}">
+                            <input type="hidden" name="mid" value="1" />
+                            <input type="hidden" name="dopost" value="search" />
+                            <input type="text" name="q" class="span4" id="appendedInputButton" size="16" value="Search..." onfocus="if(this.value=='Search...') this.value=''" onblur="if(this.value=='') this.value='Search...'" />
+                            <input type="button" class="btn search-bt" name="sub" value="" onClick="sear()" />
                         </form>
                     </section>
                 </div>
+                
+                <script>
+				function sear(){
+					var search_val = $("#appendedInputButton").val();
+					if(search_val == "Search..."){
+						alert("请输入搜索内容");
+						false;
+					}else{
+						$("#search").submit();
+					}
+				}
+				</script>
             </div>
         </div>
     </div>
@@ -118,15 +132,14 @@
                     <div class="row">
                         <div class="span8">
                             <h3 class="post-title">1111111111111111</h3>
-                            <div class="post-media"><img src="/images/defaultpic.gif" alt="" /></div>
+                            <div class="post-media"><img src="/images/defaultpic.gif" alt="1111111111111111" /></div>
                             <div class="post-content">
                                 啊是大打双打
                             </div>
                             <ul class="post-meta">
-                                <li><i class="icon-calendar"></i> <a href="#">October 30, 2012</a></li>
-                                <li><i class="icon-user"></i> <a href="#">DXThemes</a></li>
-                                <li><i class="icon-list-alt"></i> <a href="#">News</a>, <a href="#">Web Design</a></li>
-                                <li><i class="icon-tag"></i> <a href="#">CSS3</a> <a href="#">HTML5</a> <a href="#">Responsive</a></li>
+                                <li><i class="icon-calendar"></i> 2014-07-07 09:40</li>
+                                <li><i class="icon-user"></i> <a href="http://www.pengmo.net">pengmo</a></li>
+                                <li><i class="icon-tag"></i> <a href='/tags.php?/aaa/'>aaa</a> </li>
                                 <li><i class="icon-comment"></i> <a href="#">12 Comments</a></li>
                             </ul>
                         </div>
@@ -135,6 +148,9 @@
                 </article>  
 
                 <hr />
+                
+                
+1111
 
                 <!--comments-->
                 <h3>4 Comments</h3>

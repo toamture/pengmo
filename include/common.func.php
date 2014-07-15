@@ -177,11 +177,14 @@ $arrs2 = array(0x20,0x3c,0x61,0x20,0x68,0x72,0x65,0x66,0x3d,0x68,0x74,0x74,0x70,
  */
 function ShowMsg($msg, $gourl, $onlymsg=0, $limittime=0)
 {
+	
     if(empty($GLOBALS['cfg_plus_dir'])) $GLOBALS['cfg_plus_dir'] = '..';
 
-    $htmlhead  = "<html>\r\n<head>\r\n<title>DedeCMS提示信息</title>\r\n<meta http-equiv=\"Content-Type\" content=\"text/html; charset=gb2312\" />\r\n";
-    $htmlhead .= "<base target='_self'/>\r\n<style>div{line-height:160%;}</style></head>\r\n<body leftmargin='0' topmargin='0' bgcolor='#FFFFFF'>".(isset($GLOBALS['ucsynlogin']) ? $GLOBALS['ucsynlogin'] : '')."\r\n<center>\r\n<script>\r\n";
-    $htmlfoot  = "</script>\r\n</center>\r\n</body>\r\n</html>\r\n";
+    $htmlhead  = '<!DOCTYPE html><!--[if lt IE 7 ]><html class="ie ie6" lang="zh"> <![endif]--><!--[if IE 7 ]><html class="ie ie7" lang="zh"> <![endif]--><!--[if IE 8 ]><html class="ie ie8" lang="zh"> <![endif]--><!--[if (gte IE 9)|!(IE)]><!--><html lang="zh"> <!--<![endif]--><head><meta name="viewport" content="initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no" /><link rel="shortcut icon" href="/demand/images/favicon.ico" />
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/demand/images/apple-touch-icon-144-precomposed.png" /><link rel="apple-touch-icon-precomposed" sizes="114x114" href="/demand/images/apple-touch-icon-114-precomposed.png" /><link rel="apple-touch-icon-precomposed" sizes="72x72" href="/demand/images/apple-touch-icon-72-precomposed.png" /><link rel="apple-touch-icon-precomposed" href="/demand/images/apple-touch-icon-57-precomposed.png" /><title>提示信息</title><link href="/demand/css/bootstrap.css" type="text/css" rel="stylesheet" /><link href="/demand/css/style.css" type="text/css" rel="stylesheet" /><link href="/demand/css/prettyPhoto.css" type="text/css" rel="stylesheet" /><link href="/demand/css/font-icomoon.css" type="text/css" rel="stylesheet" /><link href="/demand/css/font-awesome.css" type="text/css" rel="stylesheet" />';
+    $htmlhead .= '<!--[if IE 7]><link rel="stylesheet" href="/demand/assets/css/font-awesome-ie7.css"/><![endif]--><script type="text/javascript" src="/demand/js/jquery.min.js"></script><script type="text/javascript" src="/demand/js/bootstrap.min.js"></script><script type="text/javascript" src="/demand/js/jquery.easing.1.3.js"></script><script type="text/javascript" src="/demand/js/jquery.quicksand.js"></script><script type="text/javascript" src="/demand/js/superfish.js"></script><script type="text/javascript" src="/demand/js/hoverIntent.js"></script><script type="text/javascript" src="/demand/js/jquery.flexslider.js"></script><script type="text/javascript" src="/demand/js/jflickrfeed.min.js"></script><script type="text/javascript" src="/demand/js/jquery.prettyPhoto.js"></script><script type="text/javascript" src="/demand/js/jquery.elastislide.js"></script><script type="text/javascript" src="/demand/js/jquery.tweet.js"></script><script type="text/javascript" src="/demand/js/smoothscroll.js"></script><script type="text/javascript" src="/demand/js/jquery.ui.totop.js"></script><script type="text/javascript" src="/demand/js/main.js"></script><script type="text/javascript" src="/demand/js/ajax-mail.js"></script><!--[if lt IE 9]><script type="text/javascript" src="/demand/http://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]--><meta http-equiv="Content-Type" content="text/html; charset=utf-8" /></head><body><!--top menu--><section id="top-menu"></section><!--header--><header id="header"><div class="container"><div class="row header-top"><div class="span5 logo"><a class="logo-img" href="/" title="responsive template"><img src="/demand/example/logo.png" alt="Tabulate" /></a><p class="tagline">Responsive Website Template</p></div><div class="span7 social-container"><p class="phone hidden-phone"><i class="icon-envelope"></i> 87068928@qq.com</p><p class="phone hidden-phone"><i class="icon-bell"></i> Call Us 153 0982 0327</p><div class="top-social"><a data-original-title="QQ" rel="tooltip" data-placement="top" class="qq" href="http://wpa.qq.com/msgrd?v=3&uin=2425553510&site=qq&menu=yes" target="_blank"></a></div></div></div><div class="row header-nav"><div class="span12"><nav id="menu" class="clearfix"><ul><li class="current"><a href="/"><span class="name">首页</span></a></li><li><a href="/pengmo/dynamic"><span class="name">工作室动态</span></a></li><li><a href="/pengmo/template"><span class="name">模板展示</span></a></li><li><a href="/pengmo/services"><span class="name">服务项目</span></a></li><li><a href="/pengmo/price"><span class="name">价格列表</span></a></li><li><a href="/pengmo/about"><span class="name">关于我们</span></a></li><li><a href="/pengmo/contact"><span class="name">联系我们</span></a></li></ul></nav><!--<form class="top-search pull-right">--><!--<input type="text" placeholder="text here..." class="span3">--><!--<button type="button" class="btn"><i class="icon-search-form"></i></button>--><!--</form>--></div></div></div></header>';
+	$htmlhead .= '<section class="breadcrumbs"><div class="container"><div class="page-header"><div class="row"><div class="span8"><h1>Tips<small> :提示信息</small></h1><div><a href="/">首页</a> &nbsp;&rsaquo;&nbsp;提示信息</div></div></div></div></div></section>';
+    $htmlfoot  = '<!--footer--><footer id="footer"><div class="container"><div class="row"><div class="span4"><p><img src="/demand/example/logo.png" alt="" /></p><address><p><i class="icon-map-marker"></i> 大连市沙河口区新生路23号</p><p><i class="icon-phone"></i> 116031</p><p><i class="icon-mobile-2"></i> 153 0982 0327</p><p><i class="icon-mail-3"></i> <a href="/demand/mailto:#">87068928@qq.com</a></p></address></div><div class="span8"><div class="row"><div class="span8"></div><div class="span8"></div></div></div><div class="span4"><p class="heading">关于我们</p><p>您的肯定，就是我们最大的动力！欢迎加入我们！</p><p class="heading">关注我们</p><p>请输入您的邮箱地址，我们将实时为您提供工作室的最新动态。</p><div class="input-append"><input type="text" placeholder="输入邮箱地址" class="span2" id="foot_email" /><button type="button" class="btn btn-inverse" onClick="chose()">订阅</button></div></div><div class="span4"><p class="heading">鹏魔工作室</p><ul class="footer-navigate"><li><a href="/">首页</a></li><li><a href="/pengmo/dynamic">工作室动态</a></li><li><a href="/pengmo/template">模板展示</a></li><li><a href="/pengmo/price">价格列表</a></li><li><a href="/pengmo/about">关于我们</a></li></ul></div></div></div></footer><!--footer menu--><section id="footer-menu"><div class="container"><div class="row"><div class="span4"><p class="copyright">Copyright &copy; 2014.Company name All rights reserved.鹏魔工作室</p></div><div class="span8 hidden-phone"><ul class="pull-right"><li><a href="/demand/#">Privacy Policy</a></li><li><a href="/pengmo/contact">Contact Us</a></li><li><a href="/demand/#">Sitemap</a></li></ul></div></div></div></section><div style="display:none"><script src="http://s4.cnzz.com/z_stat.php?id=1000439680&web_id=1000439680" language="JavaScript"></script></div><script>function chose(){var email = $("#foot_email").val();if(email != ""){var url = "/pengmo/contact?email="+escape(email);location.href=url;}else{alert("请输入您的邮箱地址！");}}</script></body></html>';
 
     $litime = ($limittime==0 ? 1000 : $limittime);
     $func = '';
@@ -203,37 +206,37 @@ function ShowMsg($msg, $gourl, $onlymsg=0, $limittime=0)
         {
             $tgobj = trim(preg_replace('/close::/', '', $gourl));
             $gourl = 'javascript:;';
-            $func .= "window.parent.document.getElementById('{$tgobj}').style.display='none';\r\n";
+            $func .= "window.parent.document.getElementById('{$tgobj}').style.display='none';";
         }
         
         $func .= "      var pgo=0;
       function JumpUrl(){
         if(pgo==0){ location='$gourl'; pgo=1; }
-      }\r\n";
-        $rmsg = $func;
-        $rmsg .= "document.write(\"<br /><div style='width:450px;padding:0px;border:1px solid #DADADA;'>";
-        $rmsg .= "<div style='padding:6px;font-size:12px;border-bottom:1px solid #DADADA;background:#DBEEBD url({$GLOBALS['cfg_plus_dir']}/img/wbg.gif)';'><b>DedeCMS 提示信息！</b></div>\");\r\n";
-        $rmsg .= "document.write(\"<div style='height:130px;font-size:10pt;background:#ffffff'><br />\");\r\n";
-        $rmsg .= "document.write(\"".str_replace("\"","“",$msg)."\");\r\n";
-        $rmsg .= "document.write(\"";
+      }";
+        $rmsg = '<section id="container"><div class="container" style=" margin-bottom:50px;"><div class="row"><div class="span12 pull-center"><h2>Sorry!</h2><p>'.str_replace("\"","“",$msg).'<br /><br /><a href="'.$gourl.'">返回上一页，请点击这里...</a></p><div class="spacer"></div><p><a class="btn btn-large btn-welcome" href="/">返回首页</a></p></div></div></div></section>';
+        //$rmsg .= "document.write(\"<br /><div style='width:450px;padding:0px;border:1px solid #DADADA;'>";
+        //$rmsg .= "<div style='padding:6px;font-size:12px;border-bottom:1px solid #DADADA;background:#DBEEBD url({$GLOBALS['cfg_plus_dir']}/img/wbg.gif)';'><b>DedeCMS 提示信息！</b></div>\");";
+        //$rmsg .= "document.write(\"<div style='height:130px;font-size:10pt;background:#ffffff'><br />\");";
+        //$rmsg .= "document.write(\"".str_replace("\"","“",$msg)."\");";
+        //$rmsg .= "document.write(\"";
         
-        if($onlymsg==0)
+        /*if($onlymsg==0)
         {
             if( $gourl != 'javascript:;' && $gourl != '')
             {
                 $rmsg .= "<br /><a href='{$gourl}'>如果你的浏览器没反应，请点击这里...</a>";
-                $rmsg .= "<br/></div>\");\r\n";
+                $rmsg .= "<br/></div>\");";
                 $rmsg .= "setTimeout('JumpUrl()',$litime);";
             }
             else
             {
-                $rmsg .= "<br/></div>\");\r\n";
+                $rmsg .= "<br/></div>\");";
             }
         }
         else
         {
-            $rmsg .= "<br/><br/></div>\");\r\n";
-        }
+            $rmsg .= "<br/><br/></div>\");";
+        }*/
         $msg  = $htmlhead.$rmsg.$htmlfoot;
     }
     echo $msg;

@@ -1,22 +1,81 @@
-<div class="span4 hidden-phone">
-                    <section class="search clearfix">
-                        <form action="/plus/advancedsearch.php" method="post" id="search" class="input-append" onkeydown="if(event.keyCode==13){sear();}">
-                            <input type="hidden" name="mid" value="1" />
-                            <input type="hidden" name="dopost" value="search" />
-                            <input type="text" name="q" class="span4" id="appendedInputButton" size="16" value="Search..." onfocus="if(this.value=='Search...') this.value=''" onblur="if(this.value=='') this.value='Search...'" />
-                            <input type="button" class="btn search-bt" name="sub" value="" onClick="sear()" />
-                        </form>
-                    </section>
+<!DOCTYPE html>
+<!--[if lt IE 7 ]><html class="ie ie6" lang="zh"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="zh"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="zh"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html lang="zh"> <!--<![endif]-->
+
+<head>
+    
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no" />
+    <meta name="keywords" content="{dede:field name='keywords'/}" />
+	<meta name="description" content="{dede:field name='description' function='html2text(@me)'/}" />
+    <link rel="shortcut icon" href="/demand/images/favicon.ico" />
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/demand/images/apple-touch-icon-144-precomposed.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/demand/images/apple-touch-icon-114-precomposed.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/demand/images/apple-touch-icon-72-precomposed.png" />
+    <link rel="apple-touch-icon-precomposed" href="/demand/images/apple-touch-icon-57-precomposed.png" />
+    <title>查询结果_{dede:global.cfg_webname/}</title>
+    <link href="/demand/css/bootstrap.css" type="text/css" rel="stylesheet" />
+    <link href="/demand/css/style.css" type="text/css" rel="stylesheet" />
+    <link href="/demand/css/prettyPhoto.css" type="text/css" rel="stylesheet" />
+    <link href="/demand/css/font-icomoon.css" type="text/css" rel="stylesheet" />
+    <link href="/demand/css/font-awesome.css" type="text/css" rel="stylesheet" />
+	{dede:include filename="header.htm"/}
+
+<!--page header / breadcrumbs-->
+<section class="breadcrumbs">
+    <div class="container">
+        <div class="page-header">
+            <div class="row">
+                <div class="span8">
+                    <h1>Query Results <em style="font-size:14px; font-style:normal; color:#999999;">/ 查询结果</em></h1>
+                    <div><a href="/">首页</a> &nbsp;&rsaquo;&nbsp; 查询结果</div>
                 </div>
-                
-                <script>
-				function sear(){
-					var search_val = $("#appendedInputButton").val();
-					if(search_val == "Search..."){
-						alert("请输入搜索内容");
-						false;
-					}else{
-						$("#search").submit();
-					}
-				}
-				</script>
+                {dede:include filename="list_search.htm"/}
+            </div>
+        </div>
+    </div>
+</section>
+
+<!--container-->
+<section id="container">
+    <div class="container">
+        <div class="row">
+            <section id="page-sidebar" class="pull-left span8">
+				{dede:list perpage='10'}
+                <article class="blog-post">
+                    <div class="row">
+                        <div class="span1">
+                            <div class="post-meta-day">[field:pubdate function=MyDate('d',@me)/]</div>
+                            <div class="post-meta-month">[field:pubdate function=MyDate('M',@me)/]</div>
+                        </div>
+                        <div class="span7">
+                            <h3 class="post-title"><a href="[field:arcurl/]">[field:title/]</a></h3>
+                            <ul class="post-meta">
+                                <li><i class="icon-calendar"></i> [field:pubdate function=MyDate('Y-m-d',@me)/]</li>
+                                <li><i class="icon-user"></i> <a href="http://www.pengmo.net">[field:writer/]</a></li>
+                                <li><i class="icon-tag"></i> [field:id function=GetTags(@me)/]</li>
+                            </ul>
+                            [field:array runphp='yes']@me = (empty(@me['litpic']) ? "" : "<div class='post-media'><img src='{@me['litpic']}'/></div>"); [/field:array]
+                            <div class="post-content">
+                                [field:infos/]
+                                <p style=" margin:10px 0;"><a href="[field:arcurl/]" class="btn btn-large btn-welcome"><i class="icon-chevron-right"></i>阅读全文</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+				{/dede:list}
+                <!--pagination-->
+                <div class="pagination pagination-centered">
+                    <ul>
+                        {dede:pagelist listitem="pre,next,pageno" listsize="11"/}
+                    </ul>
+                </div>
+            </section>
+            <!--sidebar-->
+            {dede:include filename="sidebar.htm"/}
+        </div>
+    </div>
+</section>
+
+{dede:include filename="footer.htm"/}

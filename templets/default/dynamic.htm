@@ -31,7 +31,7 @@
                     <h1>Studio Dynamic <em style="font-size:14px; font-style:normal; color:#999999;">/ {dede:field.title/}</em></h1>
                     <div><a href="/">首页</a> &nbsp;&rsaquo;&nbsp; {dede:field.title/}</div>
                 </div>
-                {dede:include filename="search.htm"/}
+                {dede:include filename="list_search.htm"/}
             </div>
         </div>
     </div>
@@ -54,8 +54,7 @@
                             <ul class="post-meta">
                                 <li><i class="icon-calendar"></i> [field:pubdate function=MyDate('Y-m-d',@me)/]</li>
                                 <li><i class="icon-user"></i> <a href="http://www.pengmo.net">[field:writer/]</a></li>
-                                <li><i class="icon-tag"></i>  [field:id function=GetTags(@me)/]</li>
-                                <li><i class="icon-comment"></i> <a href="#">12 Comments</a></li>
+                                <li><i class="icon-tag"></i> [field:id function=GetTags(@me)/]</li>
                             </ul>
                             [field:array runphp='yes']@me = (empty(@me['litpic']) ? "" : "<div class='post-media'><img src='{@me['litpic']}'/></div>"); [/field:array]
                             <div class="post-content">

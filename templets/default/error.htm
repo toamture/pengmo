@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]><html class="ie ie6" lang="zh"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="zh"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="zh"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html lang="zh"> <!--<![endif]-->
+
+<head>
+    
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no" />
+    <meta name="keywords" content="{dede:field name='keywords'/}" />
+	<meta name="description" content="{dede:field name='description' function='html2text(@me)'/}" />
+    <link rel="shortcut icon" href="/demand/images/favicon.ico" />
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/demand/images/apple-touch-icon-144-precomposed.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/demand/images/apple-touch-icon-114-precomposed.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/demand/images/apple-touch-icon-72-precomposed.png" />
+    <link rel="apple-touch-icon-precomposed" href="/demand/images/apple-touch-icon-57-precomposed.png" />
+    <title>{dede:field.title/}_{dede:global.cfg_webname/}</title>
+    <link href="/demand/css/bootstrap.css" type="text/css" rel="stylesheet" />
+    <link href="/demand/css/style.css" type="text/css" rel="stylesheet" />
+    <link href="/demand/css/prettyPhoto.css" type="text/css" rel="stylesheet" />
+    <link href="/demand/css/font-icomoon.css" type="text/css" rel="stylesheet" />
+    <link href="/demand/css/font-awesome.css" type="text/css" rel="stylesheet" />
+	{dede:include filename="header.htm"/}
+
+<!--page header / breadcrumbs-->
+<section class="breadcrumbs">
+    <div class="container">
+        <div class="page-header">
+            <div class="row">
+                <div class="span8">
+                    <h1>404<small> : 页面未找到</small></h1>
+                    <div><a href="{dede:global.cfg_cmsurl/}">首页</a> &nbsp;&rsaquo;&nbsp; 404错误</div>
+                </div>
+                {dede:include filename="list_search.htm"/}
+            </div>
+        </div>
+    </div>
+</section>
+
+<!--container-->
+<section id="container">
+    <div class="container">
+        <div class="row">
+            <div class="span12 pull-center">
+                <h2>Sorry! <br />404: 页面未找到</h2>
+                <p>
+                    对不起, 您所访问的页面不存在<br />
+                    请您检查下您输入的地址是否错误, 然后按下浏览器的刷新按钮.
+                </p>
+                <div class="spacer"></div>
+                <p>
+                    <a class="btn btn-large btn-welcome" href="./index.html">返回首页</a>
+                </p>
+            </div>
+        </div>
+    </div>    
+</section>
+
+{dede:include filename="footer.htm"/}

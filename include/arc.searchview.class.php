@@ -819,11 +819,13 @@ class SearchView
         $totalpage = ceil($this->TotalResult / $this->PageSize);
         if($totalpage<=1 && $this->TotalResult>0)
         {
-            return "共1页/".$this->TotalResult."条记录";
+            //return "共1页/".$this->TotalResult."条记录";
+			return "<li class='disabled'><a href='javascript:void(0)'>&laquo;</a></li>\r\n<li class=\"active\"><a href='javascript:void(0)'>1</a></li>\r\n<li class='disabled'><a href='javascript:void(0)'>&raquo;</a></li>\r\n";
         }
         if($this->TotalResult == 0)
         {
-            return "共0页/".$this->TotalResult."条记录";
+            //return "共0页/".$this->TotalResult."条记录";
+			return "<li class='disabled'><a href='javascript:void(0)'>&laquo;</a></li>\r\n<li class=\"active\"><a href='javascript:void(0)'>1</a></li>\r\n<li class='disabled'><a href='javascript:void(0)'>&raquo;</a></li>\r\n";
         }
         $purl = $this->GetCurUrl();
         
@@ -851,21 +853,25 @@ class SearchView
         //获得上一页和下一页的链接
         if($this->PageNo != 1)
         {
-            $prepage.="<td width='50'><a href='".$purl."PageNo=$prepagenum'>上一页</a></td>\r\n";
-            $indexpage="<td width='30'><a href='".$purl."PageNo=1'>首页</a></td>\r\n";
+            //$prepage.="<td width='50'><a href='".$purl."PageNo=$prepagenum'>上一页</a></td>\r\n";
+            //$indexpage="<td width='30'><a href='".$purl."PageNo=1'>首页</a></td>\r\n";
+			$prepage.="<li><a href='".$purl."PageNo=$prepagenum'>&laquo;</a></li>\r\n";
         }
         else
         {
-            $indexpage="<td width='30'>首页</td>\r\n";
+            //$indexpage="<td width='30'>首页</td>\r\n";
+			$prepage.="<li class='disabled'><a href='javascript:void(0)'>&laquo;</a></li>\r\n";
         }
         if($this->PageNo!=$totalpage && $totalpage>1)
         {
-            $nextpage.="<td width='50'><a href='".$purl."PageNo=$nextpagenum'>下一页</a></td>\r\n";
-            $endpage="<td width='30'><a href='".$purl."PageNo=$totalpage'>末页</a></td>\r\n";
+            //$nextpage.="<td width='50'><a href='".$purl."PageNo=$nextpagenum'>下一页</a></td>\r\n";
+            //$endpage="<td width='30'><a href='".$purl."PageNo=$totalpage'>末页</a></td>\r\n";
+			$nextpage.="<li><a href='".$purl."PageNo=$nextpagenum'>&raquo;</a></li>\r\n";
         }
         else
         {
-            $endpage="<td width='30'>末页</td>\r\n";
+            //$endpage="<td width='30'>末页</td>\r\n";
+			$nextpage.="<li class='disabled'><a href='javascript:void(0)'>&raquo;</a></li>\r\n";
         }
 
         //获得数字链接
@@ -892,14 +898,16 @@ class SearchView
         {
             if($j == $this->PageNo)
             {
-                $listdd.= "<td>$j&nbsp;</td>\r\n";
+                //$listdd.= "<td>$j&nbsp;</td>\r\n";
+				$listdd.= "<li class=\"active\"><a href='javascript:void(0)'>$j</a></li>\r\n";
             }
             else
             {
-                $listdd.="<td><a href='".$purl."PageNo=$j'>[".$j."]</a>&nbsp;</td>\r\n";
+                //$listdd.="<td><a href='".$purl."PageNo=$j'>[".$j."]</a>&nbsp;</td>\r\n";
+				$listdd.="<li><a href='".$purl."PageNo=$j'>".$j."</a></li>\r\n";
             }
         }
-        $plist  =  "<table border='0' cellpadding='0' cellspacing='0'>\r\n";
+        /*$plist  =  "<table border='0' cellpadding='0' cellspacing='0'>\r\n";
         $plist .= "<tr align='center' style='font-size:10pt'>\r\n";
         $plist .= "<form name='pagelist' action='".$this->GetCurUrl()."'>$hidenform";
         $plist .= $infos;
@@ -914,6 +922,23 @@ class SearchView
             $plist.="<td width='30'><input type='submit' name='plistgo' value='GO' style='width:30px;height:22px;font-size:9pt' /></td>\r\n";
         }
         $plist .= "</form>\r\n</tr>\r\n</table>\r\n";
+        return $plist;*/
+		
+		$plist = '';
+        if(preg_match('/index/i', $listitem)) $plist .= $indexpage;
+        if(preg_match('/pre/i', $listitem)) $plist .= $prepage;
+        if(preg_match('/pageno/i', $listitem)) $plist .= $listdd;
+        if(preg_match('/next/i', $listitem)) $plist .= $nextpage;
+        if(preg_match('/end/i', $listitem)) $plist .= $endpage;
+        if(preg_match('/option/i', $listitem)) $plist .= $optionlist;
+        if(preg_match('/info/i', $listitem)) $plist .= $maininfo;
+        
+        if($cfg_rewrite == 'Y')
+        {
+            $plist = str_replace('.php?tid=', '-', $plist);
+            $plist = str_replace('&TotalResult=', '-', $plist);
+            $plist = preg_replace("/&PageNo=(\d+)/i",'-\\1.html',$plist);
+        }
         return $plist;
     }
 

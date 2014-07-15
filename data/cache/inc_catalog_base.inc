@@ -2,7 +2,6 @@
 global $cfg_Cs;
 $cfg_Cs=array();
 $cfg_Cs[6]=array(0,1,1,'5bel5L2c5a6k5Yqo5oCB');
-$cfg_Cs[5]=array(4,1,1,'6aaW6aG154Sm54K55aSn5Zu+');
 $cfg_Cs[4]=array(0,1,1,'6aaW6aG1');
 $cfg_Cs[7]=array(0,1,1,'5qih54mI5bGV56S6');
 $cfg_Cs[8]=array(0,1,1,'5pyN5Yqh6aG555uu');

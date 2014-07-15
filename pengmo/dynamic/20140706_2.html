@@ -54,13 +54,13 @@
     <div class="container">
         <div class="row header-top">
             <div class="span5 logo">
-                <a class="logo-img" href="/demand/./index.html" title="responsive template"><img src="/demand/example/logo.png" alt="Tabulate" /></a>
+                <a class="logo-img" href="/" title="responsive template"><img src="/demand/example/logo.png" alt="Tabulate" /></a>
                 <p class="tagline">Responsive Website Template</p>
             </div>
             <div class="span7 social-container">
                 <p class="phone hidden-phone"><i class="icon-envelope"></i> 87068928@qq.com</p><p class="phone hidden-phone"><i class="icon-bell"></i> Call Us 153 0982 0327</p>
                 <div class="top-social">
-                    <a data-original-title="QQ" rel="tooltip" data-placement="top" class="qq" href="#"></a>
+                    <a data-original-title="QQ" rel="tooltip" data-placement="top" class="qq" href="http://wpa.qq.com/msgrd?v=3&uin=2425553510&site=qq&menu=yes" target="_blank"></a>
                 </div>
             </div>
         </div>
@@ -97,12 +97,12 @@
                 </div>
                 <div class="span4 hidden-phone">
                     <section class="search clearfix">
-                        <form action="/plus/advancedsearch.php" method="post" id="search" class="input-append" onkeydown="if(event.keyCode==13){sear();}">
-                            <input type="hidden" name="mid" value="1" />
-                            <input type="hidden" name="dopost" value="search" />
-                            <input type="text" name="q" class="span4" id="appendedInputButton" size="16" value="Search..." onfocus="if(this.value=='Search...') this.value=''" onblur="if(this.value=='') this.value='Search...'" />
-                            <input type="button" class="btn search-bt" name="sub" value="" onClick="sear()" />
-                        </form>
+                        <form name="formsearch" action="/plus/search.php" id="search" class="input-append" onkeydown="if(event.keyCode==13){sear();}">
+                            <input type="hidden" name="kwtype" value="0" />
+                            <input type="hidden" name="searchtype" value="title" />
+                            <input name="q" type="text" class="span4" id="appendedInputButton" size="16" value="Search..." onfocus="if(this.value=='Search...') this.value=''" onblur="if(this.value=='') this.value='Search...'" />
+                            <input type="button" class="btn search-bt search-submit" name="sub" value="" onClick="sear()" />
+                        </form>  
                     </section>
                 </div>
                 
@@ -111,7 +111,7 @@
 					var search_val = $("#appendedInputButton").val();
 					if(search_val == "Search..."){
 						alert("请输入搜索内容");
-						false;
+						exit();
 					}else{
 						$("#search").submit();
 					}
@@ -132,7 +132,7 @@
                     <div class="row">
                         <div class="span8">
                             <h3 class="post-title">2222222222</h3>
-                            <div class='post-media'><img src='/uploads/allimg/140706/140707/1-140FF93S5321.jpg'/></div>
+                            <!--<div class='post-media'><img src='/uploads/allimg/140706/140707/1-140FF93S5321.jpg'/></div>-->
                             <div class="post-content">
                                 231231231231231
                             </div>
@@ -144,7 +144,7 @@
                         </div>
 
                     </div>
-                </article>  
+                </article> 
 
                 <hr />
                 

@@ -1,18 +1,20 @@
 <!DOCTYPE html>
-<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
-<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
-<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if lt IE 7 ]><html class="ie ie6" lang="zh"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="zh"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="zh"> <![endif]-->
 <!--[if (gte IE 9)|!(IE)]><!--><html lang="zh"> <!--<![endif]-->
 
 <head>
     
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no" />
+    <meta name="keywords" content="" />
+	<meta name="description" content="" />
     <link rel="shortcut icon" href="/demand/images/favicon.ico" />
     <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/demand/images/apple-touch-icon-144-precomposed.png" />
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/demand/images/apple-touch-icon-114-precomposed.png" />
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/demand/images/apple-touch-icon-72-precomposed.png" />
     <link rel="apple-touch-icon-precomposed" href="/demand/images/apple-touch-icon-57-precomposed.png" />
-    <title>模板展示</title>
+    <title>模版展示_我的网站</title>
     <link href="/demand/css/bootstrap.min.css" type="text/css" rel="stylesheet" />
     <link href="/demand/css/style.css" type="text/css" rel="stylesheet" />
     <link href="/demand/css/prettyPhoto.css" type="text/css" rel="stylesheet" />
@@ -52,13 +54,13 @@
     <div class="container">
         <div class="row header-top">
             <div class="span5 logo">
-                <a class="logo-img" href="/demand/./index.html" title="responsive template"><img src="/demand/example/logo.png" alt="Tabulate" /></a>
+                <a class="logo-img" href="/" title="responsive template"><img src="/demand/example/logo.png" alt="Tabulate" /></a>
                 <p class="tagline">Responsive Website Template</p>
             </div>
             <div class="span7 social-container">
                 <p class="phone hidden-phone"><i class="icon-envelope"></i> 87068928@qq.com</p><p class="phone hidden-phone"><i class="icon-bell"></i> Call Us 153 0982 0327</p>
                 <div class="top-social">
-                    <a data-original-title="QQ" rel="tooltip" data-placement="top" class="qq" href="#"></a>
+                    <a data-original-title="QQ" rel="tooltip" data-placement="top" class="qq" href="http://wpa.qq.com/msgrd?v=3&uin=2425553510&site=qq&menu=yes" target="_blank"></a>
                 </div>
             </div>
         </div>
@@ -90,17 +92,31 @@
         <div class="page-header">
             <div class="row">
                 <div class="span8">
-                    <h1>Template <em>/ 模板展示</em></h1>
-                    <div><a href="#">首页</a> &nbsp;&rsaquo;&nbsp; 模板展示</div>
+                    <h1>Template <em style="font-size:14px; font-style:normal; color:#999999;">/ 模版展示</em></h1>
+                    <div><a href="/">首页</a> &nbsp;&rsaquo;&nbsp; 模版展示</div>
                 </div>
                 <div class="span4 hidden-phone">
                     <section class="search clearfix">
-                        <form id="search" class="input-append" />
-                            <input class="span4" id="appendedInputButton" size="16" type="text" value="Search..." name="search site" onfocus="if(this.value=='Search...') this.value=''" onblur="if(this.value=='') this.value='Search...'" />
-                            <input class="btn search-bt" type="submit" name="submit" value="" />
-                        </form>
+                        <form name="formsearch" action="/plus/search.php" id="search" class="input-append" onkeydown="if(event.keyCode==13){sear();}">
+                            <input type="hidden" name="kwtype" value="0" />
+                            <input type="hidden" name="searchtype" value="title" />
+                            <input name="q" type="text" class="span4" id="appendedInputButton" size="16" value="Search..." onfocus="if(this.value=='Search...') this.value=''" onblur="if(this.value=='') this.value='Search...'" />
+                            <input type="button" class="btn search-bt search-submit" name="sub" value="" onClick="sear()" />
+                        </form>  
                     </section>
                 </div>
+                
+                <script>
+				function sear(){
+					var search_val = $("#appendedInputButton").val();
+					if(search_val == "Search..."){
+						alert("请输入搜索内容");
+						exit();
+					}else{
+						$("#search").submit();
+					}
+				}
+				</script>
             </div>
         </div>
     </div>
@@ -119,173 +135,27 @@
         <div class="clear"></div>
 
         <section class="row portfolio filtrable clearfix">
-            <article data-id="id-1" data-type="javascript html" class="span4">
+        	<article data-id="id-1" data-type="com" class="span4">
                 <div class="inner-image">
-                    <a href="example/view.jpg" data-rel="prettyPhoto">
-                        <img src="/demand/example/latest1.jpg" alt="photo" />
+                    <a href="/uploads/allimg/140716/1-140G60952480-L.jpg" data-rel="prettyPhoto">
+                        <img src="/uploads/allimg/140716/1-140G60952480-L.jpg" alt="photo" />
                         <span class="frame-overlay"></span>
                     </a>
                 </div>
                 <div class="inner-text">
-                    <h4 class="title"><a href="./blog-single.html">Project title 1</a></h4>
-                    <p>Per insolens urbanitas pris tantas corpora cum commune dignissim pro delectus salutatus ever labitur.</p>
-                    <em class="pm_chose_btn"><a href="javascript:void(0)" onClick="chose('aaaaaaa')">选定</a></em>
-                </div>
-            </article>
-            <article data-id="id-2" data-type="php" class="span4">
-                <div class="inner-image">
-                    <a href="example/view.jpg" data-rel="prettyPhoto">
-                        <img src="/demand/example/latest2.jpg" alt="photo" />
-                        <span class="frame-overlay"></span>
-                    </a>
-                </div>
-                <div class="inner-text">
-                    <h4 class="title"><a href="./blog-single.html">Project title 2</a></h4>
-                    <p>Per insolens urbanitas pris tantas corpora cum commune dignissim pro delectus salutatus ever labitur.</p>
-                    <em class="pm_chose_btn"><a href="#">选定</a></em>
-                </div>
-            </article>
-            <article data-id="id-3" data-type="javascript" class="span4">
-                <div class="inner-image">
-                    <a href="example/view.jpg" data-rel="prettyPhoto">
-                        <img src="/demand/example/latest3.jpg" alt="photo" />
-                        <span class="frame-overlay"></span>
-                    </a>
-                </div>
-                <div class="inner-text">
-                    <h4 class="title"><a href="./blog-single.html">Project title 3</a></h4>
-                    <p>Per insolens urbanitas pris tantas corpora cum commune dignissim pro delectus salutatus ever labitur.</p>
-                    <em class="pm_chose_btn"><a href="#">选定</a></em>
-                </div>
-            </article>
-            <article data-id="id-4" data-type="php" class="span4">
-                <div class="inner-image">
-                    <a href="example/view.jpg" data-rel="prettyPhoto">
-                        <img src="/demand/example/latest4.jpg" alt="photo" />
-                        <span class="frame-overlay"></span>
-                    </a>
-                </div>
-                <div class="inner-text">
-                    <h4 class="title"><a href="./blog-single.html">Project title 4</a></h4>
-                    <p>Per insolens urbanitas pris tantas corpora cum commune dignissim pro delectus salutatus ever labitur.</p>
-                    <em class="pm_chose_btn"><a href="#">选定</a></em>
-                </div>
-            </article>
-            <article data-id="id-5" data-type="javascript html" class="span4">
-                <div class="inner-image">
-                    <a href="example/view.jpg" data-rel="prettyPhoto">
-                        <img src="/demand/example/latest5.jpg" alt="photo" />
-                        <span class="frame-overlay"></span>
-                    </a>
-                </div>
-                <div class="inner-text">
-                    <h4 class="title"><a href="./blog-single.html">Project title 5</a></h4>
-                    <p>Per insolens urbanitas pris tantas corpora cum commune dignissim pro delectus salutatus ever labitur.</p>
-                    <em class="pm_chose_btn"><a href="#">选定</a></em>
-                </div>
-            </article>
-            <article data-id="id-6" data-type="php" class="span4">
-                <div class="inner-image">
-                    <a href="example/view.jpg" data-rel="prettyPhoto">
-                        <img src="/demand/example/latest6.jpg" alt="photo" />
-                        <span class="frame-overlay"></span>
-                    </a>
-                </div>
-                <div class="inner-text">
-                    <h4 class="title"><a href="./blog-single.html">Project title 6</a></h4>
-                    <p>Per insolens urbanitas pris tantas corpora cum commune dignissim pro delectus salutatus ever labitur.</p>
-                    <em class="pm_chose_btn"><a href="#">选定</a></em>
-                </div>
-            </article>
-            <article data-id="id-7" data-type="php" class="span4">
-                <div class="inner-image">
-                    <a href="example/view.jpg" data-rel="prettyPhoto">
-                        <img src="/demand/example/latest7.jpg" alt="photo" />
-                        <span class="frame-overlay"></span>
-                    </a>
-                </div>
-                <div class="inner-text">
-                    <h4 class="title"><a href="./blog-single.html">Project title 7</a></h4>
-                    <p>Per insolens urbanitas pris tantas corpora cum commune dignissim pro delectus salutatus ever labitur.</p>
-                    <em class="pm_chose_btn"><a href="#">选定</a></em>
-                </div>
-            </article>
-            <article data-id="id-8" data-type="css" class="span4">
-                <div class="inner-image">
-                    <a href="example/view.jpg" data-rel="prettyPhoto">
-                        <img src="/demand/example/latest8.jpg" alt="photo" />
-                        <span class="frame-overlay"></span>
-                    </a>
-                </div>
-                <div class="inner-text">
-                    <h4 class="title"><a href="./blog-single.html">Project title 8</a></h4>
-                    <p>Per insolens urbanitas pris tantas corpora cum commune dignissim pro delectus salutatus ever labitur.</p>
-                    <em class="pm_chose_btn"><a href="#">选定</a></em>
-                </div>
-            </article>
-            <article data-id="id-9" data-type="html" class="span4">
-                <div class="inner-image">
-                    <a href="example/view.jpg" data-rel="prettyPhoto">
-                        <img src="/demand/example/latest4.jpg" alt="photo" />
-                        <span class="frame-overlay"></span>
-                    </a>
-                </div>
-                <div class="inner-text">
-                    <h4 class="title"><a href="./blog-single.html">Project title 9</a></h4>
-                    <p>Per insolens urbanitas pris tantas corpora cum commune dignissim pro delectus salutatus ever labitur.</p>
-                    <em class="pm_chose_btn"><a href="#">选定</a></em>
-                </div>
-            </article>
-            <article data-id="id-10" data-type="css" class="span4">
-                <div class="inner-image">
-                    <a href="example/view.jpg" data-rel="prettyPhoto">
-                        <img src="/demand/example/latest3.jpg" alt="photo" />
-                        <span class="frame-overlay"></span>
-                    </a>
-                </div>
-                <div class="inner-text">
-                    <h4 class="title"><a href="./blog-single.html">Project title 10</a></h4>
-                    <p>Per insolens urbanitas pris tantas corpora cum commune dignissim pro delectus salutatus ever labitur.</p>
-                    <em class="pm_chose_btn"><a href="#">选定</a></em>
-                </div>
-            </article>
-            <article data-id="id-11" data-type="html" class="span4">
-                <div class="inner-image">
-                    <a href="example/view.jpg" data-rel="prettyPhoto">
-                        <img src="/demand/example/latest2.jpg" alt="photo" />
-                        <span class="frame-overlay"></span>
-                    </a>
-                </div>
-                <div class="inner-text">
-                    <h4 class="title"><a href="./blog-single.html">Project title 11</a></h4>
-                    <p>Per insolens urbanitas pris tantas corpora cum commune dignissim pro delectus salutatus ever labitur.</p>
-                    <em class="pm_chose_btn"><a href="#">选定</a></em>
-                </div>
-            </article>
-            <article data-id="id-12" data-type="css" class="span4">
-                <div class="inner-image">
-                    <a href="example/view.jpg" data-rel="prettyPhoto">
-                        <img src="/demand/example/latest1.jpg" alt="photo" />
-                        <span class="frame-overlay"></span>
-                    </a>
-                </div>
-                <div class="inner-text">
-                    <h4 class="title"><a href="./blog-single.html">Project title 12</a></h4>
-                    <p>Per insolens urbanitas pris tantas corpora cum commune dignissim pro delectus salutatus ever labitur.</p>
-                    <em class="pm_chose_btn"><a href="#">选定</a></em>
+                    <h4 class="title">tem_01</h4>
+                    <p>鹏魔工作室的第一套模板</p>
+                    <em class="pm_chose_btn"><a href="javascript:void(0)" onClick="chose('tem_01')">选定</a></em>
                 </div>
             </article>
         </section>
         <!--pagination-->
         <div class="pagination pagination-centered">
             <ul>
-                <li class="disabled"><a href="#">&laquo;</a></li>
-                <li class="active"><a href="#">1</a></li>
-                <li><a href="#">2</a></li>
-                <li><a href="#">3</a></li>
-                <li><a href="#">4</a></li>
-                <li><a href="#">5</a></li>
-                <li><a href="#">&raquo;</a></li>
+                <li class='disabled'><a href='javascript:void(0)'>&laquo;</a></li>
+<li class="active"><a href='javascript:void(0)'>1</a></li>
+<li class='disabled'><a href='javascript:void(0)'>&raquo;</a></li>
+
             </ul>
         </div>
     </div>
@@ -325,8 +195,8 @@
                 <p class="heading">关注我们</p>
                 <p>请输入您的邮箱地址，我们将实时为您提供工作室的最新动态。</p>
                 <div class="input-append">
-                    <input type="text" placeholder="输入邮箱地址" class="span2" />
-                    <button type="button" class="btn btn-inverse">订阅</button>
+                    <input type="text" placeholder="输入邮箱地址" class="span2" id="foot_email" />
+                    <button type="button" class="btn btn-inverse" onClick="chose()">订阅</button>
                 </div>
             </div>
             <div class="span4">
@@ -353,7 +223,7 @@
             <div class="span8 hidden-phone">
                 <ul class="pull-right">
                     <li><a href="/demand/#">Privacy Policy</a></li>
-                    <li><a href="/demand/#">Contact Us</a></li>
+                    <li><a href="/pengmo/contact">Contact Us</a></li>
                     <li><a href="/demand/#">Sitemap</a></li>
                 </ul>
             </div>
@@ -362,5 +232,17 @@
 </section>
 
 <div style="display:none"><script src="http://s4.cnzz.com/z_stat.php?id=1000439680&web_id=1000439680" language="JavaScript"></script></div>
+<script>
+	function chose(){
+		var email = $("#foot_email").val();
+		if(email != ""){
+			var url = "/pengmo/contact?email="+escape(email);
+			location.href=url;
+		}else{
+			alert("请输入您的邮箱地址！");
+		}
+		
+	}
+</script>
 </body>
 </html>

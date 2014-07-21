@@ -3,12 +3,12 @@
     <div class="container">
         <div class="row">
             <div class="span4">
-                <p><img src="/demand/example/logo.png" alt="" /></p>
+                <p><img src="/demand/example/logo.png" alt="鹏魔工作室" /></p>
                 <address>
                     <p><i class="icon-map-marker"></i> 大连市沙河口区新生路23号</p>
                     <p><i class="icon-phone"></i> 116031</p>
                     <p><i class="icon-mobile-2"></i> 153 0982 0327</p>
-                    <p><i class="icon-mail-3"></i> <a href="/demand/mailto:#">87068928@qq.com</a></p>
+                    <p><i class="icon-mail-3"></i> 87068928@qq.com</p>
                 </address>
             </div>
             <div class="span8">
@@ -66,7 +66,7 @@
 	function chose(){
 		var email = $("#foot_email").val();
 		if(email != ""){
-			var url = "/pengmo/contact?email="+escape(email);
+			var url = "/pengmo/contact?email="+escape(email)+"#page-sidebar";
 			location.href=url;
 		}else{
 			alert("请输入您的邮箱地址！");

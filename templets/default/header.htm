@@ -17,6 +17,47 @@
     <script type="text/javascript" src="/demand/js/jquery.ui.totop.js"></script>
     <script type="text/javascript" src="/demand/js/main.js"></script>
     <script type="text/javascript" src="/demand/js/ajax-mail.js"></script>
+    <script>
+    	var static_url = window.location.pathname;
+		var dynamic_url = window.location.search;
+		var static_path = static_url.substring(7,9);
+		var dynamic_path = dynamic_url.substring(5,7);
+		var index_path = dynamic_url.substring(1,8);
+		//alert(static_path);
+		if(static_path == "" || static_path == "ht" || dynamic_path == "4" || index_path == "upcache"){
+			$(document).ready(function(){
+				$("#pm_index").addClass("current");
+			});
+		}else if(static_path == "/d" || dynamic_path == "6"){
+			$(document).ready(function(){
+				$("#pm_dynamic").addClass("current");
+			});
+		}else if(static_path == "/t" || dynamic_path == "7"){
+			$(document).ready(function(){
+				$("#pm_template").addClass("current");
+			});
+		}else if(static_path == "/s" || dynamic_path == "8"){
+			$(document).ready(function(){
+				$("#pm_services").addClass("current");
+			});
+		}else if(static_path == "/p" || dynamic_path == "9"){
+			$(document).ready(function(){
+				$("#pm_price").addClass("current");
+			});
+		}else if(static_path == "/a" || dynamic_path == "10"){
+			$(document).ready(function(){
+				$("#pm_about").addClass("current");
+			});
+		}else if(static_path == "/c" || dynamic_path == "11"){
+			$(document).ready(function(){
+				$("#pm_contact").addClass("current");
+			});
+		}else{
+			$(document).ready(function(){
+				$("#pm_index").addClass("current");
+			});
+		}
+    </script>
     <!--[if lt IE 9]>
     <script type="text/javascript" src="/demand/http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
@@ -32,11 +73,11 @@
     <div class="container">
         <div class="row header-top">
             <div class="span5 logo">
-                <a class="logo-img" href="/" title="responsive template"><img src="/demand/example/logo.png" alt="Tabulate" /></a>
+                <a class="logo-img" href="/" title="responsive template"><img src="/demand/example/logo.png" alt="鹏魔工作室" /></a>
                 <p class="tagline">Responsive Website Template</p>
             </div>
             <div class="span7 social-container">
-                <p class="phone hidden-phone"><i class="icon-envelope"></i> 87068928@qq.com</p><p class="phone hidden-phone"><i class="icon-bell"></i> Call Us 153 0982 0327</p>
+                <p class="phone hidden-phone"><i class="icon-envelope"></i> 2425553510@qq.com</p><p class="phone hidden-phone"><i class="icon-bell"></i> Call Us 153 0982 0327</p>
                 <div class="top-social">
                     <a data-original-title="QQ" rel="tooltip" data-placement="top" class="qq" href="http://wpa.qq.com/msgrd?v=3&uin=2425553510&site=qq&menu=yes" target="_blank"></a>
                 </div>
@@ -46,19 +87,15 @@
             <div class="span12">
                 <nav id="menu" class="clearfix">
                     <ul>
-                        <li class="current"><a href="/"><span class="name">首页</span></a></li>
-                        <li><a href="/pengmo/dynamic"><span class="name">工作室动态</span></a></li>
-                        <li><a href="/pengmo/template"><span class="name">模板展示</span></a></li>
-                        <li><a href="/pengmo/services"><span class="name">服务项目</span></a></li>
-                        <li><a href="/pengmo/price"><span class="name">价格列表</span></a></li>
-                        <li><a href="/pengmo/about"><span class="name">关于我们</span></a></li>
-                        <li><a href="/pengmo/contact"><span class="name">联系我们</span></a></li>
+                        <li id="pm_index"><a href="/"><span class="name">首页</span></a></li>
+                        <li id="pm_dynamic"><a href="/pengmo/dynamic"><span class="name">工作室动态</span></a></li>
+                        <li id="pm_template"><a href="/pengmo/template"><span class="name">模板展示</span></a></li>
+                        <li id="pm_services"><a href="/pengmo/services"><span class="name">服务项目</span></a></li>
+                        <li id="pm_price"><a href="/pengmo/price"><span class="name">价格列表</span></a></li>
+                        <li id="pm_about"><a href="/pengmo/about"><span class="name">关于我们</span></a></li>
+                        <li id="pm_contact"><a href="/pengmo/contact"><span class="name">联系我们</span></a></li>
                     </ul>
-                </nav>
-                <!--<form class="top-search pull-right">-->
-                <!--<input type="text" placeholder="text here..." class="span3">-->
-                <!--<button type="button" class="btn"><i class="icon-search-form"></i></button>-->
-                <!--</form>-->
+                </nav>            
             </div>
         </div>
     </div>

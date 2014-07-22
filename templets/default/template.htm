@@ -5,7 +5,7 @@
 <!--[if (gte IE 9)|!(IE)]><!--><html lang="zh"> <!--<![endif]-->
 
 <head>
-    
+    <meta charset="utf-8">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no" />
     <meta name="keywords" content="{dede:field name='keywords'/}" />
 	<meta name="description" content="{dede:field name='description' function='html2text(@me)'/}" />
@@ -61,7 +61,7 @@
                 <div class="inner-text">
                     <h4 class="title" style=" color:#FFF;">[field:title/]</h4>
                     <p>[field:infos/]</p>
-                    <em class="pm_chose_btn"><a href="javascript:void(0)" onClick="chose_tem('[field:title/]')">选定</a></em>
+                    <em class="pm_chose_btn"><a href="javascript:void(0)" onClick="chose_tem('[field:shorttitle/]')">选定</a></em>
                 </div>
             </article>
             {/dede:list}

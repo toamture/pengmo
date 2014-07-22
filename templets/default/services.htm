@@ -5,14 +5,16 @@
 <!--[if (gte IE 9)|!(IE)]><!--><html lang="zh"> <!--<![endif]-->
 
 <head>
-    
+    <meta charset="utf-8">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no" />
+    <meta name="keywords" content="{dede:field name='keywords'/}" />
+	<meta name="description" content="{dede:field name='description' function='html2text(@me)'/}" />
     <link rel="shortcut icon" href="/demand/images/favicon.ico" />
     <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/demand/images/apple-touch-icon-144-precomposed.png" />
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/demand/images/apple-touch-icon-114-precomposed.png" />
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/demand/images/apple-touch-icon-72-precomposed.png" />
     <link rel="apple-touch-icon-precomposed" href="/demand/images/apple-touch-icon-57-precomposed.png" />
-    <title>服务项目</title>
+    <title>{dede:field.title/}_{dede:global.cfg_webname/}</title>
     <link href="/demand/css/bootstrap.min.css" type="text/css" rel="stylesheet" />
     <link href="/demand/css/style.css" type="text/css" rel="stylesheet" />
     <link href="/demand/css/prettyPhoto.css" type="text/css" rel="stylesheet" />
@@ -26,17 +28,10 @@
         <div class="page-header">
             <div class="row">
                 <div class="span8">
-                    <h1>Services <em>/ 服务项目</em></h1>
-                    <div><a href="#">首页</a> &nbsp;&rsaquo;&nbsp; 服务项目</div>
+                    <h1>Services <em style="font-size:14px; font-style:normal; color:#999999;">/ {dede:field.title/}</em></h1>
+                    <div><a href="/">首页</a> &nbsp;&rsaquo;&nbsp; {dede:field.title/}</div>
                 </div>
-                <div class="span4 hidden-phone">
-                    <section class="search clearfix">
-                        <form id="search" class="input-append" />
-                            <input class="span4" id="appendedInputButton" size="16" type="text" value="Search..." name="search site" onfocus="if(this.value=='Search...') this.value=''" onblur="if(this.value=='') this.value='Search...'" />
-                            <input class="btn search-bt" type="submit" name="submit" value="" />
-                        </form>
-                    </section>
-                </div>
+                {dede:include filename="list_search.htm"/}
             </div>
         </div>
     </div>
@@ -50,9 +45,9 @@
             <div class="span12 service">
                 <div class="well bg-color-blue fg-color-lighten" style=" padding-left:80px; text-align:left; line-height:24px;">
                     <h2>自助建站流程</h2>
-                    <p>1. 点击导航的“<a href="#" target="_blank">模板展示</a>”进行模板选择。<br />2. 选择，您心仪的模板，点击“选定”。<br />3. 填写您的称呼、联系电话、域名、价格套系、备注，点击“确定”，我们将根据您的联系方式，在24小时内与您取得联系。</p>
+                    <p>1. 点击导航的“<a href="/pengmo/template" target="_blank">模板展示</a>”进行模板选择。<br />2. 选择，您心仪的模板，点击“选定”。<br />3. 填写您的称呼、联系电话、域名、价格套系、备注，点击“确定”，我们将根据您的联系方式，在24小时内与您取得联系。</p>
                     <p>
-                        <a class="btn btn-danger btn-large">去选择模板</a>
+                        <a href="/pengmo/template" class="btn btn-danger btn-large">去选择模板</a>
                     </p>
                 </div>
             </div>
@@ -122,96 +117,23 @@
                 <div id="our-projects" class="carousel bttop">
                     <div class="carousel-wrapper">
                         <ul class="portfolio">
+                        	{dede:arclist typeid='7' limit='0,6' titlelen='200'}
                             <li>
                                 <article>
                                     <div class="inner-image">
-                                        <a href="example/view.jpg" data-rel="prettyPhoto">
-                                            <img src="/demand/example/latest1.jpg" alt="" />
+                                        <a href="[field:litpic/]" data-rel="鹏魔工作室">
+                                            <img src="[field:litpic/]" alt="[field:title/]" />
                                             <span class="frame-overlay"></span>
                                         </a>
                                     </div>
                                     <div class="sliding">
                                         <div class="inner-text">
-                                            <h4 class="title"><a href="./portfolio-single.html">Project title 1</a></h4>
+                                            <h4 class="title"><a href="/pengmo/template">[field:title/]</a></h4>
                                         </div>
                                     </div>
                                 </article>
                             </li>
-                            <li>
-                                <article>
-                                    <div class="inner-image">
-                                        <a href="example/view.jpg" data-rel="prettyPhoto">
-                                            <img src="/demand/example/latest2.jpg" alt="" />
-                                            <span class="frame-overlay"></span>
-                                        </a>
-                                    </div>
-                                    <div class="sliding">
-                                        <div class="inner-text">
-                                            <h4 class="title"><a href="./portfolio-single.html">Project title 2</a></h4>
-                                        </div>
-                                    </div>
-                                </article>
-                            </li>
-                            <li>
-                                <article>
-                                    <div class="inner-image">
-                                        <a href="example/view.jpg" data-rel="prettyPhoto">
-                                            <img src="/demand/example/latest3.jpg" alt="" />
-                                            <span class="frame-overlay"></span>
-                                        </a>
-                                    </div>
-                                    <div class="sliding">
-                                        <div class="inner-text">
-                                            <h4 class="title"><a href="./portfolio-single.html">Project title 3</a></h4>
-                                        </div>
-                                    </div>
-                                </article>
-                            </li>
-                            <li>
-                                <article>
-                                    <div class="inner-image">
-                                        <a href="example/view.jpg" data-rel="prettyPhoto">
-                                            <img src="/demand/example/latest4.jpg" alt="" />
-                                            <span class="frame-overlay"></span>
-                                        </a>
-                                    </div>
-                                    <div class="sliding">
-                                        <div class="inner-text">
-                                            <h4 class="title"><a href="./portfolio-single.html">Project title 4</a></h4>
-                                        </div>
-                                    </div>
-                                </article>
-                            </li>
-                            <li>
-                                <article>
-                                    <div class="inner-image">
-                                        <a href="example/view.jpg" data-rel="prettyPhoto">
-                                            <img src="/demand/example/latest5.jpg" alt="" />
-                                            <span class="frame-overlay"></span>
-                                        </a>
-                                    </div>
-                                    <div class="sliding">
-                                        <div class="inner-text">
-                                            <h4 class="title"><a href="./portfolio-single.html">Project title 5</a></h4>
-                                        </div>
-                                    </div>
-                                </article>
-                            </li>
-                            <li>
-                                <article>
-                                    <div class="inner-image">
-                                        <a href="example/view.jpg" data-rel="prettyPhoto">
-                                            <img src="/demand/example/latest6.jpg" alt="" />
-                                            <span class="frame-overlay"></span>
-                                        </a>
-                                    </div>
-                                    <div class="sliding">
-                                        <div class="inner-text">
-                                            <h4 class="title"><a href="./portfolio-single.html">Project title 6</a></h4>
-                                        </div>
-                                    </div>
-                                </article>
-                            </li>
+                            {/dede:arclist}
                         </ul>
                     </div>
                 </div>

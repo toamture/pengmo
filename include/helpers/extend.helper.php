@@ -33,7 +33,7 @@ if ( ! function_exists('ParamError'))
 {
     function ParamError()
     {
-        ShowMsg('对不起，你输入的参数有误！','javascript:;');
+        ShowMsg_web('对不起，你输入的参数有误！','-1');
         exit();
     }
 }

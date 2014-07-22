@@ -5,7 +5,7 @@
 <!--[if (gte IE 9)|!(IE)]><!--><html lang="zh"> <!--<![endif]-->
 
 <head>
-    
+    <meta charset="utf-8">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no" />
     <meta name="keywords" content="" />
 	<meta name="description" content="" />
@@ -39,6 +39,47 @@
     <script type="text/javascript" src="/demand/js/jquery.ui.totop.js"></script>
     <script type="text/javascript" src="/demand/js/main.js"></script>
     <script type="text/javascript" src="/demand/js/ajax-mail.js"></script>
+    <script>
+    	var static_url = window.location.pathname;
+		var dynamic_url = window.location.search;
+		var static_path = static_url.substring(7,9);
+		var dynamic_path = dynamic_url.substring(5,7);
+		var index_path = dynamic_url.substring(1,8);
+		alert(static_path+"<br />"+dynamic_path);
+		if(static_path == "" || static_path == "i" || dynamic_path == "4" || index_path == "upcache"){
+			$(document).ready(function(){
+				$("#pm_index").addClass("current");
+			});
+		}else if(static_path == "/d" || dynamic_path == "6"){
+			$(document).ready(function(){
+				$("#pm_dynamic").addClass("current");
+			});
+		}else if(static_path == "/t" || dynamic_path == "7"){
+			$(document).ready(function(){
+				$("#pm_template").addClass("current");
+			});
+		}else if(static_path == "/s" || dynamic_path == "8"){
+			$(document).ready(function(){
+				$("#pm_services").addClass("current");
+			});
+		}else if(static_path == "/p" || dynamic_path == "9"){
+			$(document).ready(function(){
+				$("#pm_price").addClass("current");
+			});
+		}else if(static_path == "/a" || dynamic_path == "10"){
+			$(document).ready(function(){
+				$("#pm_about").addClass("current");
+			});
+		}else if(static_path == "/c" || dynamic_path == "11"){
+			$(document).ready(function(){
+				$("#pm_contact").addClass("current");
+			});
+		}else{
+			$(document).ready(function(){
+				$("#pm_index").addClass("current");
+			});
+		}
+    </script>
     <!--[if lt IE 9]>
     <script type="text/javascript" src="/demand/http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
@@ -54,13 +95,13 @@
     <div class="container">
         <div class="row header-top">
             <div class="span5 logo">
-                <a class="logo-img" href="/demand/./index.html" title="responsive template"><img src="/demand/example/logo.png" alt="Tabulate" /></a>
+                <a class="logo-img" href="/" title="responsive template"><img src="/demand/example/logo.png" alt="Tabulate" /></a>
                 <p class="tagline">Responsive Website Template</p>
             </div>
             <div class="span7 social-container">
                 <p class="phone hidden-phone"><i class="icon-envelope"></i> 87068928@qq.com</p><p class="phone hidden-phone"><i class="icon-bell"></i> Call Us 153 0982 0327</p>
                 <div class="top-social">
-                    <a data-original-title="QQ" rel="tooltip" data-placement="top" class="qq" href="#"></a>
+                    <a data-original-title="QQ" rel="tooltip" data-placement="top" class="qq" href="http://wpa.qq.com/msgrd?v=3&uin=2425553510&site=qq&menu=yes" target="_blank"></a>
                 </div>
             </div>
         </div>
@@ -68,13 +109,13 @@
             <div class="span12">
                 <nav id="menu" class="clearfix">
                     <ul>
-                        <li class="current"><a href="/"><span class="name">首页</span></a></li>
-                        <li><a href="/pengmo/dynamic"><span class="name">工作室动态</span></a></li>
-                        <li><a href="/pengmo/template"><span class="name">模板展示</span></a></li>
-                        <li><a href="/pengmo/services"><span class="name">服务项目</span></a></li>
-                        <li><a href="/pengmo/price"><span class="name">价格列表</span></a></li>
-                        <li><a href="/pengmo/about"><span class="name">关于我们</span></a></li>
-                        <li><a href="/pengmo/contact"><span class="name">联系我们</span></a></li>
+                        <li id="pm_index"><a href="/"><span class="name">首页</span></a></li>
+                        <li id="pm_dynamic"><a href="/pengmo/dynamic"><span class="name">工作室动态</span></a></li>
+                        <li id="pm_template"><a href="/pengmo/template"><span class="name">模板展示</span></a></li>
+                        <li id="pm_services"><a href="/pengmo/services"><span class="name">服务项目</span></a></li>
+                        <li id="pm_price"><a href="/pengmo/price"><span class="name">价格列表</span></a></li>
+                        <li id="pm_about"><a href="/pengmo/about"><span class="name">关于我们</span></a></li>
+                        <li id="pm_contact"><a href="/pengmo/contact"><span class="name">联系我们</span></a></li>
                     </ul>
                 </nav>
                 <!--<form class="top-search pull-right">-->
@@ -97,12 +138,12 @@
                 </div>
                 <div class="span4 hidden-phone">
                     <section class="search clearfix">
-                        <form action="/plus/advancedsearch.php" method="post" id="search" class="input-append" onkeydown="if(event.keyCode==13){sear();}">
-                            <input type="hidden" name="mid" value="1" />
-                            <input type="hidden" name="dopost" value="search" />
-                            <input type="text" name="q" class="span4" id="appendedInputButton" size="16" value="Search..." onfocus="if(this.value=='Search...') this.value=''" onblur="if(this.value=='') this.value='Search...'" />
-                            <input type="button" class="btn search-bt" name="sub" value="" onClick="sear()" />
-                        </form>
+                        <form name="formsearch" action="/plus/search.php" id="search" class="input-append" onkeydown="if(event.keyCode==13){sear();}">
+                            <input type="hidden" name="kwtype" value="0" />
+                            <input type="hidden" name="searchtype" value="title" />
+                            <input name="q" type="text" class="span4" id="appendedInputButton" size="16" value="Search..." onfocus="if(this.value=='Search...') this.value=''" onblur="if(this.value=='') this.value='Search...'" />
+                            <input type="button" class="btn search-bt search-submit" name="sub" value="" onClick="sear()" />
+                        </form>  
                     </section>
                 </div>
                 
@@ -111,7 +152,7 @@
 					var search_val = $("#appendedInputButton").val();
 					if(search_val == "Search..."){
 						alert("请输入搜索内容");
-						false;
+						exit();
 					}else{
 						$("#search").submit();
 					}
@@ -130,46 +171,60 @@
 				<article class="blog-post">
                     <div class="row">
                         <div class="span1">
-                            <div class="post-meta-day">06</div>
+                            <div class="post-meta-day">15</div>
                             <div class="post-meta-month">Jul</div>
                         </div>
                         <div class="span7">
-                            <h3 class="post-title"><a href="/pengmo/dynamic/20140703_1.html">1111111111111111</a></h3>
+                            <h3 class="post-title"><a href="/pengmo/dynamic/20140710_3.html">test</a></h3>
                             <ul class="post-meta">
-                                <li><i class="icon-calendar"></i> 2014-07-06</li>
+                                <li><i class="icon-calendar"></i> 2014-07-15</li>
                                 <li><i class="icon-user"></i> <a href="http://www.pengmo.net">pengmo</a></li>
-                                <li><i class="icon-tag"></i>  </li>
-                                <li><i class="icon-comment"></i> <a href="#">12 Comments</a></li>
+                                <li><i class="icon-tag"></i> </li>
                             </ul>
-                            <div class="post-media">
-                                <img src="/images/defaultpic.gif" alt="1111111111111111" />
-                            </div>
+                            <div class='post-media'><img src='/uploads/allimg/140710/1-140G0102G30-L.jpg'/></div>
                             <div class="post-content">
-                                爱上大叔大叔的
-                                <p style=" margin:10px 0;"><a href="./blog-single.html" class="btn btn-large btn-welcome"><i class="icon-chevron-right"></i>阅读全文</a></p>
+                                按时打算大叔大叔的爱上大叔大叔的 副标题 啊盛大盛大盛大盛大撒盛大速度啊 asdasd asdasda稍等
+                                <p style=" margin:10px 0;"><a href="/pengmo/dynamic/20140710_3.html" class="btn btn-large btn-welcome"><i class="icon-chevron-right"></i>阅读全文</a></p>
                             </div>
                         </div>
                     </div>
                 </article><article class="blog-post">
                     <div class="row">
                         <div class="span1">
-                            <div class="post-meta-day">06</div>
+                            <div class="post-meta-day">10</div>
+                            <div class="post-meta-month">Jul</div>
+                        </div>
+                        <div class="span7">
+                            <h3 class="post-title"><a href="/pengmo/dynamic/20140703_1.html">1111111111111111</a></h3>
+                            <ul class="post-meta">
+                                <li><i class="icon-calendar"></i> 2014-07-10</li>
+                                <li><i class="icon-user"></i> <a href="http://www.pengmo.net">pengmo</a></li>
+                                <li><i class="icon-tag"></i> <a href='/tags.php?/aaa/'>aaa</a> </li>
+                            </ul>
+                            
+                            <div class="post-content">
+                                爱上大叔大叔的
+                                <p style=" margin:10px 0;"><a href="/pengmo/dynamic/20140703_1.html" class="btn btn-large btn-welcome"><i class="icon-chevron-right"></i>阅读全文</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </article><article class="blog-post">
+                    <div class="row">
+                        <div class="span1">
+                            <div class="post-meta-day">07</div>
                             <div class="post-meta-month">Jul</div>
                         </div>
                         <div class="span7">
                             <h3 class="post-title"><a href="/pengmo/dynamic/20140706_2.html">2222222222</a></h3>
                             <ul class="post-meta">
-                                <li><i class="icon-calendar"></i> 2014-07-06</li>
+                                <li><i class="icon-calendar"></i> 2014-07-07</li>
                                 <li><i class="icon-user"></i> <a href="http://www.pengmo.net">pengmo</a></li>
-                                <li><i class="icon-tag"></i>  </li>
-                                <li><i class="icon-comment"></i> <a href="#">12 Comments</a></li>
+                                <li><i class="icon-tag"></i> <a href='/tags.php?/aaa/'>aaa</a> <a href='/tags.php?/asdd/'>asdd</a> </li>
                             </ul>
-                            <div class="post-media">
-                                <img src="/images/defaultpic.gif" alt="2222222222" />
-                            </div>
+                            <div class='post-media'><img src='/uploads/allimg/140706/140707/1-140FF93S5321.jpg'/></div>
                             <div class="post-content">
                                 231231231231231
-                                <p style=" margin:10px 0;"><a href="./blog-single.html" class="btn btn-large btn-welcome"><i class="icon-chevron-right"></i>阅读全文</a></p>
+                                <p style=" margin:10px 0;"><a href="/pengmo/dynamic/20140706_2.html" class="btn btn-large btn-welcome"><i class="icon-chevron-right"></i>阅读全文</a></p>
                             </div>
                         </div>
                     </div>
@@ -259,12 +314,12 @@
     <div class="container">
         <div class="row">
             <div class="span4">
-                <p><img src="/demand/example/logo.png" alt="" /></p>
+                <p><img src="/demand/example/logo.png" alt="鹏魔工作室" /></p>
                 <address>
                     <p><i class="icon-map-marker"></i> 大连市沙河口区新生路23号</p>
                     <p><i class="icon-phone"></i> 116031</p>
                     <p><i class="icon-mobile-2"></i> 153 0982 0327</p>
-                    <p><i class="icon-mail-3"></i> <a href="/demand/mailto:#">87068928@qq.com</a></p>
+                    <p><i class="icon-mail-3"></i> 87068928@qq.com</p>
                 </address>
             </div>
             <div class="span8">
@@ -322,7 +377,7 @@
 	function chose(){
 		var email = $("#foot_email").val();
 		if(email != ""){
-			var url = "/pengmo/contact?email="+escape(email);
+			var url = "/pengmo/contact?email="+escape(email)+"#page-sidebar";
 			location.href=url;
 		}else{
 			alert("请输入您的邮箱地址！");

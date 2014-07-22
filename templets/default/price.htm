@@ -5,14 +5,16 @@
 <!--[if (gte IE 9)|!(IE)]><!--><html lang="zh"> <!--<![endif]-->
 
 <head>
-    
+    <meta charset="utf-8">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no" />
+    <meta name="keywords" content="{dede:field name='keywords'/}" />
+	<meta name="description" content="{dede:field name='description' function='html2text(@me)'/}" />
     <link rel="shortcut icon" href="/demand/images/favicon.ico" />
     <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/demand/images/apple-touch-icon-144-precomposed.png" />
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/demand/images/apple-touch-icon-114-precomposed.png" />
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/demand/images/apple-touch-icon-72-precomposed.png" />
     <link rel="apple-touch-icon-precomposed" href="/demand/images/apple-touch-icon-57-precomposed.png" />
-    <title>价格列表</title>
+    <title>{dede:field.title/}_{dede:global.cfg_webname/}</title>
     <link href="/demand/css/bootstrap.min.css" type="text/css" rel="stylesheet" />
     <link href="/demand/css/style.css" type="text/css" rel="stylesheet" />
     <link href="/demand/css/prettyPhoto.css" type="text/css" rel="stylesheet" />
@@ -26,17 +28,10 @@
         <div class="page-header">
             <div class="row">
                 <div class="span8">
-                    <h1>Price Table<small>/ 价格列表</small></h1>
-                    <div><a href="#">首页</a> &nbsp;&rsaquo;&nbsp; 价格列表</div>
+                    <h1>Price Table <em style="font-size:14px; font-style:normal; color:#999999;">/ {dede:field.title/}</em></h1>
+                    <div><a href="/">首页</a> &nbsp;&rsaquo;&nbsp; {dede:field.title/}</div>
                 </div>
-                <div class="span4 hidden-phone">
-                    <section class="search clearfix">
-                        <form id="search" class="input-append" />
-                            <input class="span4" id="appendedInputButton" size="16" type="text" value="Search..." name="search site" onfocus="if(this.value=='Search...') this.value=''" onblur="if(this.value=='') this.value='Search...'" />
-                            <input class="btn search-bt" type="submit" name="submit" value="" />
-                        </form>
-                    </section>
-                </div>
+                {dede:include filename="list_search.htm"/}
             </div>
         </div>
     </div>
@@ -45,7 +40,6 @@
 <!--container-->
 <section id="container">
     <div class="container">
-
         <div class="row pricing"> 
             <div class="span4" style=" width:1170px; text-align:left;">
                 <div class="well featured">

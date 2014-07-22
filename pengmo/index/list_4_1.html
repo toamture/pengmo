@@ -1,18 +1,20 @@
 <!DOCTYPE html>
-<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
-<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
-<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if lt IE 7 ]><html class="ie ie6" lang="zh"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="zh"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="zh"> <![endif]-->
 <!--[if (gte IE 9)|!(IE)]><!--><html lang="zh"> <!--<![endif]-->
 
 <head>
-    
+    <meta charset="utf-8">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no" />
     <link rel="shortcut icon" href="/demand/images/favicon.ico" />
     <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/demand/images/apple-touch-icon-144-precomposed.png" />
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/demand/images/apple-touch-icon-114-precomposed.png" />
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/demand/images/apple-touch-icon-72-precomposed.png" />
     <link rel="apple-touch-icon-precomposed" href="/demand/images/apple-touch-icon-57-precomposed.png" />
-    <title>首页</title>
+    <meta name="description" content="" />
+	<meta name="keywords" content="" />
+    <title>我的网站</title>
     <link href="/demand/css/bootstrap.min.css" type="text/css" rel="stylesheet" />
     <link href="/demand/css/style.css" type="text/css" rel="stylesheet" />
     <link href="/demand/css/prettyPhoto.css" type="text/css" rel="stylesheet" />
@@ -37,6 +39,46 @@
     <script type="text/javascript" src="/demand/js/jquery.ui.totop.js"></script>
     <script type="text/javascript" src="/demand/js/main.js"></script>
     <script type="text/javascript" src="/demand/js/ajax-mail.js"></script>
+    <script>
+    	var static_url = window.location.pathname;
+		var dynamic_url = window.location.search;
+		var static_path = static_url.substring(8,9);
+		var dynamic_path = dynamic_url.substring(5,6);
+		var index_path = dynamic_url.substring(1,8);
+		if(static_path == "" || static_path == "i" || dynamic_path == "4" || index_path == "upcache"){
+			$(document).ready(function(){
+				$("#pm_index").addClass("current");
+			});
+		}else if(static_path == "d" || dynamic_path == "6"){
+			$(document).ready(function(){
+				$("#pm_dynamic").addClass("current");
+			});
+		}else if(static_path == "t" || dynamic_path == "7"){
+			$(document).ready(function(){
+				$("#pm_template").addClass("current");
+			});
+		}else if(static_path == "s" || dynamic_path == "8"){
+			$(document).ready(function(){
+				$("#pm_services").addClass("current");
+			});
+		}else if(static_path == "p" || dynamic_path == "9"){
+			$(document).ready(function(){
+				$("#pm_price").addClass("current");
+			});
+		}else if(static_path == "a" || dynamic_path == "10"){
+			$(document).ready(function(){
+				$("#pm_about").addClass("current");
+			});
+		}else if(static_path == "c" || dynamic_path == "11"){
+			$(document).ready(function(){
+				$("#pm_contact").addClass("current");
+			});
+		}else{
+			$(document).ready(function(){
+				$("#pm_index").addClass("current");
+			});
+		}
+    </script>
     <!--[if lt IE 9]>
     <script type="text/javascript" src="/demand/http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
@@ -52,13 +94,13 @@
     <div class="container">
         <div class="row header-top">
             <div class="span5 logo">
-                <a class="logo-img" href="/demand/./index.html" title="responsive template"><img src="/demand/example/logo.png" alt="Tabulate" /></a>
+                <a class="logo-img" href="/" title="responsive template"><img src="/demand/example/logo.png" alt="Tabulate" /></a>
                 <p class="tagline">Responsive Website Template</p>
             </div>
             <div class="span7 social-container">
                 <p class="phone hidden-phone"><i class="icon-envelope"></i> 87068928@qq.com</p><p class="phone hidden-phone"><i class="icon-bell"></i> Call Us 153 0982 0327</p>
                 <div class="top-social">
-                    <a data-original-title="QQ" rel="tooltip" data-placement="top" class="qq" href="#"></a>
+                    <a data-original-title="QQ" rel="tooltip" data-placement="top" class="qq" href="http://wpa.qq.com/msgrd?v=3&uin=2425553510&site=qq&menu=yes" target="_blank"></a>
                 </div>
             </div>
         </div>
@@ -66,13 +108,13 @@
             <div class="span12">
                 <nav id="menu" class="clearfix">
                     <ul>
-                        <li class="current"><a href="/"><span class="name">首页</span></a></li>
-                        <li><a href="/pengmo/dynamic"><span class="name">工作室动态</span></a></li>
-                        <li><a href="/pengmo/template"><span class="name">模板展示</span></a></li>
-                        <li><a href="/pengmo/services"><span class="name">服务项目</span></a></li>
-                        <li><a href="/pengmo/price"><span class="name">价格列表</span></a></li>
-                        <li><a href="/pengmo/about"><span class="name">关于我们</span></a></li>
-                        <li><a href="/pengmo/contact"><span class="name">联系我们</span></a></li>
+                        <li id="pm_index"><a href="/"><span class="name">首页</span></a></li>
+                        <li id="pm_dynamic"><a href="/pengmo/dynamic"><span class="name">工作室动态</span></a></li>
+                        <li id="pm_template"><a href="/pengmo/template"><span class="name">模板展示</span></a></li>
+                        <li id="pm_services"><a href="/pengmo/services"><span class="name">服务项目</span></a></li>
+                        <li id="pm_price"><a href="/pengmo/price"><span class="name">价格列表</span></a></li>
+                        <li id="pm_about"><a href="/pengmo/about"><span class="name">关于我们</span></a></li>
+                        <li id="pm_contact"><a href="/pengmo/contact"><span class="name">联系我们</span></a></li>
                     </ul>
                 </nav>
                 <!--<form class="top-search pull-right">-->
@@ -91,34 +133,7 @@
             <div class="span12">
                 <div id="mainslider" class="flexslider">
                     <ul class="slides">
-                        <li>
-                            <img src="/demand/example/slider1.jpg" alt="" />
-                            <div class="slide-caption">
-                                <h3 class="slide-title">Mauris feugiat elit sed elit consequat massa nunc</h3>
-                                <p class="slide-subtitle">Etiam porttitor aliquet nunc, non pulvinar nulla placerat et. Ut ipsum sapien, iaculis nec aliquet vel, pretium id mauris. Cras aliquet magna in eros mattis eu gravida urna fermentum.</p>
-                            </div>
-                        </li>
-                        <li>
-                            <img src="/demand/example/slider2.jpg" alt="" />
-                            <div class="slide-caption">
-                                <h3 class="slide-title">Proin vel neque vel leo pulvinar tempor vitae sed</h3>
-                                <p class="slide-subtitle">Etiam porttitor aliquet nunc, non pulvinar nulla placerat et. Ut ipsum sapien, iaculis nec aliquet vel, pretium id mauris. Cras aliquet magna in eros mattis eu gravida urna fermentum.</p>
-                            </div>
-                        </li>
-                        <li>
-                            <img src="/demand/example/slider3.jpg" alt="" />
-                            <div class="slide-caption">
-                                <h3 class="slide-title">Maecenas ultrices, est vel aliquam luctus posuere</h3>
-                                <p class="slide-subtitle">Etiam porttitor aliquet nunc, non pulvinar nulla placerat et. Ut ipsum sapien, iaculis nec aliquet vel, pretium id mauris. Cras aliquet magna in eros mattis eu gravida urna fermentum.</p>
-                            </div>
-                        </li>
-                        <li>
-                            <img src="/demand/example/slider4.jpg" alt="" />
-                            <div class="slide-caption">
-                                <h3 class="slide-title">Cras dictum enim vitae urna auctor feugiat</h3>
-                                <p class="slide-subtitle">Etiam porttitor aliquet nunc, non pulvinar nulla placerat et. Ut ipsum sapien, iaculis nec aliquet vel, pretium id mauris. Cras aliquet magna in eros mattis eu gravida urna fermentum.</p>
-                            </div>
-                        </li>
+                    	
                     </ul>
                 </div>
             </div>
@@ -132,9 +147,8 @@
         <div class="row">
             <div class="span12">
                 <div class="hero-unit">
-                    <h4>欢迎来到鹏魔工作室</h4>
-                    <p>鹏魔工作室是一个致力于网站开发与维护服务的新型工作室，工作室成员是由大连知名网站的技术人员所组成，拥有扎实的技术功底，能够为各大中小企业和个人提供完善的网站技术服务，包括：网站定制，网站仿制,网站维护等业务。您的肯定，就是我们最大的动力！欢迎加入我们！</p>
-                    <p><a href="#" class="btn btn-welcome btn-large">了解更多</a></p>
+                	
+                    <p><a href="/pengmo/about" class="btn btn-welcome btn-large">了解更多</a></p>
                 </div>
             </div>
         </div>
@@ -144,102 +158,43 @@
             </div>
             <div class="span4">
                 <p>鹏魔工作室的模板是由专业设计人员，精心设计以及参考国内外知名网站完成。让您的网站能够贴心展示您公司的相关产品及服务，是您网络营销和电子商务展示平台的不二之选。</p>
-                <a class="btn btn-large btn-welcome" href="./portfolio2.html">更多模板</a>
+                <a class="btn btn-large btn-welcome" href="/pengmo/template">更多模板</a>
             </div>
             <div class="span8">
                 <div id="our-projects" class="carousel bttop">
                     <div class="carousel-wrapper">
                         <ul class="portfolio">
-                            <li>
+                        	<li>
                                 <article>
                                     <div class="inner-image">
-                                        <a href="/demand/example/view.jpg" data-rel="prettyPhoto">
-                                            <img src="/demand/example/latest1.jpg" alt="" />
+                                        <a href="/uploads/allimg/140716/1-140G61010390-L.jpg" data-rel="prettyPhoto">
+                                            <img src="/uploads/allimg/140716/1-140G61010390-L.jpg" alt="tem_02" />
                                             <span class="frame-overlay"></span>
                                         </a>
                                     </div>
                                     <div class="sliding">
                                         <div class="inner-text">
-                                            <h4 class="title"><a href="/demand/./portfolio-single.html">Project title 1</a></h4>
+                                            <h4 class="title"><a href="/pengmo/template/20140716_5.html">tem_02</a></h4>
                                         </div>
                                     </div>
                                 </article>
                             </li>
-                            <li>
+<li>
                                 <article>
                                     <div class="inner-image">
-                                        <a href="/demand/example/view.jpg" data-rel="prettyPhoto">
-                                            <img src="/demand/example/latest2.jpg" alt="" />
+                                        <a href="/uploads/allimg/140716/1-140G60952480-L.jpg" data-rel="prettyPhoto">
+                                            <img src="/uploads/allimg/140716/1-140G60952480-L.jpg" alt="tem_01" />
                                             <span class="frame-overlay"></span>
                                         </a>
                                     </div>
                                     <div class="sliding">
                                         <div class="inner-text">
-                                            <h4 class="title"><a href="/demand/./portfolio-single.html">Project title 2</a></h4>
+                                            <h4 class="title"><a href="/pengmo/template/20140716_4.html">tem_01</a></h4>
                                         </div>
                                     </div>
                                 </article>
                             </li>
-                            <li>
-                                <article>
-                                    <div class="inner-image">
-                                        <a href="/demand/example/view.jpg" data-rel="prettyPhoto">
-                                            <img src="/demand/example/latest3.jpg" alt="" />
-                                            <span class="frame-overlay"></span>
-                                        </a>
-                                    </div>
-                                    <div class="sliding">
-                                        <div class="inner-text">
-                                            <h4 class="title"><a href="/demand/./portfolio-single.html">Project title 3</a></h4>
-                                        </div>
-                                    </div>
-                                </article>
-                            </li>
-                            <li>
-                                <article>
-                                    <div class="inner-image">
-                                        <a href="/demand/example/view.jpg" data-rel="prettyPhoto">
-                                            <img src="/demand/example/latest4.jpg" alt="" />
-                                            <span class="frame-overlay"></span>
-                                        </a>
-                                    </div>
-                                    <div class="sliding">
-                                        <div class="inner-text">
-                                            <h4 class="title"><a href="/demand/./portfolio-single.html">Project title 4</a></h4>
-                                        </div>
-                                    </div>
-                                </article>
-                            </li>
-                            <li>
-                                <article>
-                                    <div class="inner-image">
-                                        <a href="/demand/example/view.jpg" data-rel="prettyPhoto">
-                                            <img src="/demand/example/latest5.jpg" alt="" />
-                                            <span class="frame-overlay"></span>
-                                        </a>
-                                    </div>
-                                    <div class="sliding">
-                                        <div class="inner-text">
-                                            <h4 class="title"><a href="/demand/./portfolio-single.html">Project title 5</a></h4>
-                                        </div>
-                                    </div>
-                                </article>
-                            </li>
-                            <li>
-                                <article>
-                                    <div class="inner-image">
-                                        <a href="/demand/example/view.jpg" data-rel="prettyPhoto">
-                                            <img src="/demand/example/latest6.jpg" alt="" />
-                                            <span class="frame-overlay"></span>
-                                        </a>
-                                    </div>
-                                    <div class="sliding">
-                                        <div class="inner-text">
-                                            <h4 class="title"><a href="/demand/./portfolio-single.html">Project title 6</a></h4>
-                                        </div>
-                                    </div>
-                                </article>
-                            </li>
+
                         </ul>
                     </div>
                 </div>
@@ -258,33 +213,7 @@
         <div class="row">
             <div class="span12">
                 <ul class="thumbnails">
-                    <li class="span4">
-                        <a href="/demand/example/view.jpg" data-rel="prettyPhoto" class="thumbnail">
-                            <img src="/demand/example/latest8.jpg" alt="" />
-                            <span class="frame-overlay"></span>
-                        </a>
-                        <div class="caption">
-                            <h4 class="title"><a href="/demand/./blog-single.html">价格方案1</a></h4>
-                        </div>
-                    </li>
-                    <li class="span4">
-                        <a href="/demand/example/view.jpg" data-rel="prettyPhoto" class="thumbnail">
-                            <img src="/demand/example/latest2.jpg" alt="" />
-                            <span class="frame-overlay"></span>
-                        </a>
-                        <div class="caption">
-                            <h4 class="title"><a href="/demand/./blog-single.html">价格方案2</a></h4>
-                        </div>
-                    </li>
-                    <li class="span4">
-                        <a href="/demand/example/view.jpg" data-rel="prettyPhoto" class="thumbnail">
-                            <img src="/demand/example/latest3.jpg" alt="" />
-                            <span class="frame-overlay"></span>
-                        </a>
-                        <div class="caption">
-                            <h4 class="title"><a href="/demand/./blog-single.html">价格方案3</a></h4>
-                        </div>
-                    </li>
+                	
                 </ul>
             </div>
         </div>
@@ -296,12 +225,12 @@
     <div class="container">
         <div class="row">
             <div class="span4">
-                <p><img src="/demand/example/logo.png" alt="" /></p>
+                <p><img src="/demand/example/logo.png" alt="鹏魔工作室" /></p>
                 <address>
                     <p><i class="icon-map-marker"></i> 大连市沙河口区新生路23号</p>
                     <p><i class="icon-phone"></i> 116031</p>
                     <p><i class="icon-mobile-2"></i> 153 0982 0327</p>
-                    <p><i class="icon-mail-3"></i> <a href="/demand/mailto:#">87068928@qq.com</a></p>
+                    <p><i class="icon-mail-3"></i> 87068928@qq.com</p>
                 </address>
             </div>
             <div class="span8">
@@ -318,8 +247,8 @@
                 <p class="heading">关注我们</p>
                 <p>请输入您的邮箱地址，我们将实时为您提供工作室的最新动态。</p>
                 <div class="input-append">
-                    <input type="text" placeholder="输入邮箱地址" class="span2" />
-                    <button type="button" class="btn btn-inverse">订阅</button>
+                    <input type="text" placeholder="输入邮箱地址" class="span2" id="foot_email" />
+                    <button type="button" class="btn btn-inverse" onClick="chose()">订阅</button>
                 </div>
             </div>
             <div class="span4">
@@ -346,7 +275,7 @@
             <div class="span8 hidden-phone">
                 <ul class="pull-right">
                     <li><a href="/demand/#">Privacy Policy</a></li>
-                    <li><a href="/demand/#">Contact Us</a></li>
+                    <li><a href="/pengmo/contact">Contact Us</a></li>
                     <li><a href="/demand/#">Sitemap</a></li>
                 </ul>
             </div>
@@ -355,5 +284,17 @@
 </section>
 
 <div style="display:none"><script src="http://s4.cnzz.com/z_stat.php?id=1000439680&web_id=1000439680" language="JavaScript"></script></div>
+<script>
+	function chose(){
+		var email = $("#foot_email").val();
+		if(email != ""){
+			var url = "/pengmo/contact?email="+escape(email)+"#page-sidebar";
+			location.href=url;
+		}else{
+			alert("请输入您的邮箱地址！");
+		}
+		
+	}
+</script>
 </body>
 </html>

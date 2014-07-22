@@ -2,35 +2,26 @@
             <section>
                 <h3 class="widget-title">准备好选择模板了吗？</h3>
                 <p>鹏魔工作室的模板都是经过专业设计人员的精心设计完成的，相信总有一款适合您！</p>
-                <a href="#" class="btn btn-large btn-danger">选择模板</a>
+                <a href="/pengmo/template" class="btn btn-large btn-danger">选择模板</a>
             </section>
             <section>
                 <h3 class="widget-title">模板Tag</h3>
                 <div class="tags">
-                    <a href="#"><i class="icon-tag icon-white"></i>jquery</a>
-                    <a href="#"><i class="icon-tag icon-white"></i>css3</a>
-                    <a href="#"><i class="icon-tag icon-white"></i>html5</a>
-                    <a href="#"><i class="icon-tag icon-white"></i>web design</a>
-                    <a href="#"><i class="icon-tag icon-white"></i>busines</a>
-                    <a href="#"><i class="icon-tag icon-white"></i>creative</a>
-                    <a href="#"><i class="icon-tag icon-white"></i>responsive</a>
-                    <a href="#"><i class="icon-tag icon-white"></i>development</a>
-                    <a href="#"><i class="icon-tag icon-white"></i>javascript</a>
-                    <a href="#"><i class="icon-tag icon-white"></i>usability</a>
-                    <a href="#"><i class="icon-tag icon-white"></i>typography</a>
-                    <a href="#"><i class="icon-tag icon-white"></i>optimization</a>
-                    <a href="#"><i class="icon-tag icon-white"></i>tips</a>
-                    <a href="#"><i class="icon-tag icon-white"></i>e-commerce</a>
-                    <a href="#"><i class="icon-tag icon-white"></i>seo</a>
+                	{dede:tag sort='new' getall='1'}
+                    <a href="[field:link/]"><i class="icon-tags icon-white"></i> [field:tag /]</a>
+                    {/dede:tag}
                 </div>
             </section>
             <section>
                 <h3 class="widget-title">价格列表</h3>
                 <div id="latestwork-sidebar" class="carousel slide">
                     <div class="carousel-inner">
-                        <div class="active item"><img src="/demand/example/latest3.jpg" alt="photo" /></div>
-                        <div class="item"><img src="/demand/example/latest4.jpg" alt="photo" /></div>
-                        <div class="item"><img src="/demand/example/latest5.jpg" alt="photo" /></div>
+                    	{dede:arclist typeid='9' limit='0,1' titlelen='200'}
+                        <div class="active item"><img src="[field:litpic/]" alt="[field:title/]" /></div>
+                        {/dede:arclist}
+                        {dede:arclist typeid='9' limit='1,2' titlelen='200'}
+                        <div class="item"><img src="[field:litpic/]" alt="[field:title/]" /></div>
+                        {/dede:arclist}
                     </div>
                     <a class="carousel-control left" href="#latestwork-sidebar" data-slide="prev"></a>
                     <a class="carousel-control right" href="#latestwork-sidebar" data-slide="next"></a>
@@ -47,18 +38,14 @@
             <section>
                 <h3 class="widget-title">精品模板</h3>
                 <ul class="sidebar-flickr clearfix">
+                	{dede:arclist typeid='7' limit='0,10' titlelen='200'}
                 	<li class="thumbnail">
-                        <a rel="prettyPhoto[flickr]" href="http://farm8.staticflickr.com/7328/14011170570_23ac7e4a83.jpg" title="title">
-                            <img src="http://farm8.staticflickr.com/7328/14011170570_23ac7e4a83_s.jpg" alt="title" />
+                        <a rel="prettyPhoto[flickr]" href="[field:litpic/]" title="[field:title/]">
+                            <img src="[field:litpic/]" alt="[field:title/]" width="75" height="75" />
                             <span class="frame-overlay"></span>
                         </a>
                     </li>
-                    <li class="thumbnail">
-                        <a rel="prettyPhoto[flickr]" href="http://farm8.staticflickr.com/7328/14011170570_23ac7e4a83.jpg" title="title">
-                            <img src="http://farm8.staticflickr.com/7328/14011170570_23ac7e4a83_s.jpg" alt="title" />
-                            <span class="frame-overlay"></span>
-                        </a>
-                    </li>
+                    {/dede:arclist}
                 </ul>
             </section>
 

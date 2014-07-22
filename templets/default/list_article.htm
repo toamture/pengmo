@@ -5,38 +5,33 @@
 <!--[if (gte IE 9)|!(IE)]><!--><html lang="zh"> <!--<![endif]-->
 
 <head>
-    
+    <meta charset="utf-8">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no" />
+    <meta name="keywords" content="{dede:field name='keywords'/}" />
+	<meta name="description" content="{dede:field name='description' function='html2text(@me)'/}" />
     <link rel="shortcut icon" href="/demand/images/favicon.ico" />
     <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/demand/images/apple-touch-icon-144-precomposed.png" />
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/demand/images/apple-touch-icon-114-precomposed.png" />
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/demand/images/apple-touch-icon-72-precomposed.png" />
     <link rel="apple-touch-icon-precomposed" href="/demand/images/apple-touch-icon-57-precomposed.png" />
-    <title>图片列表</title>
-    <link href="/demand/css/bootstrap.min.css" type="text/css" rel="stylesheet" />
+    <title>{dede:field.title/}_{dede:global.cfg_webname/}</title>
+    <link href="/demand/css/bootstrap.css" type="text/css" rel="stylesheet" />
     <link href="/demand/css/style.css" type="text/css" rel="stylesheet" />
     <link href="/demand/css/prettyPhoto.css" type="text/css" rel="stylesheet" />
     <link href="/demand/css/font-icomoon.css" type="text/css" rel="stylesheet" />
     <link href="/demand/css/font-awesome.css" type="text/css" rel="stylesheet" />
-    {dede:include filename="header.htm"/} 
-   
+	{dede:include filename="header.htm"/}
+
 <!--page header / breadcrumbs-->
 <section class="breadcrumbs">
     <div class="container">
         <div class="page-header">
             <div class="row">
                 <div class="span8">
-                    <h1>Pic List <em>/ 图片列表</em></h1>
-                    <div><a href="#">首页</a> &nbsp;&rsaquo;&nbsp; 图片列表</div>
+                    <h1>Studio Dynamic <em style="font-size:14px; font-style:normal; color:#999999;">/ {dede:field.title/}</em></h1>
+                    <div><a href="/">首页</a> &nbsp;&rsaquo;&nbsp; {dede:field.title/}</div>
                 </div>
-                <div class="span4 hidden-phone">
-                    <section class="search clearfix">
-                        <form id="search" class="input-append" />
-                            <input class="span4" id="appendedInputButton" size="16" type="text" value="Search..." name="search site" onfocus="if(this.value=='Search...') this.value=''" onblur="if(this.value=='') this.value='Search...'" />
-                            <input class="btn search-bt" type="submit" name="submit" value="" />
-                        </form>
-                    </section>
-                </div>
+                {dede:include filename="list_search.htm"/}
             </div>
         </div>
     </div>
@@ -45,162 +40,40 @@
 <!--container-->
 <section id="container">
     <div class="container">
-        <!--filter-->
-        <ul id="filtrable">
-            <li class="current all"><a href="#all">All</a></li>
-            <li class="html"><a href="#html">Html</a></li>
-            <li class="css"><a href="#css">CSS</a></li>
-            <li class="php"><a href="#php">PHP</a></li>
-            <li class="javascript"><a href="#javascript">JavaScript</a></li>
-        </ul>
-
-        <div class="clear"></div>
-
-        <section class="row portfolio filtrable clearfix">
-            <article data-id="id-1" data-type="javascript html" class="span4">
-                <div class="inner-image">
-                    <a href="example/view.jpg" data-rel="prettyPhoto">
-                        <img src="/demand/example/latest1.jpg" alt="photo" />
-                        <span class="frame-overlay"></span>
-                    </a>
+        <div class="row">
+            <section id="page-sidebar" class="pull-left span8">
+				{dede:list pagesize='10'}
+                <article class="blog-post">
+                    <div class="row">
+                        <div class="span1">
+                            <div class="post-meta-day">[field:pubdate function=MyDate('d',@me)/]</div>
+                            <div class="post-meta-month">[field:pubdate function=MyDate('M',@me)/]</div>
+                        </div>
+                        <div class="span7">
+                            <h3 class="post-title"><a href="[field:arcurl/]">[field:title/]</a></h3>
+                            <ul class="post-meta">
+                                <li><i class="icon-calendar"></i> [field:pubdate function=MyDate('Y-m-d',@me)/]</li>
+                                <li><i class="icon-user"></i> <a href="http://www.pengmo.net">[field:writer/]</a></li>
+                                <li><i class="icon-tag"></i> [field:id function=GetTags(@me)/]</li>
+                            </ul>
+                            [field:array runphp='yes']@me = (empty(@me['litpic']) ? "" : "<div class='post-media'><img src='{@me['litpic']}'/></div>"); [/field:array]
+                            <div class="post-content">
+                                [field:infos/]
+                                <p style=" margin:10px 0;"><a href="[field:arcurl/]" class="btn btn-large btn-welcome"><i class="icon-chevron-right"></i>阅读全文</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+				{/dede:list}
+                <!--pagination-->
+                <div class="pagination pagination-centered">
+                    <ul>
+                        {dede:pagelist listitem="pre,next,pageno" listsize="11"/}
+                    </ul>
                 </div>
-                <div class="inner-text">
-                    <h4 class="title"><a href="./blog-single.html">Project title 1</a></h4>
-                </div>
-            </article>
-            <article data-id="id-2" data-type="php" class="span4">
-                <div class="inner-image">
-                    <a href="example/view.jpg" data-rel="prettyPhoto">
-                        <img src="/demand/example/latest2.jpg" alt="photo" />
-                        <span class="frame-overlay"></span>
-                    </a>
-                </div>
-                <div class="inner-text">
-                    <h4 class="title"><a href="./blog-single.html">Project title 2</a></h4>
-                </div>
-            </article>
-            <article data-id="id-3" data-type="javascript" class="span4">
-                <div class="inner-image">
-                    <a href="example/view.jpg" data-rel="prettyPhoto">
-                        <img src="/demand/example/latest3.jpg" alt="photo" />
-                        <span class="frame-overlay"></span>
-                    </a>
-                </div>
-                <div class="inner-text">
-                    <h4 class="title"><a href="./blog-single.html">Project title 3</a></h4>
-                </div>
-            </article>
-            <article data-id="id-4" data-type="php" class="span4">
-                <div class="inner-image">
-                    <a href="example/view.jpg" data-rel="prettyPhoto">
-                        <img src="/demand/example/latest4.jpg" alt="photo" />
-                        <span class="frame-overlay"></span>
-                    </a>
-                </div>
-                <div class="inner-text">
-                    <h4 class="title"><a href="./blog-single.html">Project title 4</a></h4>
-                </div>
-            </article>
-            <article data-id="id-5" data-type="javascript html" class="span4">
-                <div class="inner-image">
-                    <a href="example/view.jpg" data-rel="prettyPhoto">
-                        <img src="/demand/example/latest5.jpg" alt="photo" />
-                        <span class="frame-overlay"></span>
-                    </a>
-                </div>
-                <div class="inner-text">
-                    <h4 class="title"><a href="./blog-single.html">Project title 5</a></h4>
-                </div>
-            </article>
-            <article data-id="id-6" data-type="php" class="span4">
-                <div class="inner-image">
-                    <a href="example/view.jpg" data-rel="prettyPhoto">
-                        <img src="/demand/example/latest6.jpg" alt="photo" />
-                        <span class="frame-overlay"></span>
-                    </a>
-                </div>
-                <div class="inner-text">
-                    <h4 class="title"><a href="./blog-single.html">Project title 6</a></h4>
-                </div>
-            </article>
-            <article data-id="id-7" data-type="php" class="span4">
-                <div class="inner-image">
-                    <a href="example/view.jpg" data-rel="prettyPhoto">
-                        <img src="/demand/example/latest7.jpg" alt="photo" />
-                        <span class="frame-overlay"></span>
-                    </a>
-                </div>
-                <div class="inner-text">
-                    <h4 class="title"><a href="./blog-single.html">Project title 7</a></h4>
-                </div>
-            </article>
-            <article data-id="id-8" data-type="css" class="span4">
-                <div class="inner-image">
-                    <a href="example/view.jpg" data-rel="prettyPhoto">
-                        <img src="/demand/example/latest8.jpg" alt="photo" />
-                        <span class="frame-overlay"></span>
-                    </a>
-                </div>
-                <div class="inner-text">
-                    <h4 class="title"><a href="./blog-single.html">Project title 8</a></h4>
-                </div>
-            </article>
-            <article data-id="id-9" data-type="html" class="span4">
-                <div class="inner-image">
-                    <a href="example/view.jpg" data-rel="prettyPhoto">
-                        <img src="/demand/example/latest4.jpg" alt="photo" />
-                        <span class="frame-overlay"></span>
-                    </a>
-                </div>
-                <div class="inner-text">
-                    <h4 class="title"><a href="./blog-single.html">Project title 9</a></h4>
-                </div>
-            </article>
-            <article data-id="id-10" data-type="css" class="span4">
-                <div class="inner-image">
-                    <a href="example/view.jpg" data-rel="prettyPhoto">
-                        <img src="/demand/example/latest3.jpg" alt="photo" />
-                        <span class="frame-overlay"></span>
-                    </a>
-                </div>
-                <div class="inner-text">
-                    <h4 class="title"><a href="./blog-single.html">Project title 10</a></h4>
-                </div>
-            </article>
-            <article data-id="id-11" data-type="html" class="span4">
-                <div class="inner-image">
-                    <a href="example/view.jpg" data-rel="prettyPhoto">
-                        <img src="/demand/example/latest2.jpg" alt="photo" />
-                        <span class="frame-overlay"></span>
-                    </a>
-                </div>
-                <div class="inner-text">
-                    <h4 class="title"><a href="./blog-single.html">Project title 11</a></h4>
-                </div>
-            </article>
-            <article data-id="id-12" data-type="css" class="span4">
-                <div class="inner-image">
-                    <a href="example/view.jpg" data-rel="prettyPhoto">
-                        <img src="/demand/example/latest1.jpg" alt="photo" />
-                        <span class="frame-overlay"></span>
-                    </a>
-                </div>
-                <div class="inner-text">
-                    <h4 class="title"><a href="./blog-single.html">Project title 12</a></h4>
-                </div>
-            </article>
-        </section>
-        <!--pagination-->
-        <div class="pagination pagination-centered">
-            <ul>
-                <li class="disabled"><a href="#">&laquo;</a></li>
-                <li class="active"><a href="#">1</a></li>
-                <li><a href="#">2</a></li>
-                <li><a href="#">3</a></li>
-                <li><a href="#">4</a></li>
-                <li><a href="#">5</a></li>
-                <li><a href="#">&raquo;</a></li>
-            </ul>
+            </section>
+            <!--sidebar-->
+            {dede:include filename="sidebar.htm"/}
         </div>
     </div>
 </section>

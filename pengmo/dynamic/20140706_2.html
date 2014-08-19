@@ -9,7 +9,7 @@
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no" />
     <meta name="keywords" content="111,外屋" />
 	<meta name="description" content="231231231231231" />
-    <link rel="shortcut icon" href="images/favicon.ico" />
+    <link rel="shortcut icon" href="/demand/images/favicon.ico" />
     <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/demand/images/apple-touch-icon-144-precomposed.png" />
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/demand/images/apple-touch-icon-114-precomposed.png" />
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/demand/images/apple-touch-icon-72-precomposed.png" />
@@ -42,34 +42,35 @@
     <script>
     	var static_url = window.location.pathname;
 		var dynamic_url = window.location.search;
-		var static_path = static_url.substring(8,9);
-		var dynamic_path = dynamic_url.substring(5,6);
+		var static_path = static_url.substring(7,9);
+		var dynamic_path = dynamic_url.substring(5,7);
 		var index_path = dynamic_url.substring(1,8);
-		if(static_path == "" || static_path == "i" || dynamic_path == "4" || index_path == "upcache"){
+		//alert(static_path);
+		if(static_path == "" || static_path == "ht" || dynamic_path == "4" || index_path == "upcache"){
 			$(document).ready(function(){
 				$("#pm_index").addClass("current");
 			});
-		}else if(static_path == "d" || dynamic_path == "6"){
+		}else if(static_path == "/d" || dynamic_path == "6"){
 			$(document).ready(function(){
 				$("#pm_dynamic").addClass("current");
 			});
-		}else if(static_path == "t" || dynamic_path == "7"){
+		}else if(static_path == "/t" || dynamic_path == "7"){
 			$(document).ready(function(){
 				$("#pm_template").addClass("current");
 			});
-		}else if(static_path == "s" || dynamic_path == "8"){
+		}else if(static_path == "/s" || dynamic_path == "8"){
 			$(document).ready(function(){
 				$("#pm_services").addClass("current");
 			});
-		}else if(static_path == "p" || dynamic_path == "9"){
+		}else if(static_path == "/p" || dynamic_path == "9"){
 			$(document).ready(function(){
 				$("#pm_price").addClass("current");
 			});
-		}else if(static_path == "a" || dynamic_path == "10"){
+		}else if(static_path == "/a" || dynamic_path == "10"){
 			$(document).ready(function(){
 				$("#pm_about").addClass("current");
 			});
-		}else if(static_path == "c" || dynamic_path == "11"){
+		}else if(static_path == "/c" || dynamic_path == "11"){
 			$(document).ready(function(){
 				$("#pm_contact").addClass("current");
 			});
@@ -94,11 +95,11 @@
     <div class="container">
         <div class="row header-top">
             <div class="span5 logo">
-                <a class="logo-img" href="/" title="responsive template"><img src="/demand/example/logo.png" alt="Tabulate" /></a>
+                <a class="logo-img" href="/" title="responsive template"><img src="/demand/example/logo.png" alt="鹏魔工作室" /></a>
                 <p class="tagline">Responsive Website Template</p>
             </div>
             <div class="span7 social-container">
-                <p class="phone hidden-phone"><i class="icon-envelope"></i> 87068928@qq.com</p><p class="phone hidden-phone"><i class="icon-bell"></i> Call Us 153 0982 0327</p>
+                <p class="phone hidden-phone"><i class="icon-envelope"></i> 2425553510@qq.com</p><p class="phone hidden-phone"><i class="icon-bell"></i> Call Us 153 0982 0327</p>
                 <div class="top-social">
                     <a data-original-title="QQ" rel="tooltip" data-placement="top" class="qq" href="http://wpa.qq.com/msgrd?v=3&uin=2425553510&site=qq&menu=yes" target="_blank"></a>
                 </div>
@@ -116,11 +117,7 @@
                         <li id="pm_about"><a href="/pengmo/about"><span class="name">关于我们</span></a></li>
                         <li id="pm_contact"><a href="/pengmo/contact"><span class="name">联系我们</span></a></li>
                     </ul>
-                </nav>
-                <!--<form class="top-search pull-right">-->
-                <!--<input type="text" placeholder="text here..." class="span3">-->
-                <!--<button type="button" class="btn"><i class="icon-search-form"></i></button>-->
-                <!--</form>-->
+                </nav>            
             </div>
         </div>
     </div>
@@ -197,35 +194,24 @@
             <section>
                 <h3 class="widget-title">准备好选择模板了吗？</h3>
                 <p>鹏魔工作室的模板都是经过专业设计人员的精心设计完成的，相信总有一款适合您！</p>
-                <a href="#" class="btn btn-large btn-danger">选择模板</a>
+                <a href="/pengmo/template" class="btn btn-large btn-danger">选择模板</a>
             </section>
             <section>
                 <h3 class="widget-title">模板Tag</h3>
                 <div class="tags">
-                    <a href="#"><i class="icon-tag icon-white"></i>jquery</a>
-                    <a href="#"><i class="icon-tag icon-white"></i>css3</a>
-                    <a href="#"><i class="icon-tag icon-white"></i>html5</a>
-                    <a href="#"><i class="icon-tag icon-white"></i>web design</a>
-                    <a href="#"><i class="icon-tag icon-white"></i>busines</a>
-                    <a href="#"><i class="icon-tag icon-white"></i>creative</a>
-                    <a href="#"><i class="icon-tag icon-white"></i>responsive</a>
-                    <a href="#"><i class="icon-tag icon-white"></i>development</a>
-                    <a href="#"><i class="icon-tag icon-white"></i>javascript</a>
-                    <a href="#"><i class="icon-tag icon-white"></i>usability</a>
-                    <a href="#"><i class="icon-tag icon-white"></i>typography</a>
-                    <a href="#"><i class="icon-tag icon-white"></i>optimization</a>
-                    <a href="#"><i class="icon-tag icon-white"></i>tips</a>
-                    <a href="#"><i class="icon-tag icon-white"></i>e-commerce</a>
-                    <a href="#"><i class="icon-tag icon-white"></i>seo</a>
+                	
+                    <a href="/tags.php?/aaa/"><i class="icon-tags icon-white"></i> aaa</a>
+                    
+                    <a href="/tags.php?/asdd/"><i class="icon-tags icon-white"></i> asdd</a>
+                    
                 </div>
             </section>
             <section>
                 <h3 class="widget-title">价格列表</h3>
                 <div id="latestwork-sidebar" class="carousel slide">
                     <div class="carousel-inner">
-                        <div class="active item"><img src="/demand/example/latest3.jpg" alt="photo" /></div>
-                        <div class="item"><img src="/demand/example/latest4.jpg" alt="photo" /></div>
-                        <div class="item"><img src="/demand/example/latest5.jpg" alt="photo" /></div>
+                    	
+                        
                     </div>
                     <a class="carousel-control left" href="#latestwork-sidebar" data-slide="prev"></a>
                     <a class="carousel-control right" href="#latestwork-sidebar" data-slide="next"></a>
@@ -243,17 +229,18 @@
                 <h3 class="widget-title">精品模板</h3>
                 <ul class="sidebar-flickr clearfix">
                 	<li class="thumbnail">
-                        <a rel="prettyPhoto[flickr]" href="http://farm8.staticflickr.com/7328/14011170570_23ac7e4a83.jpg" title="title">
-                            <img src="http://farm8.staticflickr.com/7328/14011170570_23ac7e4a83_s.jpg" alt="title" />
+                        <a rel="prettyPhoto[flickr]" href="/uploads/allimg/140716/1-140G61010390-L.jpg" title="tem_02">
+                            <img src="/uploads/allimg/140716/1-140G61010390-L.jpg" alt="tem_02" width="75" height="75" />
                             <span class="frame-overlay"></span>
                         </a>
                     </li>
-                    <li class="thumbnail">
-                        <a rel="prettyPhoto[flickr]" href="http://farm8.staticflickr.com/7328/14011170570_23ac7e4a83.jpg" title="title">
-                            <img src="http://farm8.staticflickr.com/7328/14011170570_23ac7e4a83_s.jpg" alt="title" />
+<li class="thumbnail">
+                        <a rel="prettyPhoto[flickr]" href="/uploads/allimg/140716/1-140G60952480-L.jpg" title="tem_01">
+                            <img src="/uploads/allimg/140716/1-140G60952480-L.jpg" alt="tem_01" width="75" height="75" />
                             <span class="frame-overlay"></span>
                         </a>
                     </li>
+
                 </ul>
             </section>
 
@@ -270,9 +257,9 @@
                 <p><img src="/demand/example/logo.png" alt="鹏魔工作室" /></p>
                 <address>
                     <p><i class="icon-map-marker"></i> 大连市沙河口区新生路23号</p>
-                    <p><i class="icon-phone"></i> 116031</p>
-                    <p><i class="icon-mobile-2"></i> 153 0982 0327</p>
-                    <p><i class="icon-mail-3"></i> 87068928@qq.com</p>
+                    <p><i class="icon-linkedin-sign"></i> 116031</p>
+                    <p><i class="icon-phone-sign"></i> 153 0982 0327</p>
+                    <p><i class="icon-envelope"></i> 2425553510@qq.com</p>
                 </address>
             </div>
             <div class="span8">
@@ -316,9 +303,8 @@
             </div>
             <div class="span8 hidden-phone">
                 <ul class="pull-right">
-                    <li><a href="/demand/#">Privacy Policy</a></li>
+                    <li><a href="/pengmo/about">About Us</a></li>
                     <li><a href="/pengmo/contact">Contact Us</a></li>
-                    <li><a href="/demand/#">Sitemap</a></li>
                 </ul>
             </div>
         </div>

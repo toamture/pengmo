@@ -30,7 +30,7 @@ else
     $table = preg_replace("#[^0-9a-zA-Z_\#@]#", "", $table);
     $field = preg_replace("#[^0-9a-zA-Z_\[\]]#", "", $field);
     $channel = intval($channel);
-    if($dsize>250) $dsize = 250;
+    if($dsize>500) $dsize = 500;
     $tjnum = 0;
 
     //获取自动摘要

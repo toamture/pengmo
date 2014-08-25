@@ -72,8 +72,8 @@ else if($dopost=='save')
         CheckCatalog($typeid,"对不起，你没有操作栏目 {$typeid} 的权限！");
     }
     //对保存的内容进行处理
-    if(empty($writer))$writer=$cuserLogin->getUserName();
-    if(empty($source))$source='未知';
+    if(empty($writer))$writer='鹏魔工作室';
+    if(empty($source))$source='鹏魔工作室';
     if(empty($flags)) $flag = '';
     else $flag = join(',', $flags);
     $senddate = time();

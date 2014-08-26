@@ -180,6 +180,7 @@ a:hover {
 .row {
   margin-left: -20px;
   *zoom: 1;
+  margin-bottom:40px;
 }
 .row:before,
 .row:after {

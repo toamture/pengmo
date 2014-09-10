@@ -981,7 +981,7 @@ class ListView
         else
         {
             //$indexpage="<li>首页</li>\r\n";
-			$prepage.="<li class='disabled'><a href='javascript:void(0)'></a></li>\r\n";
+			$prepage.="<li class='disabled'><a href='javascript:void(0)'>&laquo;</a></li>\r\n";
         }
 
         //下一页,未页的链接

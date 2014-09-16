@@ -7,12 +7,14 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no" />
+    <meta name="keywords" content="" />
+	<meta name="description" content="" />
     <link rel="shortcut icon" href="/demand/images/favicon.ico" />
     <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/demand/images/apple-touch-icon-144-precomposed.png" />
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/demand/images/apple-touch-icon-114-precomposed.png" />
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/demand/images/apple-touch-icon-72-precomposed.png" />
     <link rel="apple-touch-icon-precomposed" href="/demand/images/apple-touch-icon-57-precomposed.png" />
-    <title>联系我们</title>
+    <title>联系我们_我的网站</title>
     <link href="/demand/css/bootstrap.min.css" type="text/css" rel="stylesheet" />
     <link href="/demand/css/style.css" type="text/css" rel="stylesheet" />
     <link href="/demand/css/prettyPhoto.css" type="text/css" rel="stylesheet" />
@@ -40,34 +42,35 @@
     <script>
     	var static_url = window.location.pathname;
 		var dynamic_url = window.location.search;
-		var static_path = static_url.substring(8,9);
-		var dynamic_path = dynamic_url.substring(5,6);
+		var static_path = static_url.substring(7,9);
+		var dynamic_path = dynamic_url.substring(5,7);
 		var index_path = dynamic_url.substring(1,8);
-		if(static_path == "" || static_path == "i" || dynamic_path == "4" || index_path == "upcache"){
+		//alert(static_path);
+		if(static_path == "" || static_path == "ht" || dynamic_path == "4" || index_path == "upcache"){
 			$(document).ready(function(){
 				$("#pm_index").addClass("current");
 			});
-		}else if(static_path == "d" || dynamic_path == "6"){
+		}else if(static_path == "/d" || dynamic_path == "6"){
 			$(document).ready(function(){
 				$("#pm_dynamic").addClass("current");
 			});
-		}else if(static_path == "t" || dynamic_path == "7"){
+		}else if(static_path == "/t" || dynamic_path == "7"){
 			$(document).ready(function(){
 				$("#pm_template").addClass("current");
 			});
-		}else if(static_path == "s" || dynamic_path == "8"){
+		}else if(static_path == "/s" || dynamic_path == "8"){
 			$(document).ready(function(){
 				$("#pm_services").addClass("current");
 			});
-		}else if(static_path == "p" || dynamic_path == "9"){
+		}else if(static_path == "/p" || dynamic_path == "9"){
 			$(document).ready(function(){
 				$("#pm_price").addClass("current");
 			});
-		}else if(static_path == "a" || dynamic_path == "10"){
+		}else if(static_path == "/a" || dynamic_path == "10"){
 			$(document).ready(function(){
 				$("#pm_about").addClass("current");
 			});
-		}else if(static_path == "c" || dynamic_path == "11"){
+		}else if(static_path == "/c" || dynamic_path == "11"){
 			$(document).ready(function(){
 				$("#pm_contact").addClass("current");
 			});
@@ -92,11 +95,11 @@
     <div class="container">
         <div class="row header-top">
             <div class="span5 logo">
-                <a class="logo-img" href="/" title="responsive template"><img src="/demand/example/logo.png" alt="Tabulate" /></a>
+                <a class="logo-img" href="/" title="responsive template"><img src="/demand/example/logo.png" alt="鹏魔工作室" /></a>
                 <p class="tagline">Responsive Website Template</p>
             </div>
             <div class="span7 social-container">
-                <p class="phone hidden-phone"><i class="icon-envelope"></i> 87068928@qq.com</p><p class="phone hidden-phone"><i class="icon-bell"></i> Call Us 153 0982 0327</p>
+                <p class="phone hidden-phone"><i class="icon-envelope"></i> 2425553510@qq.com</p><p class="phone hidden-phone"><i class="icon-bell"></i> Call Us 153 0982 0327</p>
                 <div class="top-social">
                     <a data-original-title="QQ" rel="tooltip" data-placement="top" class="qq" href="http://wpa.qq.com/msgrd?v=3&uin=2425553510&site=qq&menu=yes" target="_blank"></a>
                 </div>
@@ -114,11 +117,7 @@
                         <li id="pm_about"><a href="/pengmo/about"><span class="name">关于我们</span></a></li>
                         <li id="pm_contact"><a href="/pengmo/contact"><span class="name">联系我们</span></a></li>
                     </ul>
-                </nav>
-                <!--<form class="top-search pull-right">-->
-                <!--<input type="text" placeholder="text here..." class="span3">-->
-                <!--<button type="button" class="btn"><i class="icon-search-form"></i></button>-->
-                <!--</form>-->
+                </nav>            
             </div>
         </div>
     </div>
@@ -154,6 +153,12 @@
 	//document.getElementById("template").value="aaaaa";
     
     </script>
+    <style type="text/css">
+		html,body{margin:0;padding:0;}
+		.iw_poi_title {color:#CC5522;font-size:14px;font-weight:bold;overflow:hidden;padding-right:13px;white-space:nowrap}
+		.iw_poi_content {font:12px arial,sans-serif;overflow:visible;padding-top:4px;white-space:-moz-pre-wrap;word-wrap:break-word}
+	</style>
+    <script type="text/javascript" src="http://api.map.baidu.com/api?key=&v=1.1&services=true"></script>
     
 <!--page header / breadcrumbs-->
 <section class="breadcrumbs">
@@ -173,7 +178,8 @@
     <div class="container">
         <div class="row">
             <div class="span12">
-                <div class="gmap"><iframe width="100%" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://ditu.google.cn/maps?f=q&amp;hl=zh-CN&amp;aq=0&amp;sll=38.914003,121.614682&amp;sspn=0.441308,1.023788&amp;t=m&amp;ll=38.938484,121.562107&amp;spn=0.006295,0.010627&amp;output=embed"></iframe></div>
+                <div style="width:100%px;height:350px;border:#ccc solid 1px;" id="dituContent"></div>
+                <script type="text/javascript" src="/demand/js/baidumaps.js"></script>
             </div>
         </div>
         <div class="row">
@@ -224,10 +230,10 @@
                     <h4>联系我们</h4>
                     <address>
                         <p>
-                            <i class="icon-map-marker"></i> Street Name 432/2, London, 90210<br />
-                            <i class="icon-user"></i> (123) 456-7890<br />
-                            <i class="icon-print"></i> (123) 456-7890<br />
-                            <i class="icon-envelope"></i> <a href="mailto:#">info@email.com</a>
+                            <i class="icon-map-marker"></i> 大连市沙河口区新生路23号<br />
+                            <i class="icon-linkedin-sign"></i> 116031<br />
+                            <i class="icon-phone-sign"></i> 153 0982 0327<br />
+                            <i class="icon-envelope"></i> 2425553510@qq.com</a>
                         </p>
                     </address>
                 </section>
@@ -252,9 +258,9 @@
                 <p><img src="/demand/example/logo.png" alt="鹏魔工作室" /></p>
                 <address>
                     <p><i class="icon-map-marker"></i> 大连市沙河口区新生路23号</p>
-                    <p><i class="icon-phone"></i> 116031</p>
-                    <p><i class="icon-mobile-2"></i> 153 0982 0327</p>
-                    <p><i class="icon-mail-3"></i> 87068928@qq.com</p>
+                    <p><i class="icon-linkedin-sign"></i> 116031</p>
+                    <p><i class="icon-phone-sign"></i> 153 0982 0327</p>
+                    <p><i class="icon-envelope"></i> 2425553510@qq.com</p>
                 </address>
             </div>
             <div class="span8">
@@ -298,16 +304,19 @@
             </div>
             <div class="span8 hidden-phone">
                 <ul class="pull-right">
-                    <li><a href="/demand/#">Privacy Policy</a></li>
+                    <li><a href="/pengmo/about">About Us</a></li>
                     <li><a href="/pengmo/contact">Contact Us</a></li>
-                    <li><a href="/demand/#">Sitemap</a></li>
                 </ul>
             </div>
         </div>
     </div>
 </section>
 
-<div style="display:none"><script src="http://s4.cnzz.com/z_stat.php?id=1000439680&web_id=1000439680" language="JavaScript"></script></div>
+<div style="display:none"><script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F8e3b336e40dd56154de3ce86ae113217' type='text/javascript'%3E%3C/script%3E"));
+</script>
+</div>
 <script>
 	function chose(){
 		var email = $("#foot_email").val();

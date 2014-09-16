@@ -52,6 +52,12 @@
 	//document.getElementById("template").value="aaaaa";
     
     </script>
+    <style type="text/css">
+		html,body{margin:0;padding:0;}
+		.iw_poi_title {color:#CC5522;font-size:14px;font-weight:bold;overflow:hidden;padding-right:13px;white-space:nowrap}
+		.iw_poi_content {font:12px arial,sans-serif;overflow:visible;padding-top:4px;white-space:-moz-pre-wrap;word-wrap:break-word}
+	</style>
+    <script type="text/javascript" src="http://api.map.baidu.com/api?key=&v=1.1&services=true"></script>
     
 <!--page header / breadcrumbs-->
 <section class="breadcrumbs">
@@ -71,7 +77,8 @@
     <div class="container">
         <div class="row">
             <div class="span12">
-                <div class="gmap"><iframe width="100%" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://ditu.google.cn/maps?f=q&amp;hl=zh-CN&amp;aq=0&amp;sll=38.914003,121.614682&amp;sspn=0.441308,1.023788&amp;t=m&amp;ll=38.938484,121.562107&amp;spn=0.006295,0.010627&amp;output=embed"></iframe></div>
+                <div style="width:100%px;height:350px;border:#ccc solid 1px;" id="dituContent"></div>
+                <script type="text/javascript" src="/demand/js/baidumaps.js"></script>
             </div>
         </div>
         <div class="row">
